@@ -17,7 +17,7 @@ Default
 
 
 .greyscale .banner-logo {
-    background: url(image-path('greyscale_main_logo.png')) no-repeat center center;
+    background: image-url('theme/greyscale/greyscale_main_logo.png') no-repeat center center;
 }
 
 
