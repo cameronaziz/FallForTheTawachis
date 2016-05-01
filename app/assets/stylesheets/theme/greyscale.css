@@ -8,7 +8,7 @@ Greyscale stylesheet will overwrite the default stylesheet
 }
 
 .greyscale .banner-logo {
-    background: url(image-path(theme/greyscale/greyscale_main_logo.png)) no-repeat center center;
+    background: url(image-path('theme/greyscale/greyscale_main_logo.png')) no-repeat center center;
 }
 /*
 .greyscale .banner-logo {
