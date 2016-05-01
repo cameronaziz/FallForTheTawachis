@@ -1,2 +1,20 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<h1>Confirmed Reservations</h1>
+<p>We wont show this once we go live, but here you can see all the reservations.</p>
+<table>
+  <thead>
+  <tr>
+    <th>Customer ID</th>
+    <th>Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @reservations.each do |reservation| %>
+    <tr>
+      <td><%= reservation.customer_id %></td>
+      <td><%= reservation.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to( 'Go Back to the Page', static_pages_home_url) %>

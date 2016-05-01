@@ -1,0 +1,15 @@
+<div class="contact-block">
+  <h5>We Look Forward to Your Reservation</h5>
+  <%= form_for @reservation, url: {controller: 'reservations', action: 'create'} do |f| %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.text_field :name, class: 'form-control', id: 'name', name: 'name', placeholder: 'Name' %>
+        </div>
+        <div class="form-group">
+          <%= f.submit 'submit', class: 'btn default-btn btn-block' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

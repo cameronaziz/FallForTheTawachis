@@ -493,45 +493,7 @@
         </div>
       </div>
       <div class="col-sm-9">
-        <div class="contact-block">
-          <h5>Events Attending</h5>
-          <form class="contact_form" role="form" action="#">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Your name..." required="required">
-                </div>
-                <div class="form-group">
-                  <select name="numberOfGuest" id="numberOfGuest" tabindex="1">
-                    <option value="">If indicated on your invite, please let us know whether you are bringing someone</option>
-                    <option value="1 Person">1 Person</option>
-                    <option value="2 Persons">2 Persons</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <select name="eventAttending" id="eventAttending" tabindex="1">
-                    <option value="">I am Attending</option>
-                    <option value="All Event">All Event</option>
-                    <option value="Wedding Ceremony">Wedding Ceremony</option>
-                    <option value="Wedding Ceremony">Wedding Party</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <textarea class="form-control" name="message" id="message" placeholder="Write your message"></textarea>
-                </div>
-                <div class="form-group">
-                  <input type="submit" name="submit" class="btn default-btn btn-block" value="I AM ATTENDING">
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <p class="contact-success">Your Message has been Successfully Sent!</p>
-                <p class="contact-error">Error! Something went wrong!</p>
-              </div>
-            </div>
-          </form>
-        </div>
+        <%= render 'reservations/front_new' %>
         <!-- /.contact-block end -->
       </div>
 
