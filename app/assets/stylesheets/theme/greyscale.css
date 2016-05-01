@@ -35,13 +35,13 @@ Greyscale stylesheet will overwrite the default stylesheet
 	border-color: #454545;
 }
 .greyscale .couple {
-	background: url(/assets/theme/images/greyscale/greyscale_love_twist.png) no-repeat 50% 65%;
+	background: url(/assets/theme/greyscale/greyscale_love_twist.png) no-repeat 50% 65%;
 }
 .greyscale #story .fa {
 	color: #e1704b;
 }
 .greyscale .love-sign {
-	background: url(/assets/theme/images/greyscale/greyscale_love.png) no-repeat center center;
+	background: url(/assets/theme/greyscale/greyscale_love.png) no-repeat center center;
 }
 .greyscale .timeline-head {
 	background: #454545;
