@@ -18,7 +18,7 @@ Default
 
 
 .greyscale .banner-logo {
-    background: image-path('theme/greyscale/greyscale_main_logo.png') no-repeat center center;
+    background: image-path('images/greyscale/greyscale_main_logo.png') no-repeat center center;
 }
 
 
@@ -37,10 +37,10 @@ Default
     color: #454545;
 }
 .greyscale .heading h3::before {
-    content: url(/assets/theme/greyscale/greyscale_heading_left.png);
+    content: url(/images/greyscale/greyscale_heading_left.png);
 }
 .greyscale .heading h3::after {
-    content: url(/assets/theme/greyscale/greyscale_heading_right.png);
+    content: url(/images/greyscale/greyscale_heading_right.png);
 }
 .greyscale .thumb-hover {
 	background: rgba(69,69,69,.9);
@@ -49,13 +49,13 @@ Default
 	border-color: #454545;
 }
 .greyscale .couple {
-	background: url(/assets/theme/greyscale/greyscale_love_twist.png) no-repeat 50% 65%;
+	background: url(/images/greyscale/greyscale_love_twist.png) no-repeat 50% 65%;
 }
 .greyscale #story .fa {
 	color: #e1704b;
 }
 .greyscale .love-sign {
-	background: url(/assets/theme/greyscale/greyscale_love.png) no-repeat center center;
+	background: url(/images/greyscale/greyscale_love.png) no-repeat center center;
 }
 .greyscale .timeline-head {
 	background: #454545;
@@ -108,10 +108,10 @@ Default
 	color: #454545;
 }
 .greyscale blockquote:before {
-    background: url(/assets/theme/greyscale/greyscale_block_qoute_left.png) no-repeat;
+    background: url(/images/greyscale/greyscale_block_qoute_left.png) no-repeat;
 }
 .greyscale blockquote:after {
-    background: url(/assets/theme/greyscale/greyscale_block_qoute_right.png) no-repeat;
+    background: url(/images/greyscale/greyscale_block_qoute_right.png) no-repeat;
 }
 .greyscale .contact h5 {
 	color: #454545;
@@ -126,7 +126,7 @@ Default
 	border: 1px solid #454545;
 }
 .greyscale .footer-logo {
-    background: url(/assets/theme/greyscale/greyscale_footer_logo.png) no-repeat center center;
+    background: url(/images/greyscale/greyscale_footer_logo.png) no-repeat center center;
 }
 .greyscale footer a .fa:hover {
 	background-color: #454545;
@@ -163,10 +163,10 @@ Default
 	background: #8B8787;
 }
 .greyscale .single-blog-detail blockquote:before {
-	background: url("/assets/theme/greyscale/greyscale_qoute_left.png") no-repeat center center;
+	background: url("/images/greyscale/greyscale_qoute_left.png") no-repeat center center;
 }
 .greyscale .single-blog-detail blockquote:after {
-	background: url("/assets/theme/greyscale/greyscale_qoute_right.png") no-repeat center center;
+	background: url("/images/greyscale/greyscale_qoute_right.png") no-repeat center center;
 }
 .greyscale .single-post-item li .fa {
 	background: #454545;
@@ -201,13 +201,13 @@ Default
 		font-size: 32px;
 	}
 	.greyscale .heading h3::after {
-		content: url(/assets/theme/greyscale/greyscale_heading_right_responsive.png);
+		content: url(/images/greyscale/greyscale_heading_right_responsive.png);
 		width: 50px;
 		height: 23px;
 		right: -60px;
 	}
 	.greyscale .heading h3::before {
-		content: url(/assets/theme/greyscale/greyscale_heading_left_responsive.png);
+		content: url(/images/greyscale/greyscale_heading_left_responsive.png);
 		width: 50px;
 		height: 23px;
 		left: -60px;
