@@ -6,9 +6,15 @@ Greyscale stylesheet will overwrite the default stylesheet
 .greyscale .banner .color-overlay {
 	background: rgba(15,15,15,.2);
 }
+
+.greyscale .banner-logo {
+    background: url(image-path(theme/greyscale/greyscale_main_logo.png)) no-repeat center center;
+}
+/*
 .greyscale .banner-logo {
 	background: url(/assets/theme/greyscale/greyscale_main_logo.png) no-repeat center center;
 }
+*/
 .greyscale .timing .time_circles > div > span[style] {
 	color: #fff;
 }
