@@ -5,6 +5,7 @@
   <tr>
     <th>Customer ID</th>
     <th>Name</th>
+    <th>Reservation Date</th>
   </tr>
   </thead>
   <tbody>
@@ -12,6 +13,7 @@
     <tr>
       <td><%= reservation.customer_id %></td>
       <td><%= reservation.name %></td>
+      <td><%= reservation.created_at %></td>
     </tr>
   <% end %>
   </tbody>
