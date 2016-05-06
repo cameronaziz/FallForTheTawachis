@@ -5,7 +5,6 @@ class CreateReservations < ActiveRecord::Migration
       t.string :name
       t.string :note
       t.integer :party_size
-
       t.timestamps null: false
     end
   end

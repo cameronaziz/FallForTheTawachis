@@ -11,21 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501194459) do
+ActiveRecord::Schema.define(version: 20160506035933) do
+
+  create_table "companions", force: :cascade do |t|
+    t.integer  "customer_id",    limit: 4
+    t.integer  "reservation_id", limit: 4
+    t.integer  "invitee_id",     limit: 4
+    t.string   "first_name",     limit: 255
+    t.string   "last_name",      limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "customers", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "invitees", force: :cascade do |t|
+    t.integer  "customer_id",    limit: 4
+    t.integer  "reservation_id", limit: 4
+    t.string   "first_name",     limit: 255
+    t.string   "last_name",      limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.integer  "customer_id",   limit: 4
+    t.string   "name",          limit: 255
+    t.boolean  "is_vegetarian"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer  "customer_id"
-    t.string   "name"
-    t.string   "note"
-    t.integer  "party_size"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "customer_id", limit: 4
+    t.string   "name",        limit: 255
+    t.string   "note",        limit: 255
+    t.integer  "party_size",  limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end

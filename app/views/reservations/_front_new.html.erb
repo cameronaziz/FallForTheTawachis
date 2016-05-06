@@ -8,33 +8,13 @@
     <div class="row">
       <div class="col-sm-4 col-sm-offset-1">
         <div class="form-group">
-          <%= f.text_field :name, class: 'form-control', id: 'name', name: 'name', placeholder: 'Name' %>
+          <%= f.text_field :name, class: 'form-control', id: 'name', placeholder: 'Name' %>
         </div>
         <div class="form-group">
-          <select name="numberOfGuest" id="numberOfGuest" tabindex="1">
-            <option value="">Number of Guest</option>
-            <option value="1 Person">1 Person</option>
-            <option value="1 Person">2 Persons</option>
-
-          </select>
+          <%= f.select :party_size, options_for_select([['Number in Party', ''],['One Guest', '1'],['Two Guests', '2']]), {}, id: 'numberOfGuest' %>
         </div>
       </div>
-      <div class="col-sm-4">
-        <div class="row">
-          <%= f.text_field :name, class: 'form-control', id: 'name', name: 'name', placeholder: 'Address' %>
-        </div>
-          <div class="row">
-          <div class="col-sm-2">
-            <%= f.text_field :name, class: 'form-control', id: 'name', name: 'name', placeholder: 'City' %>
-          </div>
-          <div class="col-sm-1">
-            <%= f.text_field :name, class: 'form-control', id: 'name', name: 'name', placeholder: 'drop' %>
-          </div>
-          <div class="col-sm-1">
-            <%= f.text_field :name, class: 'form-control', id: 'name', name: 'name', placeholder: 'Zip' %>
-          </div>
-          </div>
-
+      <div class="col-sm-4 col-sm-offset-1">
         <div class="form-group">
           <%= f.submit 'submit', class: 'btn default-btn btn-block' %>
         </div>

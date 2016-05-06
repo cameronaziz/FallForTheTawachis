@@ -1,3 +1,5 @@
 class Reservation < ActiveRecord::Base
-  has_many :guests
+  has_one :companion
+  has_one :invitee
+  belongs_to :customer
 end

@@ -9,9 +9,26 @@ default: &default
   pool: 5
   timeout: 5000
 
+
+<% if false %>
 development:
   <<: *default
   database: db/development.sqlite3
+
+<% end %>
+
+
+  ## local desktop
+
+ <% if true %>
+development:
+    adapter: mysql2
+    encoding: utf8
+    database: FallForTheTawachis_development
+    username: development
+    password: L2c3ntD1g
+    host: 127.0.0.1
+<% end %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
