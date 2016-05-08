@@ -3,7 +3,6 @@
 <table>
   <thead>
   <tr>
-    <th>Customer ID</th>
     <th>Name</th>
     <th>Reservation Date</th>
   </tr>
@@ -11,9 +10,8 @@
   <tbody>
   <% @reservations.each do |reservation| %>
       <tr>
-        <td><%= reservation.customer_id %></td>
         <td><%= link_to  reservation.name, reservation %></td>
-        <td><%= reservation.created_at %></td>
+        <td><%= reservation.registration_time %></td>
       </tr>
   <% end %>
   </tbody>

@@ -35,11 +35,7 @@
   <%= stylesheet_link_tag 'theme/jquery.selectbox' %>
   <!-- <link rel="stylesheet" href="assets/css/jquery.selectbox.css"> -->
 
-  <!-- Custom stylesheet-->
-  <%= stylesheet_link_tag 'theme/style' %>
-  <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-  <%= stylesheet_link_tag 'theme/responsive' %>
-  <!-- <link rel="stylesheet" href="assets/css/responsive.css"> -->
+
 
   <!-- Greyscale stylesheet -->
   <%= stylesheet_link_tag 'theme/greyscale' %>
@@ -73,6 +69,8 @@
 <body id="page-top" class="greyscale">
 
 <%= yield %>
+
+<%= javascript_include_tag 'jquery.js' %>
 
 </body>
 </html>
