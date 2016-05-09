@@ -1,9 +1,17 @@
 <%= form_for @reservation do |f| %>
     <div class="form-group">
-      <%= f.text_field :name, placeholder: 'Party Name' %>
+      <% if status == 'edit' %>
+          <h1><%= f.text_field :name, placeholder: 'Party Name', class: 'disabled-field', onclick: "this.style.backgroundColor='#ffcccc'"  %></h1>
+      <% else %>
+          <%= f.text_field :name, placeholder: 'Party Name' %>
+      <% end %>
     </div>
     <div class="form-group">
-      <%= f.text_field :party_size, placeholder: 'Party size (1 or 2)' %>
+      <%= f.select :party_size, options_for_select([['Number in Party', ''],['One Guest', '1'],['Two Guests', '2']]), {}, id: 'numberOfGuest' %>
     </div>
-    <%= f.submit 'Submit', class: 'btn btn-default' %>
+
+    <%= f.submit 'Submit', class: 'btn btn-success' %>
+    <% if status == 'edit' %>
+        <%= link_to 'Cancel', @reservation, class: 'btn btn-default' %>
+    <% end %>
 <% end %>

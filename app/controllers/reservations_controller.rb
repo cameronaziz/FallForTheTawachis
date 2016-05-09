@@ -45,11 +45,18 @@ class ReservationsController < ApplicationController
   end
 
   def update
+
+
+
+    if @reservation.update_attributes(reservation_params)
+      redirect_to reservations_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    print 'execute destroy'
-    deleted_reservation = @reservation.full_name
+    deleted_reservation = @reservation.name
     if @reservation.destroy
       redirect_to reservations_path, notice: "#{deleted_reservation} was successfully deleted."
     end

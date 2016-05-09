@@ -1,4 +1,4 @@
-<div class="contact-block">
+<div class="contact-block rsvp_form">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-1">
     <p>Please only RSVP for the allotted guests indicated in the invitation</p>
@@ -6,17 +6,23 @@
     </div>
   <%= form_for @reservation, url: {controller: 'reservations', action: 'create'} do |f| %>
     <div class="row">
-      <div class="col-sm-4 col-sm-offset-1">
+      <div class="col-sm-8 col-sm-offset-1">
         <div class="form-group">
-          <%= f.text_field :name, class: 'form-control', id: 'name', placeholder: 'Name' %>
+          <%= f.text_field :name, class: 'form-control', id: 'name', placeholder: 'Party Name', required: true %>
         </div>
         <div class="form-group">
-          <%= f.select :party_size, options_for_select([['Number in Party', ''],['One Guest', '1'],['Two Guests', '2']]), {}, id: 'numberOfGuest' %>
+          <div class="col-sm-4">
+            Party Size:
+          </div>
+          <div class="col-sm-6">
+            1 <%= f.radio_button :party_size, '1'%>&nbsp;&nbsp;&nbsp;
+            2 <%= f.radio_button :party_size, '2'%>
+          </div>
         </div>
-      </div>
-      <div class="col-sm-4 col-sm-offset-1">
-        <div class="form-group">
-          <%= f.submit 'submit', class: 'btn default-btn btn-block' %>
+        <div class="col-sm-4 col-sm-offset-8">
+          <div class="form-group">
+            <%= f.submit 'submit', class: 'btn default-btn btn-block' %>
+          </div>
         </div>
       </div>
     </div>
