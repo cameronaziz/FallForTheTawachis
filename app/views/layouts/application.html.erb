@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Fall for the Tawachis</title>
+  <title><%= session[:customer_name] %></title>
 
   <%= csrf_meta_tags %>
   <meta charset="UTF-8">
@@ -67,8 +67,16 @@
 
   </head>
 <body id="page-top" class="greyscale">
-
+<% unless current_page?('/') || current_page?('/static_pages/index') %>
+    <div class="container">
+      <%= render 'shared/nav'%>
+      <%= render 'shared/notice' %>
+<% end %>
 <%= yield %>
+
+<% unless current_page?('/') || current_page?('/static_pages/index') %>
+    </div>
+<% end %>
 
 <%= javascript_include_tag 'jquery.js' %>
 

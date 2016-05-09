@@ -1,6 +1,6 @@
-<h1>Confirmed Reservations</h1>
-<p>We wont show this once we go live, but here you can see all the reservations.</p>
-<table>
+<h1>Confirmed Reservations for <%= session[:customer_name] %></h1>
+<%= link_to 'Add New', new_reservation_path, class: 'btn btn-success', type: 'button' %>
+<table class="table table-hover">
   <thead>
   <tr>
     <th>Name</th>
@@ -12,9 +12,8 @@
       <tr>
         <td><%= link_to  reservation.name, reservation %></td>
         <td><%= reservation.registration_time %></td>
+        <td><%= link_to  'Delete {Does not work yet)', '#', method: :delete, data: {confirm: 'Are you sure?'}  %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
-<br>
-<%= link_to( 'Go Back to the Page', static_pages_home_url) %>

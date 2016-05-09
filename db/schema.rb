@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506035933) do
+ActiveRecord::Schema.define(version: 20160506034331) do
 
   create_table "companions", force: :cascade do |t|
     t.integer  "customer_id",    limit: 4
     t.integer  "reservation_id", limit: 4
     t.integer  "invitee_id",     limit: 4
+    t.integer  "meal_id",        limit: 4
     t.string   "first_name",     limit: 255
     t.string   "last_name",      limit: 255
     t.datetime "created_at",                 null: false
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160506035933) do
   create_table "invitees", force: :cascade do |t|
     t.integer  "customer_id",    limit: 4
     t.integer  "reservation_id", limit: 4
+    t.integer  "meal_id",        limit: 4
     t.string   "first_name",     limit: 255
     t.string   "last_name",      limit: 255
     t.datetime "created_at",                 null: false
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160506035933) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "customer_id", limit: 4
+    t.integer  "meal_id",     limit: 4
     t.string   "name",        limit: 255
     t.string   "note",        limit: 255
     t.integer  "party_size",  limit: 4

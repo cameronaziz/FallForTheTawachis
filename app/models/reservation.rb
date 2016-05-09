@@ -8,5 +8,13 @@ class Reservation < ActiveRecord::Base
     created_at.strftime(format)
   end
 
+  def party_size_filter
+    if self.party_size.nil?
+      'Undefined'
+    else
+      self.party_size
+    end
+  end
+
 
 end

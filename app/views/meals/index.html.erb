@@ -1,0 +1,19 @@
+<h1>Meals for <%= session[:customer_name] %></h1>
+<%= link_to 'Add New', new_meal_path, class: 'btn btn-success', type: 'button' %>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Vegetarian</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @meals.each do |meal| %>
+      <tr>
+        <td><%= link_to  meal.name, edit_meal_url(meal) %></td>
+        <td><%= meal.is_vegetarian ? 'Yes' : 'No' %></td>
+        <td><%= link_to  'Delete {Does not work yet)', '#', method: :delete, data: {confirm: 'Are you sure?'}  %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,9 @@
+<%= form_for @meal do |f| %>
+    <div class="form-group">
+      <%= f.text_field :name, placeholder: 'Meal Name' %>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :is_vegetarian %> Is Vegetarian
+    </div>
+    <%= f.submit 'Submit', class: 'btn btn-default' %>
+<% end %>

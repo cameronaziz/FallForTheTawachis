@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :set_reservation, only: [:show, :destroy, :edit, :update]
+
   def new
     @reservation = Reservation.new
   end
@@ -8,6 +10,7 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
@@ -39,16 +42,24 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @reservation = Reservation.find(params[:id])
   end
 
   def update
   end
 
   def destroy
+    print 'execute destroy'
+    deleted_reservation = @reservation.full_name
+    if @reservation.destroy
+      redirect_to reservations_path, notice: "#{deleted_reservation} was successfully deleted."
+    end
   end
 
   private
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
+
   def reservation_params
     if params[:reservation]
       params.require(:reservation).permit(:name, :customer_id, :party_size)
