@@ -1,30 +1,32 @@
-<div class="contact-block rsvp_form">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-1">
-    <p>Please only RSVP for the allotted guests indicated in the invitation</p>
-      </div>
-    </div>
-  <%= form_for @reservation, url: {controller: 'reservations', action: 'create'} do |f| %>
+<div class="rsvp_area">
+  <div class="contact-block rsvp_form">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-1">
-        <div class="form-group">
-          <%= f.text_field :name, class: 'form-control', id: 'name', placeholder: 'Party Name', required: true %>
+      <p>Please only RSVP for the allotted guests indicated in the invitation</p>
         </div>
-        <div class="form-group">
-          <div class="col-sm-4">
-            Party Size:
-          </div>
-          <div class="col-sm-6">
-            1 <%= f.radio_button :party_size, '1'%>&nbsp;&nbsp;&nbsp;
-            2 <%= f.radio_button :party_size, '2'%>
-          </div>
-        </div>
-        <div class="col-sm-4 col-sm-offset-8">
+      </div>
+    <%= form_for @reservation, remote: true, url: {controller: 'reservations', action: 'create'} do |f| %>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-1">
           <div class="form-group">
-            <%= f.submit 'submit', class: 'btn default-btn btn-block' %>
+            <%= f.text_field :name, class: 'form-control', id: 'name', placeholder: 'Party Name', required: true %>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4">
+              Party Size:
+            </div>
+            <div class="col-sm-6">
+              1 <%= f.radio_button :party_size, '1'%>&nbsp;&nbsp;&nbsp;
+              2 <%= f.radio_button :party_size, '2'%>
+            </div>
+          </div>
+          <div class="col-sm-4 col-sm-offset-8">
+            <div class="form-group">
+              <%= f.submit 'submit', class: 'btn default-btn btn-block' %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

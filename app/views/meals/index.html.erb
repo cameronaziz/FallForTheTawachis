@@ -12,7 +12,7 @@
       <tr>
         <td><%= link_to  meal.name, edit_meal_url(meal) %></td>
         <td><%= meal.is_vegetarian ? 'Yes' : 'No' %></td>
-        <td><%= link_to  'Delete {Does not work yet)', '#', method: :delete, data: {confirm: 'Are you sure?'}  %></td>
+        <td><%= link_to  'Delete', meal, method: :delete, data: {confirm: 'Are you sure?'}  %></td>
       </tr>
   <% end %>
   </tbody>

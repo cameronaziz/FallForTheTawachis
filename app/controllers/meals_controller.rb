@@ -36,7 +36,10 @@ class MealsController < ApplicationController
   end
 
   def destroy
-
+    deleted_meal = @meal.name
+    if @meal.destroy
+      redirect_to meals_path, notice: "#{deleted_meal} was successfully deleted."
+    end
   end
 
   private
