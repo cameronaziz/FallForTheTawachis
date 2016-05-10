@@ -6,7 +6,6 @@
         </div>
       </div>
     <%= form_for @reservation, remote: true, url: {controller: 'reservations', action: 'create'} do |f| %>
-      <div class="row">
         <div class="col-sm-8 col-sm-offset-1">
           <div class="form-group">
             <%= f.text_field :name, class: 'form-control', id: 'name', placeholder: 'Party Name', required: true %>
@@ -18,6 +17,12 @@
             <div class="col-sm-6">
               1 <%= f.radio_button :party_size, '1'%>&nbsp;&nbsp;&nbsp;
               2 <%= f.radio_button :party_size, '2'%>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <div class="col-sm-4">Meal Choice</div>
+              <div class="col-sm-8"><%= collection_select(:invitee, 0, Meal.where(customer_id: session[:customer_id]), :id, :name, {}, {class: 'form-control'}) %> </div>
             </div>
           </div>
           <div class="col-sm-4 col-sm-offset-8">

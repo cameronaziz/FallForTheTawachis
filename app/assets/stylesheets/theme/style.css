@@ -456,22 +456,23 @@ ul, li {
 }
 
 
+
 #background-carousel .item-no1 {
-  background: url(/assets/theme/slider/slide-1.jpg) no-repeat;
+  background: url(/images/slider/slide-01.jpg) no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; 
 }
 #background-carousel .item-no2 {
-  background: url(/assets/theme/slider/slide-2.jpg) no-repeat;
+  background: url(/images/slider/slide-01.jpg) no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 #background-carousel .item-no3 {
-  background: url(/assets/theme/slider/slide-3.jpg) no-repeat;
+  background: url(/images/slider/slide-01.jpg) no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
