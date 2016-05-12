@@ -7,21 +7,23 @@
             There will be <b><%= f.radio_button :party_size, '1'%> one guest <%= f.radio_button :party_size, '2'%> two guests</b> in my party.
           </div>
         </div>
-        <%= f.fields_for :invitee do |builder| %>
-        <div class="row rsvp-row">
-          <div class="col-sm-9 col-sm-offset-1">
-            <div class="col-sm-8">My name is</div>
-            <div class="col-sm-9 col-sm-offset-1"><%= builder.text_field :first_name, placeholder: 'First Name', required: true %><%= builder.text_field :last_name, placeholder: 'Last Name', required: true %></div>
+        <div class="invitee form-group">
+          <%= f.fields_for :invitee do |builder| %>
+          <div class="row rsvp-row">
+            <div class="col-sm-9 col-sm-offset-1">
+              <div class="col-sm-8">My name is</div>
+              <div class="col-sm-9 col-sm-offset-1"><%= builder.text_field :first_name, placeholder: 'First Name', required: true %><%= builder.text_field :last_name, placeholder: 'Last Name', required: true %></div>
+            </div>
           </div>
-        </div>
-        <div class="row rsvp-row">
-          <div class="col-sm-9 col-sm-offset-1">
-            <div class="col-sm-8">I would like to enjoy</div>
-            <div class="col-sm-8 col-sm-offset-1"></div>
+          <div class="row rsvp-row">
+            <div class="col-sm-9 col-sm-offset-1">
+              <div class="col-sm-8">I would like to enjoy</div>
+              <div class="col-sm-8 col-sm-offset-1"><%= builder.collection_select(:meal_id, Meal.where(customer_id: session[:customer_id]), :id, :name, {}, {class: 'form-control'}) %></div>
+            </div>
           </div>
+          <% end %>
         </div>
-        <% end %>
-        <div class="companion">
+        <div class="companion form-group">
         <%= f.fields_for :companion do |builder| %>
             <div class="row rsvp-row">
               <div class="col-sm-9 col-sm-offset-1">
@@ -32,11 +34,12 @@
             <div class="row rsvp-row">
               <div class="col-sm-9 col-sm-offset-1">
                 <div class="col-sm-8">They would like to enjoy</div>
-                <div class="col-sm-8 col-sm-offset-1"></div>
+                <div class="col-sm-8 col-sm-offset-1"><%= builder.collection_select(:meal_id, Meal.where(customer_id: session[:customer_id]), :id, :name, {}, {class: 'form-control'}) %></div>
               </div>
             </div>
         <% end %>
         </div>
+        <div class="address form-group">
             <div class="row rsvp-row">
               <div class="col-sm-9 col-sm-offset-1">
                 <div class="col-sm-8">We can be reached at</div>
