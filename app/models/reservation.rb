@@ -5,6 +5,10 @@ class Reservation < ActiveRecord::Base
   accepts_nested_attributes_for :invitee
   accepts_nested_attributes_for :companion
 
+  after_initialize do
+
+  end
+
   def registration_time
     format = '%m/%d/%Y %H:%M'
     created_at.strftime(format)

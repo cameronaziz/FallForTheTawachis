@@ -1,16 +1,13 @@
 <div class="rsvp_area">
   <div class="contact-block rsvp_form">
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-1">
-        </div>
-      </div>
     <%= form_for @reservation, remote: true, url: {controller: 'reservations', action: 'create'} do |f| %>
         <div class="row rsvp-row">
           <div class="col-sm-9 col-sm-offset-1">
             There will be <b><%= f.radio_button :party_size, '1'%> one guest <%= f.radio_button :party_size, '2'%> two guests</b> in my party.
           </div>
         </div>
-        <%= f.fields_for :invitees do |builder| %>
+        <%= f.fields_for :invitee do |builder| %>
         <div class="row rsvp-row">
           <div class="col-sm-9 col-sm-offset-1">
             <div class="col-sm-8">My name is</div>
@@ -20,13 +17,12 @@
         <div class="row rsvp-row">
           <div class="col-sm-9 col-sm-offset-1">
             <div class="col-sm-8">I would like to enjoy</div>
-            <div class="col-sm-8 col-sm-offset-1"><%= collection_select(:invitee, 0, Meal.where(customer_id: session[:customer_id]), :id, :name, {}, {class: 'form-control'}) %></div>
+            <div class="col-sm-8 col-sm-offset-1"></div>
           </div>
         </div>
         <% end %>
-
         <div class="companion">
-        <%= f.fields_for :companions do |builder| %>
+        <%= f.fields_for :companion do |builder| %>
             <div class="row rsvp-row">
               <div class="col-sm-9 col-sm-offset-1">
                 <div class="col-sm-8">My companion's name is</div>
@@ -36,12 +32,17 @@
             <div class="row rsvp-row">
               <div class="col-sm-9 col-sm-offset-1">
                 <div class="col-sm-8">They would like to enjoy</div>
-                <div class="col-sm-8 col-sm-offset-1"><%= collection_select(:invitee, 0, Meal.where(customer_id: session[:customer_id]), :id, :name, {}, {class: 'form-control'}) %></div>
+                <div class="col-sm-8 col-sm-offset-1"></div>
               </div>
             </div>
         <% end %>
         </div>
-
+            <div class="row rsvp-row">
+              <div class="col-sm-9 col-sm-offset-1">
+                <div class="col-sm-8">We can be reached at</div>
+                <div class="col-sm-11 col-sm-offset-1"><%= f.text_field :name, placeholder: 'First Name', required: true %></div>
+              </div>
+            </div>
         </div>
         <div class="row rsvp-row">
           <div class="col-sm-2 col-sm-offset-7">
@@ -50,5 +51,6 @@
         </div>
       </div>
     <% end %>
+    </div>
   </div>
 </div>

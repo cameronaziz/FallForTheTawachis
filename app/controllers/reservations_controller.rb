@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :destroy, :edit, :update]
+  skip_before_filter  :verify_authenticity_token
 
   def new
     @reservation = Reservation.new
@@ -19,11 +20,6 @@ class ReservationsController < ApplicationController
     @reservation.customer_id = session[:customer_id]
     respond_to do |format|
         if @reservation.save
-          #todo: add food type ability
-          invitee = Invitee.new(params.require(:reservation).permit(:name))
-          invitee.reservation_id = @reservation.id
-          invitee.customer_id = session[:customer_id]
-          invitee.save
           if @reservation.party_size == 2
             companion = Companion.new()
             companion.reservation_id = @reservation.id
@@ -73,10 +69,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    if params[:reservation]
-      params.require(:reservation).permit(:name, :customer_id, :party_size)
-    else
-      params.permit(:name, :customer_id, :party_size)
-    end
+      params.require(:reservation).permit(:name, :customer_id, :party_size, invitee_attributes: [:id, :first_name, :last_name, :meal_id], companion_attributes: [:id, :first_name, :last_name, :meal_id])
   end
 end
