@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/index'
   get 'login' => 'static_pages#login'
+  get 'generate' => 'static_pages#generate'
 
   resources :reservations
   resources :meals
