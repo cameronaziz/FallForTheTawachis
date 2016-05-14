@@ -10,7 +10,7 @@ default: &default
   timeout: 5000
 
 
-<% if true %>
+<% if false %>
 development:
   <<: *default
   database: db/development.sqlite3
@@ -20,7 +20,7 @@ development:
 
   ## local desktop
 
- <% if false %>
+ <% if true %>
 development:
     adapter: mysql2
     encoding: utf8

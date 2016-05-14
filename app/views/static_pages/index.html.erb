@@ -539,24 +539,26 @@
   
   
   $('#reservation_party_size_1').click(function() {
-  $(".invitee").show();
-  $(".companion").hide();
-  $(".reached-at").text("I can be reached at")
-  $(".address").show();
+    $(".invitee").show();
+    $(".companion").hide();
+    $(".reached-at").text("I can be reached at");
+    $(".address").show();
   });
 
-$('#reservation_party_size_2').click(function() {
-  $(".invitee").show();
-  $(".companion").show();
-  $(".reached-at").text("We can be reached at")
-  $(".address").show();
-});
+  $('#reservation_party_size_2').click(function() {
+    $(".invitee").show();
+    $(".companion").show();
+    $(".reached-at").text("We can be reached at");
+    $(".address").show();
+    $("#reservation_companion_attributes_first_name").prop('required',true);
+    $("#reservation_companion_attributes_last_name").prop('required',true);
+  });
 
-$(window).load(function() {
-  $(".invitee").hide();
-  $(".companion").hide();
-  $(".address").hide()
-});
+  $(window).load(function() {
+    $(".invitee").hide();
+    $(".companion").hide();
+    $(".address").hide();
+  });
   
   
 </script>

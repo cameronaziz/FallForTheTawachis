@@ -24,7 +24,7 @@ class ReservationsController < ApplicationController
             companion = Companion.new()
             companion.reservation_id = @reservation.id
             companion.customer_id = session[:customer_id]
-            companion.invitee_id=invitee.id
+            companion.invitee_id=@reservation.invitee.id
             companion.save
           end
           format.html{ redirect_to :back }
@@ -69,6 +69,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-      params.require(:reservation).permit(:name, :customer_id, :party_size, invitee_attributes: [:id, :first_name, :last_name, :meal_id], companion_attributes: [:id, :first_name, :last_name, :meal_id])
+      params.require(:reservation).permit(:name, :customer_id, :party_size, :address, :city, :state, :zip, invitee_attributes: [:id, :first_name, :last_name, :meal_id], companion_attributes: [:id, :first_name, :last_name, :meal_id])
   end
 end
