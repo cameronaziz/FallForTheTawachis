@@ -12,7 +12,8 @@
           <div class="row rsvp-row">
             <div class="col-sm-9 col-sm-offset-1">
               <div class="col-sm-8">My name is</div>
-              <div class="col-sm-9 col-sm-offset-1"><%= builder.text_field :first_name, placeholder: 'First Name', required: true %><%= builder.text_field :last_name, placeholder: 'Last Name', required: true %></div>
+              <div class="col-sm-5 col-sm-offset-1"><%= builder.text_field :first_name, placeholder: 'First Name', required: true, class: 'form-control' %></div>
+              <div class="col-sm-5"><%= builder.text_field :last_name, placeholder: 'Last Name', required: true, class: 'form-control' %></div>
             </div>
           </div>
           <div class="row rsvp-row">
@@ -28,7 +29,8 @@
             <div class="row rsvp-row">
               <div class="col-sm-9 col-sm-offset-1">
                 <div class="col-sm-8">My companion's name is</div>
-                <div class="col-sm-9 col-sm-offset-1"><%= builder.text_field :first_name, placeholder: 'First Name', required: true %><%= builder.text_field :last_name, placeholder: 'Last Name', required: true %></div>
+                <div class="col-sm-5 col-sm-offset-1"><%= builder.text_field :first_name, placeholder: 'First Name', required: true, class: 'form-control' %></div>
+                <div class="col-sm-5"><%= builder.text_field :last_name, placeholder: 'Last Name', required: true, class: 'form-control' %></div>
               </div>
             </div>
             <div class="row rsvp-row">
@@ -43,7 +45,12 @@
             <div class="row rsvp-row">
               <div class="col-sm-9 col-sm-offset-1">
                 <div class="col-sm-8 reached-at">We can be reached at</div>
-                <div class="col-sm-11 col-sm-offset-1"><%= f.text_field :name, placeholder: 'Address', required: true %></div>
+                <div class="col-sm-10 col-sm-offset-1"><%= f.text_field :name, placeholder: 'Address', required: true, class: 'form-control' %></div>
+                <div class="rsvp-row">
+                  <div class="col-sm-5 col-sm-offset-1"><%= f.text_field :name, placeholder: 'City', required: true, class: 'form-control' %></div>
+                  <div class="col-sm-2"><%= f.text_field :name, placeholder: 'State', required: true, class: 'form-control' %></div>
+                  <div class="col-sm-3"><%= f.text_field :name, placeholder: 'Zip', required: true, class: 'form-control' %></div>
+                </div>
               </div>
             </div>
         </div>
