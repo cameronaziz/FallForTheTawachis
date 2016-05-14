@@ -3,7 +3,13 @@
 <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
 <%= stylesheet_link_tag 'theme/responsive' %>
 <!-- <link rel="stylesheet" href="assets/css/responsive.css"> -->
-
+<script>
+  $(window).load(function() {
+    $(".invitee").hide();
+    $(".companion").hide();
+    $(".address").hide();
+  });
+</script>
 <!-- banner start  -->
 <header id="banner" class="banner">
   <div class="wrapper">
@@ -57,7 +63,6 @@
               <li><a href="#story">Love Story</a></li>
               <li><a href="#event">Event</a></li>
               <li><a href="#gift">Gift</a></li>
-              <li><a href="#gallery">Gallery</a></li>
               <li><a href="#contact">RSVP</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
@@ -75,7 +80,7 @@
       <div class="col-sm-12 text-center">
         <div class="heading wow animated fadeInUp">
           <h3>Please join us for our wedding</h3>
-          <p>We would love to celebrate our wedding with you, and are excited to share this moment with our closest family and friends.</p>
+          <p>On Saturday, October 22nd, 2016 we cordially invite you to #FallForTheTawachis and celebrate the wedding of Adriana and Wassef.</p>
         </div>
         <!-- /.heading end -->
       </div>
@@ -267,7 +272,8 @@
           <!-- /.event-img end -->
           <div class="event-body">
             <h5><a href="blog-single.html">Wedding Ceremony</a></h5>
-            <p>Please be prompt, the ceremony will start right on time.</p>
+            <p>The moment is here, and we cannot wait to share this special day with you!
+              Please be prompt, the ceremony will start right on time. As you take photos, please hashtag #FallForTheTawachis so that we can enjoy all of the special moments.</p>
             <span class="event-date">4:30PM</span>
           </div>
           <!-- /.event-body end -->
@@ -543,6 +549,8 @@
     $(".companion").hide();
     $(".reached-at").text("I can be reached at");
     $(".address").show();
+    $("#reservation_companion_attributes_first_name").prop('required',false);
+    $("#reservation_companion_attributes_last_name").prop('required',false);
   });
 
   $('#reservation_party_size_2').click(function() {
@@ -554,11 +562,4 @@
     $("#reservation_companion_attributes_last_name").prop('required',true);
   });
 
-  $(window).load(function() {
-    $(".invitee").hide();
-    $(".companion").hide();
-    $(".address").hide();
-  });
-  
-  
 </script>

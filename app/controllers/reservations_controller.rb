@@ -18,6 +18,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     #todo: change to dynamic customer id
     @reservation.customer_id = session[:customer_id]
+    set_reservation_name(@reservation)
     respond_to do |format|
         if @reservation.save
           if @reservation.party_size == 2
@@ -71,4 +72,17 @@ class ReservationsController < ApplicationController
   def reservation_params
       params.require(:reservation).permit(:name, :customer_id, :party_size, :address, :city, :state, :zip, invitee_attributes: [:id, :first_name, :last_name, :meal_id], companion_attributes: [:id, :first_name, :last_name, :meal_id])
   end
+
+  def set_reservation_name(reservation)
+    if reservation.party_size == 2
+      if reservation.invitee.last_name == reservation.companion.last_name
+        reservation.name = "#{reservation.invitee.first_name} & #{reservation.companion.first_name} #{reservation.invitee.last_name}"
+      else
+        reservation.name = "#{reservation.invitee.first_name} #{reservation.invitee.last_name} & #{reservation.companion.first_name} #{reservation.companion.last_name}"
+      end
+    else
+      reservation.name = "#{reservation.invitee.first_name} #{reservation.invitee.last_name}"
+    end
+  end
+
 end
