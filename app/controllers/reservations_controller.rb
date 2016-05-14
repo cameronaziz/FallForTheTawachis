@@ -4,11 +4,11 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @reservation.build_invitee
+    @reservation.build_companion
   end
 
-  def front_new
-    @reservation = Reservation.new
-  end
+
 
   def edit
 
@@ -21,13 +21,6 @@ class ReservationsController < ApplicationController
     set_reservation_name(@reservation)
     respond_to do |format|
         if @reservation.save
-          if @reservation.party_size == 2
-            companion = Companion.new()
-            companion.reservation_id = @reservation.id
-            companion.customer_id = session[:customer_id]
-            companion.invitee_id=@reservation.invitee.id
-            companion.save
-          end
           format.html{ redirect_to :back }
           format.js{ }
           format.json{ render json: @reservation, status: :created, location: @reservation}

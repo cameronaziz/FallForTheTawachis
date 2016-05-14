@@ -1,14 +1,26 @@
 <h1><%= @reservation.name %></h1>
+<%= link_to 'Reservation List', reservations_path, class: 'btn btn-default' %>
 <%= link_to 'Edit Reservation', edit_reservation_path(@reservation), class: 'btn btn-default' %>
 <%= link_to 'Delete', @reservation, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
-  <p>Party Size: <%= @reservation.party_size_filter %></p>
-  <table class="table table-hover">
-    <tr>
-      <th>Name</th>
-      <th><%= @reservation.invitee.first_name %></th>
-    </tr>
-    <tr>
-      <td>Food Choice</td>
-      <td><%= @reservation.invitee.meal.name %></td>
-    </tr>
-  </table>
+<div class="text-center">
+  <h3>Party Size: <%= @reservation.party_size_filter %></h3>
+</div>
+
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-1">
+    <table class="table table-hover">
+      <tr>
+        <th class="text-center"><%= @reservation.invitee.full_name %></th>
+      </tr>
+      <tr>
+        <td class="text-center"><%= @reservation.invitee.meal.name %></td>
+      </tr>
+    </table>
+  </div>
+  <% if @reservation.party_size == 2 %>
+  <%= render 'reservations/show_companion' %>
+  <% end %>
+</div>
+<h4>
+  This party is located at <%= @reservation.address %>, <%= @reservation.city %>, <%= @reservation.state %> <%= @reservation.zip %>
+</h4>

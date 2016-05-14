@@ -10,4 +10,8 @@ class Invitee < ActiveRecord::Base
     self.last_name = split.last
   end
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
 end
