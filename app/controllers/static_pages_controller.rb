@@ -3,9 +3,12 @@ class StaticPagesController < ApplicationController
     session[:customer_id] = '1'
     @customer = Customer.find(session[:customer_id])
     session[:customer_name]  = @customer.name
-    @reservation = Reservation.new
-    @reservation.build_invitee
-    @reservation.build_companion
+    if session[:temporary_id]
+      reservation = Reservation.where(temporary_id: session[:temporary_id])
+      @reservation = reservation.first
+    else
+      @reservation = Reservation.new
+    end
   end
 
   def login
