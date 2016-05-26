@@ -21,3 +21,11 @@
 .rsvp-row {
     margin-top: 10px;
 }
+
+.registry-image {
+    width: 100%;
+    height: auto;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
