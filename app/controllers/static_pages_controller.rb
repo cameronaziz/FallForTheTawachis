@@ -8,6 +8,8 @@ class StaticPagesController < ApplicationController
       @reservation = reservation.first
     else
       @reservation = Reservation.new
+      @reservation.build_companion
+      @reservation.build_invitee
     end
   end
 
