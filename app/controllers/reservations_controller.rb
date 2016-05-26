@@ -4,6 +4,8 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @reservation.build_invitee
+    @reservation.build_companion
   end
 
   def confirm
@@ -17,12 +19,12 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    #todo: change to dynamic customer id
     @reservation.customer_id = session[:customer_id]
     @reservation.invitee.customer_id = session[:customer_id]
     if @reservation.party_size == 2
       @reservation.invitee.customer_id = session[:customer_id]
     end
+
     set_reservation_name(@reservation)
     respond_to do |format|
         if @reservation.save

@@ -5,7 +5,6 @@ class Reservation < ActiveRecord::Base
   accepts_nested_attributes_for :invitee
   accepts_nested_attributes_for :companion
 
-  after_initialize :new_with_children
 
   def registration_time
     format = '%m/%d/%Y %H:%M'
@@ -22,9 +21,6 @@ class Reservation < ActiveRecord::Base
 
   private
   def new_with_children
-      build_invitee
-      build_companion
-      true
   end
 
 
