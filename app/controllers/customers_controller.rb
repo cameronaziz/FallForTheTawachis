@@ -1,12 +1,8 @@
 class CustomersController < ApplicationController
     before_action :set_customer, only: [:show, :destroy, :edit, :update]
 
-    def index
-      @reservations = Reservation.where(customer_id: session[:customer_id])
-    end
 
     def show
-
     end
 
     def new
@@ -18,18 +14,6 @@ class CustomersController < ApplicationController
       #todo: change to dynamic customer id
       @reservation.customer_id = session[:customer_id]
       if @reservation.save
-        #todo: add food type ability
-        invitee = Invitee.new(params.require(:reservation).permit(:name))
-        invitee.reservation_id = @reservation.id
-        invitee.customer_id = session[:customer_id]
-        invitee.save
-        if @reservation.party_size == 2
-          companion = Companion.new()
-          companion.reservation_id = @reservation.id
-          companion.customer_id = session[:customer_id]
-          companion.invitee_id=invitee.id
-          companion.save
-        end
         redirect_to :back
       else
         render 'reservations/new'
@@ -42,7 +26,11 @@ class CustomersController < ApplicationController
     end
 
     def update
-
+      if @customer.update_attributes(customer_params)
+        redirect_to root_path
+      else
+        render :edit
+      end
     end
 
     def destroy
@@ -54,16 +42,12 @@ class CustomersController < ApplicationController
     end
 
     private
-    def set_reservation
-      @customer = Reservation.find(session[:customer_name])
+    def set_customer
+      @customer = Customer.find(session[:customer_id])
     end
 
-    def reservation_params
-      if params[:reservation]
-        params.require(:reservation).permit(:name, :customer_id, :party_size)
-      else
-        params.permit(:name, :customer_id, :party_size)
-      end
+    def customer_params
+        params.require(:customer).permit(:name)
     end
 
 end

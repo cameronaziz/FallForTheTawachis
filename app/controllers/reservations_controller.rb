@@ -14,14 +14,8 @@ class ReservationsController < ApplicationController
     end
   end
 
-
-  def confirm
-    session[:temporary_id] = params[:id]
-    redirect_to '/'
-  end
-
-
   def edit
+
   end
 
   def create
@@ -40,12 +34,12 @@ class ReservationsController < ApplicationController
     end
   end
 
-
   def index
     @reservations = Reservation.where(customer_id: session[:customer_id])
   end
 
   def show
+
   end
 
   def update
