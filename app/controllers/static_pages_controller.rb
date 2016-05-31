@@ -4,9 +4,8 @@ class StaticPagesController < ApplicationController
     @customer = Customer.find(session[:customer_id])
     session[:customer_name]  = @customer.name
     # migrated from reservations#new
-    session[:group_size] = params[:love].to_i / 147
-    if session[:group_size]
-      size = session[:group_size].to_i
+    if params[:love]
+      size = params[:love].to_i / 147
     else
       size = 1
     end
