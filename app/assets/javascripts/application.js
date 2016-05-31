@@ -14,3 +14,51 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+function partySize(event) {
+
+
+
+
+    if(this.selectedIndex == 0) {
+        document.getElementById('1').style.display = 'none';
+        document.getElementById('2').style.display = 'none';
+        document.getElementById('3').style.display = 'none';
+        document.getElementById('4').style.display = 'none';
+        document.getElementById('5').style.display = 'none';
+    } else if(this.selectedIndex == 1) {
+        document.getElementById('1').style.display = 'block';
+        document.getElementById('2').style.display = 'none';
+        document.getElementById('3').style.display = 'none';
+        document.getElementById('4').style.display = 'none';
+        document.getElementById('5').style.display = 'none';
+    } else if(this.selectedIndex == 2) {
+        document.getElementById('1').style.display = 'block';
+        document.getElementById('2').style.display = 'block';
+        document.getElementById('3').style.display = 'none';
+        document.getElementById('4').style.display = 'none';
+        document.getElementById('5').style.display = 'none';
+    } else if(this.selectedIndex == 3) {
+        document.getElementById('1').style.display = 'block';
+        document.getElementById('2').style.display = 'block';
+        document.getElementById('3').style.display = 'block';
+        document.getElementById('4').style.display = 'none';
+        document.getElementById('5').style.display = 'none';
+    } else if(this.selectedIndex == 4) {
+        document.getElementById('1').style.display = 'block';
+        document.getElementById('2').style.display = 'block';
+        document.getElementById('3').style.display = 'block';
+        document.getElementById('4').style.display = 'block';
+        document.getElementById('5').style.display = 'none';
+    } else if(this.selectedIndex == 5) {
+        document.getElementById('1').style.display = 'block';
+        document.getElementById('2').style.display = 'block';
+        document.getElementById('3').style.display = 'block';
+        document.getElementById('4').style.display = 'block';
+        document.getElementById('5').style.display = 'block';
+    }
+
+
+
+}

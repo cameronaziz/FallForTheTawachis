@@ -10,7 +10,7 @@ default: &default
   timeout: 5000
 
 
-<% if true %>
+<% if false %>
 development:
   <<: *default
   database: db/development.sqlite3
@@ -21,14 +21,20 @@ development:
 
   ## local desktop
 
- <% if false %>
+ <% if true %>
 development:
     adapter: mysql2
     encoding: utf8
     database: FallForTheTawachis_development
+    username: root
+    host: 127.0.0.1
+<% end %>
+
+
+
+<% if false %>
     username: development
     password: L2c3ntD1g
-    host: 127.0.0.1
 <% end %>
 
 # Warning: The database defined as "test" will be erased and

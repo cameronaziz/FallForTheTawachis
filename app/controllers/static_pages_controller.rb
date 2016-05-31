@@ -3,13 +3,16 @@ class StaticPagesController < ApplicationController
     session[:customer_id] = '1'
     @customer = Customer.find(session[:customer_id])
     session[:customer_name]  = @customer.name
-    if session[:temporary_id]
-      reservation = Reservation.where(temporary_id: session[:temporary_id])
-      @reservation = reservation.first
+    # migrated from reservations#new
+    session[:group_size] = params[:love].to_i / 147
+    if session[:group_size]
+      size = session[:group_size].to_i
     else
-      @reservation = Reservation.new
-      @reservation.build_companion
-      @reservation.build_invitee
+      size = 1
+    end
+    @reservation = Reservation.new
+    size.times do
+      @reservation.persons.build
     end
   end
 

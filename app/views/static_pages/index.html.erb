@@ -3,13 +3,6 @@
 <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
 <%= stylesheet_link_tag 'theme/responsive' %>
 <!-- <link rel="stylesheet" href="assets/css/responsive.css"> -->
-<script>
-  $(window).load(function() {
-    $(".invitee").hide();
-    $(".companion").hide();
-    $(".address").hide();
-  });
-</script>
 <!-- banner start  -->
 <header id="banner" class="banner">
   <div class="wrapper">
@@ -434,7 +427,7 @@
         </div>
       </div>
       <div class="col-sm-9">
-        <%= render 'reservations/front_new' %>
+        <%= render 'reservations/form' %>
         <!-- /.contact-block end -->
       </div>
 
@@ -582,8 +575,8 @@
     });
   }
   google.maps.event.addDomListener(window, 'load', initialize);
-  
-  
+
+
   $('#reservation_party_size_1').click(function() {
     $(".invitee").show();
     $(".companion").hide();

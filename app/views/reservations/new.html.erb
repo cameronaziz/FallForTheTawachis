@@ -1,32 +1,4 @@
 <h1>Create New Reservation</h1>
 <p>Use this form to manually add a record to the reservations database.</p>
 
-<%= render 'reservations/front_new', status: 'new' %>
-
-<script>
-  $(window).load(function() {
-    $(".invitee").hide();
-    $(".companion").hide();
-    $(".address").hide();
-  });
-
-  $('#reservation_party_size_1').click(function() {
-    $(".invitee").show();
-    $(".companion").hide();
-    $(".reached-at").text("I can be reached at");
-    $(".address").show();
-    $("#reservation_companion_attributes_first_name").prop('required',false);
-    $("#reservation_companion_attributes_last_name").prop('required',false);
-  });
-
-  $('#reservation_party_size_2').click(function() {
-    $(".invitee").show();
-    $(".companion").show();
-    $(".reached-at").text("We can be reached at");
-    $(".address").show();
-    $("#reservation_companion_attributes_first_name").prop('required',true);
-    $("#reservation_companion_attributes_last_name").prop('required',true);
-  });
-
-
-</script>
+<%= render 'reservations/form', status: 'new' %>

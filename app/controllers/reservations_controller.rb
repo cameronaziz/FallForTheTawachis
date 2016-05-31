@@ -3,10 +3,17 @@ class ReservationsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   def new
+    if params[:group_size]
+      size = params[:group_size].to_i
+    else
+      size = 1
+    end
     @reservation = Reservation.new
-    @reservation.build_invitee
-    @reservation.build_companion
+    size.times do
+      @reservation.persons.build
+    end
   end
+
 
   def confirm
     session[:temporary_id] = params[:id]
@@ -20,11 +27,6 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.customer_id = session[:customer_id]
-    @reservation.invitee.customer_id = session[:customer_id]
-    if @reservation.party_size == 2
-      @reservation.invitee.customer_id = session[:customer_id]
-    end
-
     set_reservation_name(@reservation)
     respond_to do |format|
         if @reservation.save
@@ -67,18 +69,14 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-      params.require(:reservation).permit(:name, :customer_id, :party_size, :address, :city, :state, :zip, invitee_attributes: [:id, :first_name, :last_name, :meal_id], companion_attributes: [:id, :first_name, :last_name, :meal_id])
+      params.require(:reservation).permit(:name, :customer_id, :party_size, :address, :city, :state, :zip, persons_attributes: [:id, :first_name, :last_name, :meal_id])
   end
 
   def set_reservation_name(reservation)
-    if reservation.party_size == 2
-      if reservation.invitee.last_name == reservation.companion.last_name
-        reservation.name = "#{reservation.invitee.first_name} & #{reservation.companion.first_name} #{reservation.invitee.last_name}"
-      else
-        reservation.name = "#{reservation.invitee.first_name} #{reservation.invitee.last_name} & #{reservation.companion.first_name} #{reservation.companion.last_name}"
-      end
+    if reservation.party_size.to_i > 1
+      reservation.name = "#{reservation.persons.first.first_name} #{reservation.persons.first.last_name} and company"
     else
-      reservation.name = "#{reservation.invitee.first_name} #{reservation.invitee.last_name}"
+      reservation.name = "#{reservation.persons.first.first_name} #{reservation.persons.first.last_name}"
     end
   end
 

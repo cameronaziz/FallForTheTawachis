@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :reservations
   resources :meals
+  resources :groups
   resources :customers
 
   # The priority is based upon order of creation: first created -> highest priority.

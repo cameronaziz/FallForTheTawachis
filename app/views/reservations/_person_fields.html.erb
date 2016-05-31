@@ -1,0 +1,25 @@
+<div id="<%= f.index %>">
+  <div class="row rsvp-row">
+    <div class="col-sm-9 col-sm-offset-1">
+      <div class="col-sm-8">My name is</div>
+      <div class="col-sm-5 col-sm-offset-1"><%= f.text_field :first_name, placeholder: 'First Name', required: true, class: 'form-control' %></div>
+      <div class="col-sm-5"><%= f.text_field :last_name, placeholder: 'Last Name', required: true, class: 'form-control' %></div>
+    </div>
+  </div>
+  <div class="row rsvp-row">
+    <div class="col-sm-9 col-sm-offset-1">
+      <div class="col-sm-8">I would like to enjoy</div>
+      <div class="col-sm-8 col-sm-offset-1"><%= f.collection_select(:meal_id, Meal.where(customer_id: session[:customer_id]), :id, :name, {}, {class: 'form-control'}) %></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(window).load(function() {
+    document.getElementById('1').style.display = 'none';
+    document.getElementById('2').style.display = 'none';
+    document.getElementById('3').style.display = 'none';
+    document.getElementById('4').style.display = 'none';
+    document.getElementById('5').style.display = 'none';
+  });
+</script>

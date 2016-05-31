@@ -6,21 +6,20 @@
   <h3>Party Size: <%= @reservation.party_size_filter %></h3>
 </div>
 
+
 <div class="row">
   <div class="col-sm-4 col-sm-offset-1">
     <table class="table table-hover">
-      <tr>
-        <th class="text-center"><%= @reservation.invitee.full_name %></th>
-      </tr>
-      <tr>
-        <td class="text-center"><%= @reservation.invitee.meal.name %></td>
-      </tr>
+      <% for person in @reservation.persons %>
+          <tr>
+            <th class="text-center"><%= person.full_name %></th>
+            <td class="text-center"><%= person.meal.name %></td>
+          </tr>
+      <% end %>
     </table>
   </div>
-  <% if @reservation.party_size == 2 %>
-  <%= render 'reservations/show_companion' %>
-  <% end %>
 </div>
+
 <h4>
   This party is located at <%= @reservation.address %>, <%= @reservation.city %>, <%= @reservation.state %> <%= @reservation.zip %>
 </h4>

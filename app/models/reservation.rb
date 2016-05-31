@@ -1,9 +1,7 @@
 class Reservation < ActiveRecord::Base
-  has_one :companion
-  has_one :invitee
   belongs_to :customer
-  accepts_nested_attributes_for :invitee
-  accepts_nested_attributes_for :companion
+  has_many :persons, dependent: :destroy
+  accepts_nested_attributes_for :persons, reject_if: lambda { |a| a[:first_name].blank? }, allow_destroy: true
 
 
   def registration_time
@@ -18,10 +16,5 @@ class Reservation < ActiveRecord::Base
       self.party_size
     end
   end
-
-  private
-  def new_with_children
-  end
-
 
 end
