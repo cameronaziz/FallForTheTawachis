@@ -1,26 +1,21 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :destroy, :edit, :update]
-  skip_before_filter  :verify_authenticity_token
 
   def new
-    if params[:group_size]
-      size = params[:group_size].to_i
-    else
-      size = 1
-    end
     @reservation = Reservation.new
-    size.times do
+    6.times do
       @reservation.persons.build
     end
   end
 
   def edit
-
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.customer_id = session[:customer_id]
+    @reservation.temporary_id = rand(999999999)
+    @reservation.is_confirmed = true
     set_reservation_name(@reservation)
     respond_to do |format|
         if @reservation.save

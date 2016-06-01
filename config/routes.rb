@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
   get 'static_pages/index'
-  get 'login' => 'static_pages#login'
+  get 'cameron' => 'static_pages#login'
   get 'generate' => 'static_pages#generate'
+
+  get 'login' => 'sessions#new'
+  post 'login'   => 'sessions#create'
+  get 'register' => 'users#new'
+
 
   resources :reservations
   resources :meals

@@ -4,6 +4,7 @@
   <thead>
   <tr>
     <th>Name</th>
+    <th>Link</th>
     <th>Reservation Date</th>
   </tr>
   </thead>
@@ -11,6 +12,7 @@
   <% @reservations.each do |reservation| %>
       <tr>
         <td><%= link_to  reservation.name, reservation %></td>
+        <td><%= link_to  'Link', root_path + '?confirm=' + reservation.temporary_id %></td>
         <td><%= reservation.registration_time %></td>
         <td><%= link_to  'Delete', reservation, method: :delete, data: {confirm: 'Are you sure?'}  %></td>
       </tr>

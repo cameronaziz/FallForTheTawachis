@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
   has_many :reservations
-  has_many :invitees
-  has_many :companions
+  has_many :persons, through: :reservations
   has_many :meals
+  has_many :users
 end
