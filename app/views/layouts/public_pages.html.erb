@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= session[:customer_name] %></title>
+
+  <%= stylesheet_link_tag 'application.css' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag params[:controller] %>
+
+  <%= csrf_meta_tags %>
+  <meta charset="UTF-8">
+  <meta name="author" content="CodePassenger">
+
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+  <!-- Pre-Loader -->
+  <%= stylesheet_link_tag 'theme/preloader' %>
+  <!-- <link href="assets/css/preloader.css" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <%= stylesheet_link_tag 'theme/folder/bootstrap' %>
+  <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
+
+  <!-- Animate style -->
+  <%= stylesheet_link_tag 'theme/animate'%>
+  <!-- <link rel="stylesheet" href="assets/css/animate.css"> -->
+
+  <!-- TimeCirlce style -->
+  <%= stylesheet_link_tag 'theme/TimeCircles' %>
+  <!-- <link rel="stylesheet" href="assets/css/TimeCircles.css"> -->
+
+  <!-- Magnific Popup style -->
+  <%= stylesheet_link_tag 'theme/magnific-popup' %>
+  <!-- <link rel="stylesheet" href="assets/css/magnific-popup.css"> -->
+
+  <!-- Selectbox style -->
+  <%= stylesheet_link_tag 'theme/jquery.selectbox' %>
+  <!-- <link rel="stylesheet" href="assets/css/jquery.selectbox.css"> -->
+
+
+
+  <!-- Greyscale stylesheet -->
+  <%= stylesheet_link_tag 'theme/greyscale' %>
+  <!-- <link rel="stylesheet" href="assets/css/theme/greyscale.css"> -->
+
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+  <!-- <link rel="stylesheet" href="assets/font-awesome-4.3.0/css/font-awesome.min.css"> -->
+
+  <!-- Added google font -->
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Lobster' rel='stylesheet' type='text/css'> -->
+  <!-- <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Lobster' rel='stylesheet' type='text/css'> -->
+
+  <!--Fav and touch icons-->
+  <!--<link rel="shortcut icon" href="images/icon/favicon/favicon.ico">
+  <!--<link rel="apple-touch-icon" href="images/icon/favicon/apple-touch-icon.png">
+  <!--<link rel="apple-touch-icon" sizes="72x72" href="images/icon/favicon/apple-touch-icon-72x72.png">
+  <!--<link rel="apple-touch-icon" sizes="114x114" href="images/icon/favicon/apple-touch-icon-114x114.png">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+</head>
+<body id="page-top" class="greyscale">
+
+<%= yield %>
+
+
+<%= javascript_include_tag 'jquery.js' %>
+
+</body>
+</html>

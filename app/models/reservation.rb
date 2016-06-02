@@ -2,6 +2,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :customer
   has_many :persons, dependent: :destroy
   accepts_nested_attributes_for :persons, reject_if: lambda { |a| a[:first_name].blank? }, allow_destroy: true
+  belongs_to :group
 
 
   def registration_time

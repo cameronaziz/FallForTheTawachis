@@ -1,17 +1,30 @@
 <div class="rsvp_area">
   <div class="contact-block rsvp_form">
     <div class="row">
-      <%= form_for @reservation, remote: true, url: {controller: 'reservations', action: 'create'} do |f| %>
-          <div class="row rsvp-row">
-            <div class="col-sm-9 col-sm-offset-1">
-              There will be <select onchange="partySize.call(this, event)" name="reservation[party_size]">
-              <option value="1">one</option>
-              <option value="2">two</option>
-              <option value="3">three</option>
-              <option value="4">four</option>
-              <option value="5">five</option>
-              <option value="6">six</option>
-            </select> people in this party.
+      <%= form_for @reservation do |f| %>
+          <div class="form-group">
+            <div class="rsvp-row">
+              <div class="col-sm-10 col-sm-offset-1">
+                <div class="col-sm-9">
+                  <%= f.text_field :name, placeholder: 'Reservation Name', class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row rsvp-row">
+              <div class="col-sm-9 col-sm-offset-1" style="margin-top: 20px">
+                <div class="col-sm-9">
+                There will be <select onchange="partySize.call(this, event)" name="reservation[party_size]">
+                <option value="1">one</option>
+                <option value="2">two</option>
+                <option value="3">three</option>
+                <option value="4">four</option>
+                <option value="5">five</option>
+                <option value="6">six</option>
+              </select> people in this party.
+                  </div>
+              </div>
             </div>
           </div>
         <%= f.fields_for :persons do |builder| %>
@@ -27,10 +40,12 @@
                   <div class="col-sm-2"><%= f.text_field :state, placeholder: 'State', class: 'form-control', maxlength: 2 %></div>
                   <div class="col-sm-3"><%= f.text_field :zip, placeholder: 'Zip', class: 'form-control', maxlength: 5 %></div>
                 </div>
-                <div class="rsvp-row">
-                  <div class="col-sm-10 col-sm-offset-1"><%= f.text_field :email, placeholder: 'EMail', class: 'form-control' %></div>
-                </div>
               </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="rsvp-row">
+              <div class="col-sm-10 col-sm-offset-1"><%= f.text_field :email, placeholder: 'EMail', class: 'form-control' %></div>
             </div>
           </div>
           <div class="row rsvp-row">
@@ -42,3 +57,13 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(window).load(function() {
+    document.getElementById('1').style.display = 'none';
+    document.getElementById('2').style.display = 'none';
+    document.getElementById('3').style.display = 'none';
+    document.getElementById('4').style.display = 'none';
+    document.getElementById('5').style.display = 'none';
+  });
+</script>

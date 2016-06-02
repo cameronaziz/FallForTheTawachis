@@ -1,10 +1,13 @@
-<h1>Confirmed Reservations for <%= session[:customer_name] %></h1>
+<h1>Reservations for <%= session[:customer_name] %></h1>
 <%= link_to 'Add New', new_reservation_path, class: 'btn btn-success', type: 'button' %>
 <table class="table table-hover">
   <thead>
   <tr>
     <th>Name</th>
+    <th>Email</th>
+    <th>Group</th>
     <th>Link</th>
+    <th>Confirmed</th>
     <th>Reservation Date</th>
   </tr>
   </thead>
@@ -12,7 +15,10 @@
   <% @reservations.each do |reservation| %>
       <tr>
         <td><%= link_to  reservation.name, reservation %></td>
-        <td><%= link_to  'Link', root_path + '?confirm=' + reservation.temporary_id %></td>
+        <td><%= reservation.email %></td>
+        <td><%= reservation.group.name unless reservation.group.nil? %></td>
+        <td><%= link_to(root_path + 'id/' + reservation.public_id, root_path + 'id/' + reservation.public_id)  %></td>
+        <td><%= reservation.is_confirmed %></td>
         <td><%= reservation.registration_time %></td>
         <td><%= link_to  'Delete', reservation, method: :delete, data: {confirm: 'Are you sure?'}  %></td>
       </tr>

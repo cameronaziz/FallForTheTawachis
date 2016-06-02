@@ -1,12 +1,25 @@
 Rails.application.routes.draw do
 
-  get 'static_pages/index'
-  get 'cameron' => 'static_pages#login'
+
+  #todo: remove before go=live
+
+  get 'user1' => 'static_pages#login'
   get 'generate' => 'static_pages#generate'
 
   get 'login' => 'sessions#new'
   post 'login'   => 'sessions#create'
   get 'register' => 'users#new'
+
+
+
+  root 'public_pages#index'
+  get '/id/:public_id' => 'public_pages#index'
+  post '/' => 'public_pages#create'
+  patch 'id/:public_id' => 'public_pages#update'
+  put 'id/:public_id' => 'public_pages#update'
+
+
+  get 'admin' => 'reservations#index'
 
 
   resources :reservations
@@ -18,15 +31,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'static_pages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  get 'confirm_registration/:id' => 'reservations#confirm'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

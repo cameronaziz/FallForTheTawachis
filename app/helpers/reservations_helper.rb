@@ -24,4 +24,8 @@ module ReservationsHelper
     return options
   end
 
+
+  def confirm_link(reservation)
+
+  end
 end

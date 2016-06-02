@@ -4,6 +4,7 @@
 <%= link_to 'Delete', @reservation, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
 <div class="text-center">
   <h3>Party Size: <%= @reservation.party_size_filter %></h3>
+  <h4>Private ID: <%= root_path + 'id/' + @reservation.public_id  %></h4>
 </div>
 
 

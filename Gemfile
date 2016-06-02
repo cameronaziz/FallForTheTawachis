@@ -5,6 +5,9 @@ gem 'puma'
 gem 'font-awesome-rails'
 gem 'tzinfo-data'
 gem 'bcrypt', '~> 3.1.7'
+gem 'has_secure_token'
+gem 'gibbon'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -46,6 +49,8 @@ group :development, :test do
 end
 
 group :development do
+
+  gem 'dotenv-rails'
 
 
   gem 'better_errors'

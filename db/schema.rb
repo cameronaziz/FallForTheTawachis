@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531235019) do
+ActiveRecord::Schema.define(version: 20160602071001) do
 
   create_table "companions", force: :cascade do |t|
     t.integer  "customer_id",    limit: 4
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20160531235019) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "reservation_id", limit: 4
-    t.integer  "group_id",       limit: 4
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -73,9 +72,10 @@ ActiveRecord::Schema.define(version: 20160531235019) do
     t.string   "city",         limit: 255
     t.string   "state",        limit: 255
     t.string   "zip",          limit: 255
-    t.string   "temporary_id", limit: 255
+    t.string   "public_id",    limit: 255
     t.boolean  "is_confirmed"
     t.string   "email",        limit: 255
+    t.integer  "group_id",     limit: 4
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,7 +1,7 @@
 <div class="rsvp_area">
   <div class="contact-block rsvp_form">
     <div class="row">
-      <%= form_for @reservation, remote: true, url: {controller: 'reservations', action: 'create'} do |f| %>
+      <%= form_for @reservation, :url => url_for(:controller => 'public_pages'), remote: true do |f| %>
           <div class="row rsvp-row">
             <div class="col-sm-9 col-sm-offset-1">
               There will be <select onchange="partySize.call(this, event)" name="reservation[party_size]">
@@ -10,7 +10,7 @@
             </div>
           </div>
           <%= f.fields_for :persons do |builder| %>
-              <%= render 'reservations/person_fields', :f => builder %>
+              <%= render 'public_pages/person_fields', :f => builder %>
           <% end %>
           <div class="address form-group">
             <div class="row rsvp-row">
