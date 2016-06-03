@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.customer_id = session[:customer_id]
-    @reservation.temporary_id = SecureRandom.urlsafe_base64
+    @reservation.public_id = SecureRandom.urlsafe_base64
     @reservation.is_confirmed = false
     set_reservation_name(@reservation)
     if @reservation.save
@@ -30,7 +30,6 @@ class ReservationsController < ApplicationController
   end
 
   def show
-
   end
 
   def update
@@ -54,17 +53,20 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-      params.require(:reservation).permit(:id, :name, :customer_id, :party_size, :address, :city, :state, :zip, persons_attributes: [:id, :first_name, :last_name, :meal_id])
+      params.require(:reservation).permit(:id, :name, :email, :customer_id, :party_size, :address, :city, :state, :zip, persons_attributes: [:id, :first_name, :last_name, :meal_id])
   end
 
   def set_reservation_name(reservation)
-    if reservation.persons.first.nil?
-      reservation.name = 'Unnamed Group'
-    else
-      if reservation.party_size.to_i > 1
-        reservation.name = "#{reservation.persons.first.first_name} #{reservation.persons.first.last_name} and company"
+    reservation.name = "suck it"
+    if reservation.name.nil? || reservation.name.blank?
+      if reservation.persons.first.nil?
+        reservation.name = 'Unnamed Group'
       else
-        reservation.name = "#{reservation.persons.first.first_name} #{reservation.persons.first.last_name}"
+        if reservation.party_size.to_i > 1
+          reservation.name = "#{reservation.persons.first.first_name} #{reservation.persons.first.last_name} and company"
+        else
+          reservation.name = "#{reservation.persons.first.first_name} #{reservation.persons.first.last_name}"
+        end
       end
     end
   end
