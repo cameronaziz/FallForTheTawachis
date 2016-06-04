@@ -53,11 +53,10 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-      params.require(:reservation).permit(:id, :name, :email, :customer_id, :party_size, :address, :city, :state, :zip, persons_attributes: [:id, :first_name, :last_name, :meal_id])
+      params.require(:reservation).permit(:id, :name, :email, :customer_id, :party_size, :address, :city, :state, :zip, :group_id, persons_attributes: [:id, :first_name, :last_name, :meal_id])
   end
 
   def set_reservation_name(reservation)
-    reservation.name = "suck it"
     if reservation.name.nil? || reservation.name.blank?
       if reservation.persons.first.nil?
         reservation.name = 'Unnamed Group'

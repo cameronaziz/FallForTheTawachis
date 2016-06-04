@@ -12,15 +12,19 @@ class PublicPagesController < ApplicationController
     else
       @reservation = Reservation.new
       if params[:love]
-
-        if modulo(params[:love].to_i / 147) == 0
-          @reservation.party_size = params[:love].to_i / 147
+        multiplier = 73886119512
+        #1 reservation: 73886119512
+        #
+        #6 reservations: 443316717072
+        if (params[:love].to_i % multiplier) == 0
+          @reservation.party_size = params[:love].to_i / multiplier
         end
       else
         @reservation.party_size = 1
       end
     end
-    @reservation.party_size.times do
+    size = @reservation.party_size
+        size.times do
       @reservation.persons.build
     end
   end

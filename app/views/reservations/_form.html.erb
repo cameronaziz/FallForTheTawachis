@@ -1,3 +1,5 @@
+<h2>Refresh the page to activate javascript.</h2>
+<h4>F5 on Windows or Command-R on Macintosh.</h4>
 <div class="rsvp_area">
   <div class="contact-block rsvp_form">
     <div class="row">
@@ -24,6 +26,16 @@
                 <option value="6">six</option>
               </select> people in this party.
                   </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-9 col-sm-offset-1">
+                <div class="col-sm-9">
+                  Group
+                  <%= f.collection_select :group_id, Group.order(:name).where(customer_id: session[:customer_id]), :id, :name, {}, class: 'form-control' %>
+                </div>
               </div>
             </div>
           </div>
@@ -58,12 +70,3 @@
   </div>
 </div>
 
-<script>
-  $(window).load(function() {
-    document.getElementById('1').style.display = 'none';
-    document.getElementById('2').style.display = 'none';
-    document.getElementById('3').style.display = 'none';
-    document.getElementById('4').style.display = 'none';
-    document.getElementById('5').style.display = 'none';
-  });
-</script>
