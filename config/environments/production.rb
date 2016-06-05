@@ -87,7 +87,7 @@ Rails.application.configure do
       :enable_starttls_auto => true,
       :authentication => :login,
       :user_name      => 'Lucent Digital',
-      :password       => ENV['MANDRILL_API']
+      :password       => 'Ay7Qji509Njb7iQgfnBn4Q'
   }
 
 end
