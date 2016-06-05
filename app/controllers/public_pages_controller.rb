@@ -37,6 +37,7 @@ class PublicPagesController < ApplicationController
     set_reservation_name(@reservation)
     respond_to do |format|
       if @reservation.save
+        Mailer.reservation_confirmation(@reservation).deliver_now
         format.html{ redirect_to :back }
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}
@@ -68,7 +69,7 @@ class PublicPagesController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:id, :name, :customer_id, :party_size, :address, :city, :state, :zip, persons_attributes: [:id, :first_name, :last_name, :meal_id])
+    params.require(:reservation).permit(:id, :name, :customer_id, :party_size, :address, :city, :state, :zip, :email, persons_attributes: [:id, :first_name, :last_name, :meal_id])
   end
 
   def set_reservation_name(reservation)
