@@ -22,7 +22,14 @@ Rails.application.routes.draw do
   get 'admin' => 'reservations#index'
 
 
-  resources :reservations
+  resources :reservations do
+    collection do
+      post 'edit_multiple'
+      put 'update_multiple'
+    end
+  end
+
+
   resources :meals
   resources :groups
   resources :customers
