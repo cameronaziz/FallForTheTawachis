@@ -11,14 +11,6 @@ class ReservationsController < ApplicationController
   def edit
   end
 
-  def edit_multiple
-
-  end
-
-  def update_multiple
-
-  end
-
 
   def create
     @reservation = Reservation.new(reservation_params)

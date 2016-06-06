@@ -23,12 +23,7 @@ Rails.application.routes.draw do
   get 'admin' => 'reservations#index'
 
 
-  resources :reservations do
-    collection do
-      post 'edit_multiple'
-      put 'update_multiple'
-    end
-  end
+  resources :reservations
   get 'reservations/email/:id' => 'reservations#email', as: :reservations_email
 
 
