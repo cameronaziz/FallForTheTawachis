@@ -71,7 +71,7 @@
 
   </head>
 <body id="page-top" class="greyscale">
-<% unless current_page?('/') || current_page?('/static_pages/index') || current_page?('/login') %>
+<% unless current_page?('/users') || current_page?('/register') || current_page?('/login') %>
     <div class="container">
       <%= render 'shared/nav'%>
       <%= render 'shared/notice' %>
@@ -79,7 +79,7 @@
 
 <%= yield %>
 
-<% unless current_page?('/') || current_page?('/static_pages/index')|| current_page?('/login')  %>
+<% unless current_page?('/users') || current_page?('/register')|| current_page?('/login')  %>
     </div>
 <% end %>
 

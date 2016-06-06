@@ -47,7 +47,7 @@ Rails.application.configure do
       :enable_starttls_auto => true,
       :authentication => :login,
       :user_name      => 'Lucent Digital',
-      :password       => 'K78H1tCcpJa6ooKQC9gGaA'
+      :password       => 'Ay7Qji509Njb7iQgfnBn4Q'
   }
 
 end

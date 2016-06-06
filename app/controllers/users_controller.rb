@@ -11,8 +11,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.customer_id = '1'
     if @user.save
-      redirect_to users_path
+      redirect_to reservations_path
     else
       render 'new', object: @user
     end

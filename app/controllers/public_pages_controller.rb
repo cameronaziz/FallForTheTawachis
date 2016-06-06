@@ -53,6 +53,7 @@ class PublicPagesController < ApplicationController
     @reservation.is_confirmed = true
     respond_to do |format|
       if @reservation.update_attributes(reservation_params)
+        Mailer.reservation_confirmation(@reservation).deliver_now
         format.html{ redirect_to :back }
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}
