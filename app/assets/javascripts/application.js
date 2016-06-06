@@ -67,6 +67,6 @@ function partySize(event) {
 }
 
 function AlertIt() {
-    var answer = confirm ("This is not available for beta.")
+    confirm("This is not available for beta. Please send Save the Dates manually, one by one.")
 
 }
