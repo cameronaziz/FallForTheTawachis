@@ -26,6 +26,11 @@ $(window).load(function() {
 });
 
 
+
+
+
+
+
 function partySize(event) {
     if(this.selectedIndex == 0) {
         document.getElementById('1').style.display = 'none';
@@ -67,6 +72,6 @@ function partySize(event) {
 }
 
 function AlertIt() {
-    confirm("This is not available for beta. Please send Save the Dates manually, one by one.")
+    confirm("This is not available for beta. Please send Save the Dates manually ")
 
 }

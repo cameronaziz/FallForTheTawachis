@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :destroy, :edit, :update, :create, :email]
+  before_action :set_reservation, only: [:show, :destroy, :edit, :email, :update]
 
   def new
     @reservation = Reservation.new
@@ -9,6 +9,10 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    size = 6 - @reservation.party_size.to_i
+    size.times do
+      @reservation.persons.build
+    end
   end
 
 
