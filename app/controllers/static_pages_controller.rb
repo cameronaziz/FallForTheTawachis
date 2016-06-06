@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   end
 
   def variable_view
+    @url = request.base_url
 
   end
 
