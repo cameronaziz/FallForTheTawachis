@@ -2,10 +2,12 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :destroy, :edit, :email, :update]
 
   def new
-    @reservation = Reservation.new
-    6.times do
-      @reservation.persons.build
-    end
+
+      @reservation = Reservation.new
+      6.times do
+        @reservation.persons.build
+      end
+
   end
 
   def edit

@@ -3,6 +3,10 @@ class StaticPagesController < ApplicationController
 
   end
 
+  def variable_view
+
+  end
+
 
 
   def generate

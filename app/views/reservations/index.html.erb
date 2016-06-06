@@ -1,4 +1,5 @@
 <h1>Reservations for <%= session[:customer_name] %></h1>
+<h3>Website: <%= request.original_url %></h3>
 <%= link_to 'Add New', new_reservation_path, class: 'btn btn-success', type: 'button' %>
 <a href="javascript:AlertIt();" class="btn btn-success" >Sent Unsent Invitations</a>
 

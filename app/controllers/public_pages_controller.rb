@@ -1,11 +1,18 @@
 class PublicPagesController < ApplicationController
   def index
+    session[:customer_id] = ''
 
     #define session id
-    session[:customer_id] = '1'
-
-    @customer = Customer.find(session[:customer_id])
-    session[:customer_name]  = @customer.name
+    customer = Customer.where(url: request.original_url).first
+    if customer
+      @customer = customer
+      session[:customer_id] = customer.id
+    else
+      customer = Customer.find(1)
+      @customer = customer
+      session[:customer_id] = customer.id
+    end
+    session[:customer_name]  = customer.name
     if params[:public_id]
       @reservation = Reservation.where(public_id: params[:public_id]).first
       @reservation.party_size = @reservation.party_size.to_i
