@@ -65,3 +65,8 @@ function partySize(event) {
         document.getElementById('5').style.display = 'block';
     }
 }
+
+function AlertIt() {
+    var answer = confirm ("This is not available for beta.")
+
+}
