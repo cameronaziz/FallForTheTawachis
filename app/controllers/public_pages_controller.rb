@@ -3,7 +3,7 @@ class PublicPagesController < ApplicationController
     session[:customer_id] = ''
 
     #define session id
-    customer = Customer.where(url: request.original_url).first
+    customer = Customer.where(url: request.original_url ).first
     if customer
       @customer = customer
       session[:customer_id] = customer.id

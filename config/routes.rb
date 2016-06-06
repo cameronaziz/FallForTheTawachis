@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 
 
 
-  #root 'static_pages#variable_view'
-  root 'public_pages#index'
+  root 'static_pages#variable_view'
+  #root 'public_pages#index'
   get '/id/:public_id' => 'public_pages#index'
   post '/' => 'public_pages#create'
   patch 'id/:public_id' => 'public_pages#update'
