@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       put 'update_multiple'
     end
   end
+  get 'reservations/email/:id' => 'reservations#email', as: :reservations_email
 
 
   resources :meals

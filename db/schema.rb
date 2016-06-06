@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602071001) do
+ActiveRecord::Schema.define(version: 20160606031553) do
 
   create_table "companions", force: :cascade do |t|
     t.integer  "customer_id",    limit: 4
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160602071001) do
     t.boolean  "is_confirmed"
     t.string   "email",        limit: 255
     t.integer  "group_id",     limit: 4
+    t.boolean  "email_sent"
   end
 
   create_table "users", force: :cascade do |t|

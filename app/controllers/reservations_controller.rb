@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :destroy, :edit, :update]
+  before_action :set_reservation, only: [:show, :destroy, :edit, :update, :create, :email]
 
   def new
     @reservation = Reservation.new
@@ -25,6 +25,7 @@ class ReservationsController < ApplicationController
     @reservation.customer_id = session[:customer_id]
     @reservation.public_id = SecureRandom.urlsafe_base64
     @reservation.is_confirmed = false
+    @reservation.email_sent = false
     set_reservation_name(@reservation)
     if @reservation.save
       redirect_to reservations_path
@@ -53,6 +54,12 @@ class ReservationsController < ApplicationController
     if @reservation.destroy
       redirect_to reservations_path, notice: "#{deleted_reservation} was successfully deleted."
     end
+  end
+
+  def email
+    Mailer.reservation_creation(@reservation).deliver_now
+    @reservation.update_columns(email_sent: true)
+    redirect_to reservations_path
   end
 
   private

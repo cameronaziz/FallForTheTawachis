@@ -33,6 +33,7 @@ class PublicPagesController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.customer_id = session[:customer_id]
     @reservation.is_confirmed = true
+    @reservation.email_sent = true
     @reservation.public_id = SecureRandom.urlsafe_base64
     set_reservation_name(@reservation)
     respond_to do |format|

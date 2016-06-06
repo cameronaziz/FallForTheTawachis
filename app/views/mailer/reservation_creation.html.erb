@@ -1,0 +1,3 @@
+Hi <%= @reservation.name %>! <br>
+We put down a group of <%= @reservation.party_size %> to come party with us.<br>
+Please RSVP at:<%= link_to('www.fallforthetawachis.com', root_path + 'id/' + @reservation.public_id)  %>
