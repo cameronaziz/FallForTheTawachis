@@ -5,6 +5,17 @@
         <%= f.text_field :name, class: 'form-control' %>
       </div>
     </div>
-
     <%= f.submit 'Submit', class: 'btn btn-default' %>
 <% end %>
+<h3>Layouts</h3>
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <tr>
+    <% @customer.layouts.each do |layout| %>
+    <td> <%= layout.name %></td>
+    <% end %>
+  </tr>
+</table>

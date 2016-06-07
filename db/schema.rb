@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606073512) do
+ActiveRecord::Schema.define(version: 20160607002202) do
 
   create_table "companions", force: :cascade do |t|
     t.integer  "customer_id",    limit: 4
@@ -22,11 +22,19 @@ ActiveRecord::Schema.define(version: 20160606073512) do
     t.integer  "person_id",      limit: 4
   end
 
+  create_table "configurations", force: :cascade do |t|
+    t.integer  "customer_id", limit: 4
+    t.integer  "layout_id",   limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "customers", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "url",        limit: 255
+    t.string   "name",           limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "url",            limit: 255
+    t.integer  "current_layout", limit: 4
   end
 
   create_table "groups", force: :cascade do |t|
@@ -42,6 +50,13 @@ ActiveRecord::Schema.define(version: 20160606073512) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "person_id",      limit: 4
+  end
+
+  create_table "layouts", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.text     "html",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "meals", force: :cascade do |t|

@@ -1,0 +1,579 @@
+<!-- Custom stylesheet-->
+<%= stylesheet_link_tag 'theme/style' %>
+<!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+<%= stylesheet_link_tag 'theme/responsive' %>
+<!-- <link rel="stylesheet" href="assets/css/responsive.css"> -->
+<!-- banner start  -->
+<header id="banner" class="banner">
+  <div class="wrapper">
+    <div id="background-carousel">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="item item-no1 active"></div>
+          <div class="item item-no2"></div>
+          <div class="item item-no3"></div>
+        </div>
+      </div>
+    </div>
+    <!-- /.background-carousel end -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+		    				<span class="banner-logo">
+		    					<h2><%= @customer.name %><small>October 22, 2016</small></h2>
+		    				</span>
+        </div>
+      </div>
+    </div>
+    <div class="color-overlay-bg"></div>
+  </div>
+  <!-- /.color-overlay end -->
+</header>
+<!-- banner end -->
+
+<!-- navigation start -->
+<section id="sticker" class="nav-block">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-8 text-center">
+          <!-- Collect the nav toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="#banner">Home</a></li>
+              <li><a href="#couple">Couple</a></li>
+              <li><a href="#story">Love Story</a></li>
+              <li><a href="#event">Event</a></li>
+              <li><a href="#gift">Gift</a></li>
+              <li><a href="#contact">RSVP</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div>
+    </div><!-- /.container -->
+  </nav>
+</section>
+<!-- navigation end -->
+
+<!-- couple start -->
+<section id="couple" class="couple">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <div class="heading wow animated fadeInUp">
+          <h3>Please join us for our wedding</h3>
+          <p>On Saturday, October 22nd, 2016 we cordially invite you to #FallForTheTawachis and celebrate the wedding of Adriana and Wassef.</p>
+        </div>
+        <!-- /.heading end -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 love-bg">
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="thumbnail-block wow animated fadeInLeft">
+              <div class="thumb-img">
+                <%= image_tag 'theme/groom.jpg', alt: 'Groom', class: 'img-responsive' %>
+                <div class="thumb-hover">
+                  <h5>Wassef Tawachi<small>groom</small></h5>
+                  <!-- /.social-icon end -->
+                </div>
+                <!-- /.thumb-hover -->
+              </div>
+              <!-- /.thumb-img -->
+            </div>
+            <div class="profile">
+              <p>Wassef grew up in Rancho Cucamonga with his younger sister Jasmine and parents
+
+                Naima and Mohamed. His first love was martial arts, where he earned his 2 nd degree
+
+                black belt in Tae Kwon Do at the age of 16, and competed in Tae Kwon Do and Muay
+
+                Thai Kickboxing tournaments around California. He attended Cal Poly Pomona where he first met
+
+                Adriana. After working in Arcadia and Orange
+
+                County, he decided to settle in Los Angeles. He enjoys living in Downtown LA and works
+
+                in Wealth Management. One of Wassef’s favorite activities is cooking, he also loves
+
+                staying active by going to the gym, surfing, and hiking. He is also looking forward to
+
+                traveling more and just spending time with his friends, family, and soon to be Wife.
+              </p>
+              <!-- /.social-icon end -->
+            </div>
+
+            <!-- /.thumbnail-block-->
+          </div>
+          <div class="col-sm-offset-2 col-sm-5">
+            <div class="thumbnail-block wow animated fadeInRight">
+              <div class="thumb-img">
+                <%= image_tag 'theme/bride.jpg', alt:'Bride', class: 'img-responsive' %>
+                <div class="thumb-hover">
+                  <h5>Adriana Orozco<small>bride</small></h5>
+                  <!-- /.social-icon end -->
+                </div>
+                <!-- /.thumb-hover -->
+              </div>
+              <!-- /.thumb-img -->
+            </div>
+            <div class="profile"><p>Adriana comes from a large and loving family which includes two younger siblings (Arely
+
+              and Ivan) and her parents Victoria and Jorge. She received her Bachelor’s degree in
+
+              English Education from Cal Poly Pomona. She always had
+
+              an interest in working with children and after working as a teacher’s assistant she fell in
+
+              love with Early Childhood Special Education. Adriana went back to school at Cal State LA
+
+              where she received her credentials as well as her Master&#39;s
+
+              in education. She now runs her own Early Childhood Special Education classroom at
+
+              Grant Elementary in Hollywood. Adriana has always been very active, from playing
+
+              center on her High School Basketball team, to hiking the Grand Canyon (multiple times),
+
+              and fully embraces the yogi lifestyle. Her dream is to retire on the beaches of Puerto
+
+              Vallarta and travel as much of the world as she can.
+            </p></div>
+            <!-- /.thumbnail-block -->
+          </div>
+        </div>
+      </div>
+      <!-- /.love-bg end -->
+    </div>
+    <div id="next-arrow" class="next-arrow">
+      <a href="#story" class="animated infinite rocket"><i class="fa fa-angle-double-down"></i></a>
+    </div>
+  </div>
+</section>
+<!-- couple end -->
+
+
+
+<!-- .rsvpLink start -->
+<section id="rsvpLink" class="rsvpLink">
+  <div class="color-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <span class="rsvpLink-title">Please take a moment and RSVP below to let us know if you can make it</span>
+          <a href="#contact" class="btn default-btn">RSVP</a>
+          <a href="#map" class="btn default-btn">MAP</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.color-overlay end -->
+</section>
+<!-- .rsvpLink end -->
+
+<!-- story start -->
+<section id="story" class="story white">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <div class="heading wow animated fadeInUp">
+          <h3>Our Love Story</h3>
+        </div>
+        <!-- /.heading end -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="timeline-story">
+          <div class="timeline">
+            <span class="love-sign wow animated pulse">2013</span>
+            <div class="timeline-left pull-left">
+              <div class="timeline-block-left">
+ 								    	<span class="timeline-meta">
+	 										SEPTEMBER 25, 2013
+	 									</span>
+                <div class="timeline-thumbnail wow animated fadeInLeft" data-wow-delay="0s" data-wow-duration="1s">
+                  <%= image_tag 'theme/love_story_01.jpg', alt:'Love Story', class: 'img-thumbnail' %>
+                </div>
+              </div>
+            </div>
+            <!-- /.timeline-left -->
+            <div class="timeline-right pull-right">
+              <div class="timeline-block-right wow animated fadeInRight" data-wow-delay="0s" data-wow-duration="1s">
+                <div class="timeline-head">
+                  <h4>our first date</h4>
+                </div>
+                <div class="timeline-body">
+                  Adriana and Wassef first met during their undergraduate studies at Cal Poly, but it wasn’t until after college that they had their first date. It wasn’t until a fateful meeting at the Los Angeles History Museum that rekindled their connection.
+                </div>
+              </div>
+            </div>
+            <!-- /.timeline-right -->
+            <div class="clearfix"></div>
+          </div>
+          <!-- /.timeline end -->
+          <div class="timeline">
+            <span class="love-sign wow animated pulse">2015</span>
+            <div class="timeline-left reverse pull-left">
+              <div class="timeline-block-left">
+ 								    	<span class="timeline-meta">
+	 										July 18, 2015
+	 									</span>
+                <div class="timeline-thumbnail wow animated fadeInLeft" data-wow-delay="0.6s" data-wow-duration="1s">
+                  <%= image_tag 'theme/love_story_02.png', alt:'Love Story', class: 'img-thumbnail' %>
+                </div>
+              </div>
+            </div>
+            <!-- /.timeline-left -->
+            <div class="timeline-right reverse pull-right">
+              <div class="timeline-block-right wow animated fadeInRight" data-wow-delay="0.6s" data-wow-duration="1s">
+                <div class="timeline-head">
+                  <h4>our beautiful engagement</h4>
+                </div>
+                <div class="timeline-body">
+                  It was on the white beaches of Playa Del Carmen, and under the bright glow of the moonlight that Wassef dropped to one knee and asked for Adriana’s hand in marriage. It wasn’t until the initial shock wore off that Adriana realized she still hadn’t said Yes, but as they say…the rest is history.
+                </div>
+              </div>
+            </div>
+            <!-- /.timeline-right -->
+            <div class="clearfix"></div>
+          </div>
+          <!-- /.timeline end -->
+          <div class="timeline">
+            <span class="love-sign wow animated pulse">2016</span>
+            <div class="timeline-left pull-left">
+              <div class="timeline-block-left">
+ 								    	<span class="timeline-meta">
+	 										October 22, 2016
+	 									</span>
+                <div class="timeline-thumbnail wow animated fadeInLeft" data-wow-delay="1.2s" data-wow-duration="1s">
+                  <%= image_tag 'theme/love_story_03.jpg', alt:'Love Story', class: 'img-thumbnail' %>
+                </div>
+              </div>
+            </div>
+            <!-- /.timeline-left -->
+            <div class="timeline-right pull-right">
+              <div class="timeline-block-right wow animated fadeInRight" data-wow-delay="1.2s" data-wow-duration="1s">
+                <div class="timeline-head">
+                  <h4>our celebration</h4>
+                </div>
+                <div class="timeline-body">
+                  We now have our eyes set to the future, to the day we exchange our vows and begin our lives together, sharing the moment with all of you.
+                </div>
+              </div>
+            </div>
+            <!-- /.timeline-right -->
+            <div class="clearfix"></div>
+          </div>
+          <!-- /.timeline end -->
+        </div>
+        <!-- /.timeline-story -->
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- story end -->
+
+
+<!-- event start -->
+<section id="event" class="event lightsmoke">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <div class="heading wow animated fadeInUp">
+          <h3>Wedding Events</h3>
+        </div>
+        <!-- /.heading end -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="event-block wow animated fadeInUp" data-wow-delay="0s" data-wow-duration="1s">
+          <!-- /.event-img end -->
+          <div class="event-body">
+            <h5><a href="blog-single.html">Wedding Ceremony</a></h5>
+            <p>The moment is here, and we cannot wait to share this special day with you!
+              The ceremony will start right on time. </p>
+            <span class="event-date">4:30PM</span>
+          </div>
+          <!-- /.event-body end -->
+        </div>
+        <!-- /.event-block end -->
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="event-block wow animated fadeInUp" data-wow-delay=".6s" data-wow-duration="1s">
+          <!-- /.event-img end -->
+          <div class="event-body">
+            <h5><a href="blog-single.html">Cocktail Hour</a></h5>
+            <p>It’s official! We are married, and what better way to start our new lives than with a drink and some appetizers!</p>
+            <span class="event-date">5:30PM</span>
+          </div>
+          <!-- /.event-body end -->
+        </div>
+        <!-- /.event-block end -->
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="event-block wow animated fadeInUp" data-wow-delay="1.2s" data-wow-duration="1s">
+          <!-- /.event-img end -->
+          <div class="event-body">
+            <h5><a href="blog-single.html">Reception</a></h5>
+            <p>We would love for you to join us at our reception where we will drink, eat, dance, and celebrate together!</p>
+            <span class="event-date">6:30PM</span>
+          </div>
+          <!-- /.event-body end -->
+        </div>
+        <!-- /.event-block end -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- event end -->
+
+<!-- gift start -->
+<section id="gift" class="gift white">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <div class="heading wow animated fadeInUp">
+          <h3>Gift Registration</h3>
+          <p>We are doing a Honeymoon Registry. Please click the image below, and see what adventures lie ahead in Spain.</p>
+        </div>
+        <!-- /.heading end -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="gift-block wow animated fadeInUp" data-wow-delay=".6s" data-wow-duration="1s">
+          <a target="_blank" href="http://honeyfund.com/wedding/FallfortheTawachis"><%= image_tag 'theme/gifts_panoramic.png', alt:'Gift Name', class: 'registry-image' %></a>
+        </div>
+        <!-- /.gift-block end -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- event end -->
+
+
+
+<!-- .quote start -->
+<section id="quote" class="quote">
+  <div class="color-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <blockquote>
+            <p>Meeting you was fate, becoming your friend was a choice,<br> but falling in love with you was beyond my control</p>
+          </blockquote>
+          <!-- blockquote end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.color-overlay end -->
+</section>
+<!-- .quote end -->
+
+<!-- contact start -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <div class="heading wow animated fadeInUp">
+          <h3>RSVP</h3>
+          <p>Please RSVP by July 1, 2016<br>Please only RSVP for the allotted guests indicated in the invitation</p>
+        </div>
+        <!-- /.heading end -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 divider" style="text-align:center;">
+        <h5>contact info</h5>
+        <div style="text-align:center;width:auto;" class="contact-address">
+          <ul style="text-align:center;width:auto;">
+            <a href="https://www.google.com/maps/place/Los+Angeles+River+Center+%26+Gardens/@34.0848604,-118.225092,15z/data=!4m2!3m1!1s0x0:0x7dd2a700867842ed" target="_blank">
+              <li style="text-align:center;width:auto;">
+                <i style="text-align:center;width:auto;" class="fa fa-home"></i>
+                <div style="text-align:center;width:auto;" class="address-phone">
+                  <h4 style="text-align:center;width:auto;">address</h4>
+                  <span>570 W. Ave 26</span>
+                  <span>Los Angeles, CA</span>
+                </div>
+                <!-- /.address-phone -->
+              </li>
+            </a>
+            <li>
+              <i class="fa fa-paper-plane"></i>
+              <div class="address-phone">
+                <h4>email</h4>
+                <span>wasseft@gmail.com</span>
+              </div>
+              <!-- /.address-phone -->
+            </li>
+          </ul>
+
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <%= render 'public_pages/form' %>
+        <!-- /.contact-block end -->
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- contact end -->
+
+<!-- map start -->
+<section id="map" class="map"></section>
+<!-- map end -->
+
+<!-- footer start -->
+<footer>
+  <div class="color-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <span class="footer-logo">
+            Adriana & Wassef
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <ul class="nav nav-pills">
+            <li role="presentation"><a href="#banner">HOME</a></li>
+            <li role="presentation"><a href="#contact">RSVP</a></li>
+          </ul>
+          <!-- footer nav end -->
+        </div>
+        <div class="col-sm-12 text-center">
+          <p class="copyright"><i class="fa fa-copyright"></i> 2016 Adriana &amp; Wassef</p>
+        </div>
+      </div>
+    </div>
+    <div id="go-to-top">
+      <a href="#banner"><i class="fa fa-angle-up"></i></a>
+    </div>
+  </div>
+  <!-- /.color-overlay end -->
+</footer>
+<!-- footer end -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<%= javascript_include_tag 'theme/jquery.js' %>
+<!--  <script src="assets/js/jquery.js"></script> -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<%= javascript_include_tag 'theme/bootstrap.min' %>
+<!-- <script src="assets/js/bootstrap.min.js"></script> -->
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<%= javascript_include_tag 'theme/jquery.sticky.js' %>
+<!-- <script src="assets/js/jquery.sticky.js"></script> -->
+<%= javascript_include_tag 'theme/smoothscroll.js' %>
+<!-- <script src="assets/js/smoothscroll.js"></script> -->
+<%= javascript_include_tag 'theme/jquery.scrollTo.min' %>
+<!-- <script src="assets/js/jquery.scrollTo.min.js"></script> -->
+<%= javascript_include_tag 'theme/jquery.localScroll.min.js' %>
+<!-- <script src="assets/js/jquery.localScroll.min.js"></script> -->
+<%= javascript_include_tag 'theme/jquery.nav.js' %>
+<!-- <script src="assets/js/jquery.nav.js"></script> -->
+<%= javascript_include_tag 'theme/TimeCircles.js' %>
+<!-- <script src="assets/js/TimeCircles.js"></script> -->
+<%= javascript_include_tag 'theme/imagesloaded.pkgd.js' %>
+<!-- <script src="assets/js/imagesloaded.pkgd.js"></script> -->
+<%= javascript_include_tag 'theme/masonry.pkgd.min.js' %>
+<!-- <script src="assets/js/masonry.pkgd.min.js"></script> -->
+<%= javascript_include_tag 'theme/jquery.selectbox-0.2.min.js' %>
+<!-- <script src="assets/js/jquery.selectbox-0.2.min.js"></script> -->
+<%= javascript_include_tag 'theme/jquery.magnific-popup.js' %>
+<!-- <script src="assets/js/jquery.magnific-popup.js"></script> -->
+<%= javascript_include_tag 'theme/jquery.placeholder.js' %>
+<!-- <script src="assets/js/jquery.placeholder.js"></script> -->
+<%= javascript_include_tag 'theme/wow.js' %>
+<!-- <script src="assets/js/wow.js"></script> -->
+<%= javascript_include_tag 'theme/script.js' %>
+<!-- <script src="assets/js/script.js"></script> -->
+
+<script>
+  function initialize() {
+    // Create an array of styles.
+    var styles = [
+      {
+        stylers: [
+          { hue: "#D44645" },
+          { saturation: 0 }
+        ]
+      },
+      {
+        featureType: 'water',
+        stylers: [
+          { visibility: "on" },
+          { color: "#9a9efd" },
+          { weight: 2.2 },
+          { gamma: 2.54 }
+        ]
+      },
+      {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [
+          { lightness: 100 },
+          { visibility: "simplified" }
+        ]
+      },{
+        featureType: "road",
+        elementType: "labels",
+        stylers: [
+          { hue: "#00ffee" },
+          { lightness: 10 },
+          { visibility: "simplified" }
+        ]
+      }
+    ];
+
+    // Create a new StyledMapType object, passing it the array of styles,
+    // as well as the name to be displayed on the map type control.
+    var styledMap = new google.maps.StyledMapType(styles,
+        {name: "Styled Map"});
+
+    var mapCanvas = document.getElementById('map');
+    var nevada = new google.maps.LatLng(34.085434, -118.2250077);
+    var mapOptions = {
+      zoom: 12,
+      center: nevada,
+      mapTypeControlOptions: {
+        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+      },
+      scrollwheel: false,
+      disableDefaultUI: true
+    };
+    var map = new google.maps.Map(mapCanvas, mapOptions)
+
+    //Associate the styled map with the MapTypeId and set it to display.
+    map.mapTypes.set('map_style', styledMap);
+    map.setMapTypeId('map_style');
+
+    // To add the marker to the map, use the 'map' property
+    // var image = 'images/icon/map_icon.png';
+    var image = {url: "<%= image_path 'theme/icon/map_icon.png' %>"};
+    var marker = new google.maps.Marker({
+      position: nevada,
+      map: map,
+      icon: image
+    });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>

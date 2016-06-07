@@ -9,7 +9,6 @@ class PublicPagesController < ApplicationController
       @customer = Customer.find(1)
       session[:customer_id] = @customer.id
     end
-    
 
     session[:customer_name]  = @customer.name
     if params[:public_id]

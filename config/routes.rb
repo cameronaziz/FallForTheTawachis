@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-
-  #todo: remove before go=live
-
-  get 'user1' => 'static_pages#login'
-  get 'generate' => 'static_pages#generate'
+  root 'public_pages#index'
 
   get 'login' => 'sessions#new'
   post 'login'   => 'sessions#create'
@@ -12,9 +8,6 @@ Rails.application.routes.draw do
   post 'users' => 'users#create'
 
 
-
-
-  root 'public_pages#index'
   get '/id/:public_id' => 'public_pages#index'
   post '/' => 'public_pages#create'
   patch 'id/:public_id' => 'public_pages#update'
@@ -31,6 +24,7 @@ Rails.application.routes.draw do
   resources :meals
   resources :groups
   resources :customers
+  resources :configurations
 
 
   # The priority is based upon order of creation: first created -> highest priority.

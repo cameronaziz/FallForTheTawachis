@@ -1,7 +1,6 @@
 class CustomersController < ApplicationController
     before_action :set_customer, only: [:show, :destroy, :edit, :update]
 
-
     def show
     end
 
@@ -20,9 +19,7 @@ class CustomersController < ApplicationController
       end
     end
 
-
     def edit
-
     end
 
     def update
@@ -47,7 +44,7 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
-        params.require(:customer).permit(:name)
+      params.require(:customer).permit(:name)
     end
 
 end
