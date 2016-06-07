@@ -5,8 +5,11 @@ class StaticPagesController < ApplicationController
 
   def variable_view
     url = request.base_url
-    url = url[10..-1]
-    @url = url
+    if url.count('.') == 2
+      @url = url[10..-1]
+    else
+      @url = url[7..-1]
+    end
   end
 
   def generate
