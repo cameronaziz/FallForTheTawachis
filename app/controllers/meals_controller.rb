@@ -37,8 +37,12 @@ class MealsController < ApplicationController
 
   def destroy
     deleted_meal = @meal.name
-    if @meal.destroy
-      redirect_to meals_path, notice: "#{deleted_meal} was successfully deleted."
+    if Person.where(meal_id: @meal.id).exists?
+      redirect_to meals_path, notice: "#{deleted_meal} cannot be deleted as it is in use."
+    else
+      if @meal.destroy
+        redirect_to meals_path, notice: "#{deleted_meal} was successfully deleted."
+      end
     end
   end
 

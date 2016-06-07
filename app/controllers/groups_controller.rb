@@ -37,8 +37,12 @@ class GroupsController < ApplicationController
 
   def destroy
     deleted_group = @group.name
-    if @group.destroy
-      redirect_to groups_path, notice: "#{deleted_group} was successfully deleted."
+    if Reservation.where(group_id: @group.id).exists?
+      redirect_to groups_path, notice: "#{deleted_group} cannot be deleted as it is in use."
+    else
+      if @group.destroy
+        redirect_to groups_path, notice: "#{deleted_group} was successfully deleted."
+      end
     end
   end
 
