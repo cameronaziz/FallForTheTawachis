@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'register' => 'users#new'
   post 'users' => 'users#create'
 
+  get 'dashboard' => 'public_pages#dashboard'
+
 
   get '/id/:public_id' => 'public_pages#index'
   post '/' => 'public_pages#create'

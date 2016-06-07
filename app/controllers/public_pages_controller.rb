@@ -2,6 +2,10 @@ class PublicPagesController < ApplicationController
   def index
     session[:customer_id] = ''
     url = request.base_url
+    if url == 'http://app.lucentdigital.com'
+      redirect_to dashboard_path
+    end
+
     if url.count('.') == 2
       url = url[11..-1]
       @customer = Customer.where(url: url ).first
@@ -39,6 +43,9 @@ class PublicPagesController < ApplicationController
         size.times do
       @reservation.persons.build
     end
+  end
+
+  def dashboard
   end
 
   def create
