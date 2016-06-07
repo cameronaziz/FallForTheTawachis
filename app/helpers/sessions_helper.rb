@@ -4,7 +4,4 @@ module SessionsHelper
     session[:customer_id] = user.customer_id
     session[:customer_name]  = user.customer.name
   end
-
-  def authenticate(user)
-  end
 end

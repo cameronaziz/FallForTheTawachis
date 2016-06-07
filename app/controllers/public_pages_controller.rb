@@ -1,14 +1,5 @@
 class PublicPagesController < ApplicationController
   def index
-
-    application = 'http://app.lucentdigital.com'
-
-    if request.base_url == application
-      redirect_to dashboard_path
-    end
-
-    session[:customer_id] = ''
-
     url = request.base_url
     if url.count('.') == 2
       url = url[11..-1]
@@ -20,36 +11,41 @@ class PublicPagesController < ApplicationController
 
     if @customer
       session[:customer_id] = @customer.id
+      session[:customer_name]  = @customer.name
+      if params[:public_id]
+        @reservation = Reservation.where(public_id: params[:public_id]).first
+        @reservation.party_size = @reservation.party_size.to_i
+      else
+        @reservation = Reservation.new
+        if params[:love]
+          multiplier = 73886119512
+          #1 reservation: 73886119512
+          #
+          #6 reservations: 443316717072
+          if (params[:love].to_i % multiplier) == 0
+            @reservation.party_size = params[:love].to_i / multiplier
+          end
+        else
+          @reservation.party_size = 1
+        end
+      end
+
+      size = @reservation.party_size
+      size.times do
+        @reservation.persons.build
+      end
     else
-      @customer = Customer.find(1)
-      session[:customer_id] = @customer.id
+      redirect_to dashboard_path
     end
 
-    session[:customer_name]  = @customer.name
-    if params[:public_id]
-      @reservation = Reservation.where(public_id: params[:public_id]).first
-      @reservation.party_size = @reservation.party_size.to_i
-    else
-      @reservation = Reservation.new
-      if params[:love]
-        multiplier = 73886119512
-        #1 reservation: 73886119512
-        #
-        #6 reservations: 443316717072
-        if (params[:love].to_i % multiplier) == 0
-          @reservation.party_size = params[:love].to_i / multiplier
-        end
-      else
-        @reservation.party_size = 1
-      end
-    end
-    size = @reservation.party_size
-        size.times do
-      @reservation.persons.build
-    end
   end
 
   def dashboard
+    if session[:user_id]
+      redirect_to reservations_path
+    else
+      redirect_to login_path
+    end
   end
 
   def create
