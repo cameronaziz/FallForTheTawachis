@@ -1,10 +1,12 @@
 class PublicPagesController < ApplicationController
   def index
+    redirect_to dashboard_path
+
+
 
     application = 'http://app.lucentdigital.com'
 
     if request.base_url == application
-      redirect_to dashboard_path
     end
 
     session[:customer_id] = ''
