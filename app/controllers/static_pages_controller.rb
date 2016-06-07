@@ -5,10 +5,7 @@ class StaticPagesController < ApplicationController
 
   def variable_view
     @url = request.base_url
-
   end
-
-
 
   def generate
     customer = Customer.new
