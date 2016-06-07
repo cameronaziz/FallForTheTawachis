@@ -4,7 +4,9 @@ class StaticPagesController < ApplicationController
   end
 
   def variable_view
-    @url = request.base_url
+    url = request.base_url
+    url = url[10..-1]
+    @url = url
   end
 
   def generate

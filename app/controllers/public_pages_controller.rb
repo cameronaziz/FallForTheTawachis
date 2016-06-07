@@ -1,8 +1,15 @@
 class PublicPagesController < ApplicationController
   def index
     session[:customer_id] = ''
+    url = request.base_url
+    if url.count('.') == 2
+      url = url[10..-1]
+      @customer = Customer.where(url: url ).first
+    else
+      url = url[7..-1]
+      @customer = Customer.where(url: url ).first
+    end
 
-    @customer = Customer.where(url: request.base_url ).first
     if @customer
       session[:customer_id] = @customer.id
     else
