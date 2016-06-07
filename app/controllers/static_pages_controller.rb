@@ -4,12 +4,7 @@ class StaticPagesController < ApplicationController
   end
 
   def variable_view
-    url = request.base_url
-    if url.count('.') == 2
-      @url = url[10..-1]
-    else
-      @url = url[7..-1]
-    end
+    @url = request.base_url
   end
 
   def generate
