@@ -1,11 +1,15 @@
 class PublicPagesController < ApplicationController
   def index
-    session[:customer_id] = ''
-    url = request.base_url
-    if url == 'http://app.lucentdigital.com'
+
+    application = 'http://app.lucentdigital.com'
+
+    if request.base_url == application
       redirect_to dashboard_path
     end
 
+    session[:customer_id] = ''
+
+    url = request.base_url
     if url.count('.') == 2
       url = url[11..-1]
       @customer = Customer.where(url: url ).first
