@@ -14,8 +14,8 @@
     <th></th>
   </tr>
   <tr>
-    <% @customer.layouts.each do |layout| %>
-    <td> <%= layout.name %></td>
+    <% @customer.email_configurations.each do |configuration| %>
+    <td> <%= configuration.email_templates.name %></td>
     <% end %>
   </tr>
 </table>

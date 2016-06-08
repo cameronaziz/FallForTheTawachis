@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607002202) do
+ActiveRecord::Schema.define(version: 20160607160208) do
 
   create_table "companions", force: :cascade do |t|
     t.integer  "customer_id",    limit: 4
@@ -30,11 +30,31 @@ ActiveRecord::Schema.define(version: 20160607002202) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string   "name",           limit: 255
+    t.string   "name",                 limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "url",                  limit: 255
+    t.integer  "current_layout",       limit: 4
+    t.integer  "current_confirmation", limit: 4
+    t.integer  "current_invitation",   limit: 4
+  end
+
+  create_table "email_configurations", force: :cascade do |t|
+    t.integer  "customer_id",       limit: 4
+    t.integer  "email_template_id", limit: 4
+    t.integer  "field_id",          limit: 4
+    t.string   "name",              limit: 255
+    t.string   "value",             limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "email_templates", force: :cascade do |t|
+    t.string   "name",         limit: 255
+    t.text     "html",         limit: 65535
+    t.boolean  "use_database"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.string   "url",            limit: 255
-    t.integer  "current_layout", limit: 4
   end
 
   create_table "groups", force: :cascade do |t|

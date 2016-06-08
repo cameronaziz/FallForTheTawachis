@@ -1,6 +1,7 @@
 class PublicPagesController < ApplicationController
   def index
     url = request.base_url
+    no_build = false
     if url.count('.') == 2
       url = url[11..-1]
       @customer = Customer.where(url: url ).first
@@ -20,7 +21,7 @@ class PublicPagesController < ApplicationController
         if params[:love]
           multiplier = 73886119512
           #1 reservation: 73886119512
-          #
+          #..
           #6 reservations: 443316717072
           if (params[:love].to_i % multiplier) == 0
             @reservation.party_size = params[:love].to_i / multiplier
@@ -29,7 +30,6 @@ class PublicPagesController < ApplicationController
           @reservation.party_size = 1
         end
       end
-
       size = @reservation.party_size
       size.times do
         @reservation.persons.build
@@ -57,7 +57,8 @@ class PublicPagesController < ApplicationController
     set_reservation_name(@reservation)
     respond_to do |format|
       if @reservation.save
-        Mailer.reservation_confirmation(@reservation).deliver_now
+        email = session[:customer][:confirmation_email]
+        Mailer.reservation_confirmation(@reservation,1).deliver_now
         format.html{ redirect_to :back }
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}
@@ -73,7 +74,8 @@ class PublicPagesController < ApplicationController
     @reservation.is_confirmed = true
     respond_to do |format|
       if @reservation.update_attributes(reservation_params)
-        Mailer.reservation_confirmation(@reservation).deliver_now
+        email = session[:customer][:confirmation_email]
+        Mailer.reservation_confirmation(@reservation,1).deliver_now
         format.html{ redirect_to :back }
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}

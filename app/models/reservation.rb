@@ -8,7 +8,7 @@ class Reservation < ActiveRecord::Base
 
 
   def registration_time
-    format = '%m/%d/%Y %H:%M'
+    format = '%m/%d/%Y'
     created_at.strftime(format)
   end
 

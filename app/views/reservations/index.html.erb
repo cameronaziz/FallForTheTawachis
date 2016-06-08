@@ -8,6 +8,7 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
+    <th>Reservation Size</th>
     <th>Group</th>
     <th>Link</th>
     <th>Confirmed</th>
@@ -19,6 +20,7 @@
       <tr>
         <td><%= link_to  reservation.name, reservation %></td>
         <td><%= reservation.email %></td>
+        <td><%= reservation.party_size %></td>
         <td><%= reservation.group.name unless reservation.group.nil? %></td>
         <td><%= link_to(root_path + 'id/' + reservation.public_id, root_path + 'id/' + reservation.public_id)  %></td>
         <td><%= reservation.is_confirmed ? 'Yes' : 'No' %></td>
