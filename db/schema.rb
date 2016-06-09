@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607160208) do
+ActiveRecord::Schema.define(version: 20160609043337) do
 
   create_table "companions", force: :cascade do |t|
     t.integer  "customer_id",    limit: 4
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 20160607160208) do
     t.integer  "email_template_id", limit: 4
     t.integer  "field_id",          limit: 4
     t.string   "name",              limit: 255
-    t.string   "value",             limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.text     "value",             limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "email_templates", force: :cascade do |t|

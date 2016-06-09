@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   get 'reservations/email/:id' => 'reservations#email', as: :reservations_email
 
 
+  get 'email_configurations/template/:id' => 'email_configurations#index', as: :email_configurations_template
+  resources :email_configurations
+
+
   resources :meals
   resources :groups
   resources :customers

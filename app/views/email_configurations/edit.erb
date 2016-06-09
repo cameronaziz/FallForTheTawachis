@@ -1,0 +1,12 @@
+<%= link_to 'Back', email_configurations_template_path('1'), class: 'btn btn-success' %>
+<%= form_for @configuration do |f| %>
+    <div class="form-group">
+    <%= f.label @configuration.value %><br><br>
+      <% if @configuration.value.length > 40 %>
+          <%= f.text_area :value, required: true, class: 'form-control' %>
+      <% else %>
+          <%= f.text_field :value, required: true, class: 'form-control'  %>
+      <%end %>
+    </div>
+    <%= f.submit 'Submit', class: 'btn btn-default' %>
+<% end %>

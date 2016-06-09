@@ -8,14 +8,4 @@
     <%= f.submit 'Submit', class: 'btn btn-default' %>
 <% end %>
 <h3>Layouts</h3>
-<table class="table table-hover">
-  <tr>
-    <th>Name</th>
-    <th></th>
-  </tr>
-  <tr>
-    <% @customer.email_configurations.each do |configuration| %>
-    <td> <%= configuration.email_templates.name %></td>
-    <% end %>
-  </tr>
-</table>
+<%= link_to 'Email Confirmation', email_configurations_template_path('1') %>

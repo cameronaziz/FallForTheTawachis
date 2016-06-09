@@ -5,11 +5,9 @@
 </head>
 
 <body bgcolor="#8d8e90">
-Hello <%= @reservation.persons.first.full_name %>,
-&nbsp;&nbsp;Thanks for sending us your RSVP. We are looking forward to enjoying the evening with you. The wedding ceremony will begin promptly
-at 4:30PM on October 22, 2016. Afterwards, we look forward to celebrating at the cocktail hour at 5:30PM and the reception at 6:30PM.
+<%= @email_configurations.where(field_id: 2).first.value %> <%= @reservation.persons.first.full_name %>,<br>
+<%= @email_configurations.where(field_id: 3).first.value %><br><br>
 
-Love,
-Wassef Tawachi and Adriana Orozco
-</body>
+<%= @email_configurations.where(field_id: 4).first.value %>,
+<%= @email_configurations.where(field_id: 5).first.value %></body>
 </html>
