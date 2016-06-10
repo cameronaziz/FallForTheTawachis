@@ -9,7 +9,7 @@ class EmailConfigurationsController < ApplicationController
 
   def update
     if @configuration.update_attributes(email_configuration_params)
-      redirect_to email_configurations_template_path(params[:id])
+      redirect_to email_configurations_template_path(@configuration.email_template_id)
     else
       render 'edit'
     end
