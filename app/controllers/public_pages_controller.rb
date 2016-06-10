@@ -1,7 +1,6 @@
 class PublicPagesController < ApplicationController
   def index
     url = request.base_url
-    no_build = false
     if url.count('.') == 2
       url = url[11..-1]
       @customer = Customer.where(url: url ).first
@@ -13,6 +12,7 @@ class PublicPagesController < ApplicationController
     if @customer
       session[:customer_id] = @customer.id
       session[:customer_name]  = @customer.name
+      session[:current_confirmation] = @customer.current_confirmation
       if params[:public_id]
         @reservation = Reservation.where(public_id: params[:public_id]).first
         @reservation.party_size = @reservation.party_size.to_i
@@ -57,11 +57,12 @@ class PublicPagesController < ApplicationController
     set_reservation_name(@reservation)
     respond_to do |format|
       if @reservation.save
-        email = session[:customer][:confirmation_email]
-        Mailer.reservation_confirmation(@reservation,1).deliver_now
         format.html{ redirect_to :back }
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}
+        if session[:current_confirmation]
+          Mailer.reservation_email(@reservation, session[:current_confirmation]).deliver_now
+        end
       else
         format.html { render action: 'index' }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
@@ -74,11 +75,12 @@ class PublicPagesController < ApplicationController
     @reservation.is_confirmed = true
     respond_to do |format|
       if @reservation.update_attributes(reservation_params)
-        email = session[:customer][:confirmation_email]
-        Mailer.reservation_confirmation(@reservation,1).deliver_now
         format.html{ redirect_to :back }
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}
+        if session[:current_confirmation]
+          Mailer.reservation_email(@reservation, 1).deliver_now
+        end
       else
         format.html { render action: 'index' }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }

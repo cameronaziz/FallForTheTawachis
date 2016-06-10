@@ -2,7 +2,6 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :destroy, :edit, :email, :update]
 
   def new
-
       @reservation = Reservation.new
       6.times do
         @reservation.persons.build
@@ -55,7 +54,7 @@ class ReservationsController < ApplicationController
   end
 
   def email
-    Mailer.reservation_creation(@reservation).deliver_now
+    Mailer.reservation_email(@reservation, 2).deliver_now
     @reservation.update_columns(email_sent: true)
     redirect_to reservations_path
   end

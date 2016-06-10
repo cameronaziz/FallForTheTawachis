@@ -1,9 +1,7 @@
 class Mailer < ApplicationMailer
-  def reservation_confirmation(reservation, email)
+  def reservation_email(reservation, email)
     @reservation = reservation
-    @email_configurations = EmailConfiguration.where(email_template_id: '1')
-    #file = File.join(Rails.root, 'app', 'assets', 'images', 'emails', '1', 'PROMO-GREEN2_01_01.jpg')
-    #attachments.inline['PROMO-GREEN2_01_01.jpg'] = File.read(file)
+    @email_configurations = EmailConfiguration.where(email_template_id: email)
     mail(to: reservation.email,
          from: 'mail@fallforthetawachis.com',
          subject: @email_configurations.where(field_id: 1).first.value,

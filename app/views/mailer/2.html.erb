@@ -5,10 +5,11 @@
 </head>
 
 <body bgcolor="#8d8e90">
-<%= @email_configurations.where(field_id: 2).first.value %> <%= @reservation.persons.first.full_name %>,<br>
-<%= @email_configurations.where(field_id: 3).first.value %><br><br>
+<%= @email_configurations.where(field_id: 2).first.value %> <%= @reservation.name %>,<br>
+<%= @email_configurations.where(field_id: 3).first.value %> <%= link_to('www.fallforthetawachis.com', root_path + 'id/' + @reservation.public_id) %> <%= @email_configurations.where(field_id: 6).first.value %><br><br>
 
 <%= @email_configurations.where(field_id: 4).first.value %>,
 <%= @email_configurations.where(field_id: 5).first.value %>
+
 </body>
 </html>
