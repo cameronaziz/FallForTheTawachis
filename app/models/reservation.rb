@@ -20,4 +20,12 @@ class Reservation < ActiveRecord::Base
     end
   end
 
+  def associated_people
+    people = 0
+    self.persons.each do
+      people = people + 1
+    end
+    people
+  end
+
 end

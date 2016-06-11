@@ -30,7 +30,8 @@ class PublicPagesController < ApplicationController
           @reservation.party_size = 1
         end
       end
-      size = @reservation.party_size
+      party_size = @reservation.party_size
+      size = party_size - @reservation.associated_people.to_i
       size.times do
         @reservation.persons.build
       end
