@@ -16,46 +16,54 @@
 //= require_tree .
 
 
+$(window).load(function() {
+    $("#person1").hide();
+    $("#person2").hide();
+    $("#person3").hide();
+    $("#person4").hide();
+    $("#person5").hide();
+});
+
 
 
 
 function partySize(event) {
     if(this.selectedIndex == 0) {
-        document.getElementById('1').style.display = 'none';
-        document.getElementById('2').style.display = 'none';
-        document.getElementById('3').style.display = 'none';
-        document.getElementById('4').style.display = 'none';
-        document.getElementById('5').style.display = 'none';
+        document.getElementById('person1').style.display = 'none';
+        document.getElementById('person2').style.display = 'none';
+        document.getElementById('person3').style.display = 'none';
+        document.getElementById('person4').style.display = 'none';
+        document.getElementById('person5').style.display = 'none';
     } else if(this.selectedIndex == 1) {
-        document.getElementById('1').style.display = 'block';
-        document.getElementById('2').style.display = 'none';
-        document.getElementById('3').style.display = 'none';
-        document.getElementById('4').style.display = 'none';
-        document.getElementById('5').style.display = 'none';
+        document.getElementById('person1').style.display = 'block';
+        document.getElementById('person2').style.display = 'none';
+        document.getElementById('person3').style.display = 'none';
+        document.getElementById('person4').style.display = 'none';
+        document.getElementById('person5').style.display = 'none';
     } else if(this.selectedIndex == 2) {
-        document.getElementById('1').style.display = 'block';
-        document.getElementById('2').style.display = 'block';
-        document.getElementById('3').style.display = 'none';
-        document.getElementById('4').style.display = 'none';
-        document.getElementById('5').style.display = 'none';
+        document.getElementById('person1').style.display = 'block';
+        document.getElementById('person2').style.display = 'block';
+        document.getElementById('person3').style.display = 'none';
+        document.getElementById('person4').style.display = 'none';
+        document.getElementById('person5').style.display = 'none';
     } else if(this.selectedIndex == 3) {
-        document.getElementById('1').style.display = 'block';
-        document.getElementById('2').style.display = 'block';
-        document.getElementById('3').style.display = 'block';
-        document.getElementById('4').style.display = 'none';
-        document.getElementById('5').style.display = 'none';
+        document.getElementById('person1').style.display = 'block';
+        document.getElementById('person2').style.display = 'block';
+        document.getElementById('person3').style.display = 'block';
+        document.getElementById('person4').style.display = 'none';
+        document.getElementById('person5').style.display = 'none';
     } else if(this.selectedIndex == 4) {
-        document.getElementById('1').style.display = 'block';
-        document.getElementById('2').style.display = 'block';
-        document.getElementById('3').style.display = 'block';
-        document.getElementById('4').style.display = 'block';
-        document.getElementById('5').style.display = 'none';
+        document.getElementById('person1').style.display = 'block';
+        document.getElementById('person2').style.display = 'block';
+        document.getElementById('person3').style.display = 'block';
+        document.getElementById('person4').style.display = 'block';
+        document.getElementById('person5').style.display = 'none';
     } else if(this.selectedIndex == 5) {
-        document.getElementById('1').style.display = 'block';
-        document.getElementById('2').style.display = 'block';
-        document.getElementById('3').style.display = 'block';
-        document.getElementById('4').style.display = 'block';
-        document.getElementById('5').style.display = 'block';
+        document.getElementById('person1').style.display = 'block';
+        document.getElementById('person2').style.display = 'block';
+        document.getElementById('person3').style.display = 'block';
+        document.getElementById('person4').style.display = 'block';
+        document.getElementById('person5').style.display = 'block';
     }
 }
 
