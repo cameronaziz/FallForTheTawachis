@@ -5,7 +5,7 @@ class Mailer < ApplicationMailer
     #from_email = customer.from_email
     #url = customer.url
     #email = from_email + url
-    
+
 
     mail(to: reservation.email,
          from: 'mail@fallforthetawachis.com',

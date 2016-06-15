@@ -16,13 +16,7 @@
 //= require_tree .
 
 
-$(window).load(function() {
-    $("#person1").hide();
-    $("#person2").hide();
-    $("#person3").hide();
-    $("#person4").hide();
-    $("#person5").hide();
-});
+
 
 
 function partySize(event) {
