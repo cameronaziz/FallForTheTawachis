@@ -4,9 +4,13 @@
         <%= f.label :name, 'Site Name'%>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
-      <div class="form-group col-sm-6">
-        <%= f.label :from_email, 'Site Name'%>
+      </div>
+    <div class="row">
+
+    <div class="form-group col-sm-6">
+        <%= f.label :from_email, 'From Email'%>
         <%= f.text_field :from_email, class: 'form-control' %>
+        @<%= @customer.url %>
       </div>
     </div>
     <%= f.submit 'Submit', class: 'btn btn-default' %>
