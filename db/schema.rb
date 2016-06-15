@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609043337) do
+ActiveRecord::Schema.define(version: 20160614153042) do
 
   create_table "companions", force: :cascade do |t|
     t.integer  "customer_id",    limit: 4
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160609043337) do
     t.integer  "current_layout",       limit: 4
     t.integer  "current_confirmation", limit: 4
     t.integer  "current_invitation",   limit: 4
+    t.string   "from_email",           limit: 255
   end
 
   create_table "email_configurations", force: :cascade do |t|

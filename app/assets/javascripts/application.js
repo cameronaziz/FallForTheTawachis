@@ -25,8 +25,6 @@ $(window).load(function() {
 });
 
 
-
-
 function partySize(event) {
     if(this.selectedIndex == 0) {
         document.getElementById('person1').style.display = 'none';

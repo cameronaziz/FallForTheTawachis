@@ -1,0 +1,6 @@
+<%= link_to 'Back', edit_customer_path(session[:customer_id]), class: 'btn btn-success' %>
+<h3>Subject: <%= link_to @email_configurations.where(field_id: 1).first.value, edit_email_configuration_path(@email_configurations.where(field_id: 1).first) %></h3>
+<%= link_to @email_configurations.where(field_id: 2).first.value, edit_email_configuration_path(@email_configurations.where(field_id: 2).first) %><span class="bg-success">FULL NAME OF FIRST RSVP,</span><br>
+<%= link_to @email_configurations.where(field_id: 3).first.value, edit_email_configuration_path(@email_configurations.where(field_id: 3).first) %> <% unless params[:id] == '1' %> <span class="bg-success">RESERVATION LINK</span><% end %> <%= link_to @email_configurations.where(field_id: 6).first.value, edit_email_configuration_path(@email_configurations.where(field_id: 6).first) unless params[:id] == '1' %><br><br>
+<%= link_to @email_configurations.where(field_id: 4).first.value, edit_email_configuration_path(@email_configurations.where(field_id: 4).first) %>,<br>
+<%= link_to @email_configurations.where(field_id: 5).first.value, edit_email_configuration_path(@email_configurations.where(field_id: 5).first) %>

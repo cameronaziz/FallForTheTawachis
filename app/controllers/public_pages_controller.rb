@@ -1,14 +1,6 @@
 class PublicPagesController < ApplicationController
   def index
-    url = request.base_url
-    if url.count('.') == 2
-      url = url[11..-1]
-      @customer = Customer.where(url: url ).first
-    else
-      url = url[7..-1]
-      @customer = Customer.where(url: url ).first
-    end
-
+    @customer = get_customer_from_url(request.base_url)
     if @customer
       session[:customer_id] = @customer.id
       session[:customer_name]  = @customer.name
@@ -51,18 +43,22 @@ class PublicPagesController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.customer_id = session[:customer_id]
+    @customer = Customer.find(session[:customer_id])
+
+    @reservation.customer_id = @customer.id
     @reservation.is_confirmed = true
     @reservation.email_sent = true
     @reservation.public_id = SecureRandom.urlsafe_base64
+
     set_reservation_name(@reservation)
+
     respond_to do |format|
       if @reservation.save
         format.html{ redirect_to :back }
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}
-        if session[:current_confirmation]
-          Mailer.reservation_email(@reservation, session[:current_confirmation]).deliver_now
+        if @customer.current_confirmation
+          Mailer.reservation_email(@reservation, @customer.current_confirmation).deliver_now
         end
       else
         format.html { render action: 'index' }
@@ -72,8 +68,11 @@ class PublicPagesController < ApplicationController
   end
 
   def update
-    @reservation = Reservation.where(public_id: params[:public_id]).first
+    @reservation = Reservation.find_by_public_id(params[:public_id])
+    @customer = Customer.find(session[:customer_id])
+
     @reservation.is_confirmed = true
+
     respond_to do |format|
       if @reservation.update_attributes(reservation_params)
         format.html{ redirect_to :back }
@@ -104,6 +103,18 @@ class PublicPagesController < ApplicationController
     else
       reservation.name = "#{reservation.persons.first.first_name} #{reservation.persons.first.last_name}"
     end
+  end
+
+  def get_customer_from_url(url)
+    url = request.base_url
+    if url.count('.') == 2
+      url = url[11..-1]
+      customer = Customer.where(url: url ).first
+    else
+      url = url[7..-1]
+      customer = Customer.where(url: url ).first
+    end
+    customer
   end
 
 end

@@ -1,8 +1,14 @@
 class EmailConfigurationsController < ApplicationController
   before_action :set_email_configuration, only: [:edit, :update]
+
   def index
     @email_configurations = EmailConfiguration.where(email_template_id: params[:id])
   end
+
+  def show
+    @email_configurations = EmailConfiguration.where(email_template_id: params[:id])
+  end
+
 
   def edit
   end
