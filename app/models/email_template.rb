@@ -1,4 +1,4 @@
 class EmailTemplate < ActiveRecord::Base
-  belongs_to :email_configuration
-  belongs_to :customer
+  has_many :email_configurations
+  belongs_to :email_type
 end

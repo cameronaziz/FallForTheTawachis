@@ -23,8 +23,9 @@ class CustomersController < ApplicationController
     end
 
     def update
+      name = params[:customer][:name]
       if @customer.update_attributes(customer_params)
-        redirect_to root_path
+        redirect_to edit_customer_path(@customer), notice: "#{name} was successfully updated."
       else
         render :edit
       end
@@ -44,7 +45,7 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
-      params.require(:customer).permit(:name, :from_email)
+      params.require(:customer).permit(:name, :from_email, :current_confirmation, :current_invitation)
     end
 
 end

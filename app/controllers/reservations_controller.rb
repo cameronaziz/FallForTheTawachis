@@ -2,11 +2,10 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :destroy, :edit, :email, :update]
 
   def new
-      @reservation = Reservation.new
-      6.times do
-        @reservation.persons.build
-      end
-
+    @reservation = Reservation.new
+    6.times do
+      @reservation.persons.build
+    end
   end
 
   def edit
@@ -15,7 +14,6 @@ class ReservationsController < ApplicationController
       @reservation.persons.build
     end
   end
-
 
   def create
     @reservation = Reservation.new(reservation_params)
@@ -54,7 +52,9 @@ class ReservationsController < ApplicationController
   end
 
   def email
-    Mailer.reservation_email(@reservation, 2).deliver_now
+    customer = Customer.find(session[:customer_id])
+    email = customer.current_invitation
+    Mailer.reservation_email(@reservation, email, customer).deliver_now
     @reservation.update_columns(email_sent: true)
     redirect_to reservations_path
   end

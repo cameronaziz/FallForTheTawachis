@@ -1,16 +1,28 @@
+<%= render 'shared/errors', object: @customer %>
 <%= form_for @customer do |f| %>
     <div class="row">
       <div class="form-group col-sm-6">
-        <%= f.label :name, 'Site Name'%>
+        <%= f.label :name, 'Name'%>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
-      </div>
+    </div>
     <div class="row">
-
-    <div class="form-group col-sm-6">
-        <%= f.label :from_email, 'From Email'%>
-        <%= f.text_field :from_email, class: 'form-control' %>
-        @<%= @customer.url %>
+      <div class="form-group col-sm-6">
+          <%= f.label :from_email, 'From Email'%>
+          <%= f.text_field :from_email, class: 'form-control' %>
+          @<%= @customer.url %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <%= f.label :current_invitation, 'Invitation Email'%>
+        <%= f.collection_select :current_invitation, EmailTemplate.where(:email_type_id => 1), :id, :name, {}, class: 'form-control'  %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <%= f.label :current_confirmation, 'Confirmation Email'%>
+        <%= f.collection_select :current_confirmation, EmailTemplate.where(:email_type_id => 2), :id, :name, {}, class: 'form-control'  %>
       </div>
     </div>
     <%= f.submit 'Submit', class: 'btn btn-default' %>

@@ -58,7 +58,7 @@ class PublicPagesController < ApplicationController
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}
         if @customer.current_confirmation
-          Mailer.reservation_email(@reservation, @customer.current_confirmation).deliver_now
+          Mailer.reservation_email(@reservation, @customer.current_confirmation, @customer).deliver_now
         end
       else
         format.html { render action: 'index' }

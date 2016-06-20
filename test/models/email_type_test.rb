@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class InviteeTest < ActiveSupport::TestCase
+class EmailTypeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
