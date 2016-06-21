@@ -61,57 +61,8 @@
 
   }
 </style>
-</head><body><!-- Start of preheader -->
-
-<!-- End of preheader -->
-
-<!-- Start of header -->
-
-<!-- End of Header -->
-
-<!-- Start of seperator -->
-
-<!-- End of seperator -->
-
-<!-- Start of main-banner -->
-
-<!-- End of main-banner -->
-
-<!-- Start of seperator -->
-
-<!-- End of seperator -->
-
-<!-- Start of Left Image -->
-
-<!-- End of Left Image -->
-
-<!-- Start of seperator -->
-
-<!-- End of seperator -->
-
-<!-- start of Full text -->
-
-<!-- End of Full Text -->
-
-<!-- Start of seperator -->
-
-<!-- End of seperator -->
-
-<!-- Start of Right Image -->
-
-<!-- End of Right Image -->
-
-<!-- Start of seperator -->
-
-<!-- End of seperator -->
-
-<!-- Start of footer -->
-
-<!-- End of footer -->
-
-<!-- Start of Postfooter -->
-
-<!-- End of postfooter -->
+</head>
+<body>
 
 <table width="100%" bgcolor="#fcfcfc" cellpadding="0" cellspacing="0" border="0">
   <tbody>
@@ -130,16 +81,7 @@
 
                 <td align="center">
                   <div class="imgpop">
-                    <div class="uploader_wrap" style="width: 600px; margin-top: 280px; opacity: 0;">
-                      <div class="upload_buttons">
-                        <div class="img_link">
-                        </div>
-                        <div class="img_upload">
-                        </div>
-                        <div class="img_edit" style="visibility: visible;">
-                        </div>
-                      </div>
-                    </div><a href="http://www.<%= @reservation.customer.url %>/id/<%= @reservation.public_id %>"><%= image_tag attachments['image.jpg'].url, width: 600, class: 'banner', border: 0 %></a>
+                    <a href="http://www.<%= @reservation.customer.url %>/id/<%= @reservation.public_id %>"><%= image_tag attachments['image.jpg'].url, width: 600, class: 'banner', border: 0 %></a>
                   </div>
                 </td>
               </tr>
@@ -224,7 +166,7 @@
                     <tr>
                       <td style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #889098; text-align:center; line-height: 24px;">
                         <p>
-                          Please visit our website <a href="http://www.<%= @reservation.customer.url %>/id/<%= @reservation.public_id %>">fallforthetawachis.com</a> to tentatively RSVP and provide us with your address for the formal invitations.
+                          <%= @email_configurations.where(field_id: 2).first.value %> <a href="http://www.<%= @reservation.customer.url %>/id/<%= @reservation.public_id %>">fallforthetawachis.com</a> <%= @email_configurations.where(field_id: 3).first.value %>
                         </p>
                       </td>
                     </tr>

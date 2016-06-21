@@ -1,0 +1,3 @@
+<%= link_to 'Back', edit_customer_path(session[:customer_id]), class: 'btn btn-success' %>
+<h3>Subject: <%= link_to @email_configurations.where(field_id: 1).first.value, edit_email_configuration_path(@email_configurations.where(field_id: 1).first) %></h3>
+<%= link_to @email_configurations.where(field_id: 2).first.value, edit_email_configuration_path(@email_configurations.where(field_id: 2).first) %> <span class="bg-success">RESERVATION LINK</span> <%= link_to @email_configurations.where(field_id: 3).first.value, edit_email_configuration_path(@email_configurations.where(field_id: 3).first) %><br><br>
