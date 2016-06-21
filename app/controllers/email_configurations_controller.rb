@@ -9,6 +9,7 @@ class EmailConfigurationsController < ApplicationController
   end
 
   def show
+    @customer = Customer.find(session[:customer_id])
     @email_configurations = EmailConfiguration.where(email_template_id: params[:id])
   end
 
