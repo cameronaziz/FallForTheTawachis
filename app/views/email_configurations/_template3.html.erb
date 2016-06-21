@@ -85,7 +85,7 @@
 
                 <td align="center">
                   <div class="imgpop">
-                    <a href="http://www.<%= @customer.url %>"><%= image_tag 'emails/3/image.jpg', width: 600, class: 'banner', border: 0 %></a>
+                    <%= image_tag 'emails/3/image.jpg', width: 600, class: 'banner', border: 0 %>
                   </div>
                 </td>
               </tr>
@@ -170,7 +170,7 @@
                     <tr>
                       <td style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #889098; text-align:center; line-height: 24px;">
                         <p>
-                          <%= configuration_link(3) %> <a href="http://www.<%= @customer.url %>"><%= @customer.url %></a> <%= configuration_link(4) %>
+                          <%= configuration_link(3) %> <%= @customer.url %> <%= configuration_link(4) %>
                         </p>
                       </td>
                     </tr>
