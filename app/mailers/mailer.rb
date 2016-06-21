@@ -6,13 +6,13 @@ class Mailer < ApplicationMailer
     attachments.inline['image.jpg'] = File.read(file)
 
     if customer.url == 'localhost:3000'
-      url = 'fallforthetawachis.com'
+      from_url = 'fallforthetawachis.com'
     else
-      url = customer.url
+      from_url = customer.url
     end
 
     mail(to: reservation.email,
-         from: "#{customer.from_email}@#{url}",
+         from: "#{customer.from_email}@#{from_url}",
          #from: 'mail@fallforthetawachis.com',
          subject: @email_configurations.where(field_id: 1).first.value,
          template_path: 'mailer',
