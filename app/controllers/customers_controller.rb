@@ -23,11 +23,22 @@ class CustomersController < ApplicationController
     end
 
     def update
-      name = params[:customer][:name]
-      if @customer.update_attributes(customer_params)
-        redirect_to edit_customer_path(@customer), notice: "#{name} was successfully updated."
-      else
-        render :edit
+#      name = params[:customer][:name]
+#      if @customer.update_attributes(customer_params)
+#        redirect_to edit_customer_path(@customer), notice: "#{name} was successfully updated."
+#      else
+#        render :edit
+#      end
+
+      respond_to do |format|
+        if @customer.update_attributes(customer_params)
+          format.html{ redirect_to :back }
+          format.js{ }
+          format.json{ render json: @customer, status: :created, location: @customer}
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @customer.errors, status: :unprocessable_entity }
+        end
       end
     end
 

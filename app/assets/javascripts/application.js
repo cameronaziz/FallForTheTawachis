@@ -63,3 +63,16 @@ function AlertIt() {
     confirm("This is not available for beta. Please send Save the Dates manually ")
 
 }
+
+
+function invitation(event) {
+    $("#invitation-link").attr("href", '/email_configurations/' + this.value)
+    $("#invitation-link").text('Edit ' + $(this).find('option:selected').text() + ' Template')
+
+}
+
+
+function confimation(event) {
+    $("#confirmation-link").attr("href", '/email_configurations/' + this.value )
+    $("#confirmation-link").text('Edit ' + $(this).find('option:selected').text() + ' Template')
+}

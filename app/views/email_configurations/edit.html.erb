@@ -1,4 +1,4 @@
-<%= link_to 'Back', email_configurations_template_path('1'), class: 'btn btn-success' %>
+<%= link_to 'Back', email_configuration_path(@configuration.email_template_id), class: 'btn btn-success' %>
 <%= form_for @configuration do |f| %>
     <div class="form-group">
     <%= f.label @configuration.value %><br><br>
