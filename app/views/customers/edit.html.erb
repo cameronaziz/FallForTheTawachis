@@ -17,14 +17,14 @@
       <div class="form-group col-sm-6">
         <%= f.label :current_invitation, 'Invitation Email'%>
         <%= f.collection_select :current_invitation, EmailTemplate.where(:email_type_id => 1), :id, :name,{}, {onchange: 'invitation.call(this, event)', class: 'form-control'}  %>
-        <%= link_to 'Edit Template', email_configuration_path(@customer.current_invitation), class: 'btn btn-default', id: 'invitation-link' %><br>
+        <%= link_to 'Edit Current Template', email_configuration_path(@customer.current_invitation), class: 'btn btn-default', id: 'invitation-link' %><br>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-sm-6">
         <%= f.label :current_confirmation, 'Confirmation Email'%>
         <%= f.collection_select :current_confirmation, EmailTemplate.where(:email_type_id => 2), :id, :name, {}, {onchange: 'confirmation.call(this, event)', class: 'form-control'}  %>
-        <%= link_to 'Edit Confirmation', email_configuration_path(@customer.current_confirmation), class: 'btn btn-default invitation' %><br>
+        <%= link_to 'Edit Current Confirmation', email_configuration_path(@customer.current_confirmation), class: 'btn btn-default invitation' %><br>
       </div>
     </div>
     <%= f.submit 'Submit', class: 'btn btn-success' %>
