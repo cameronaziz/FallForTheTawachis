@@ -3,12 +3,17 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 #$(window).load(function() {
- `$(function () {
-    $("#person1").hide();
-    $("#person2").hide();
-    $("#person3").hide();
-    $("#person4").hide();
-    $("#person5").hide();
+# `$(function () {
+#    $("#person1").hide();
+#    $("#person2").hide();
+#    $("#person3").hide();
+#    $("#person4").hide();
+#    $("#person5").hide();
+#});`
+
+`$(function(){
+    var select = document.getElementById('party_size');
+    select.selectedIndex = select.options.length-1;
 });`
 
 

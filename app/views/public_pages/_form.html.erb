@@ -4,7 +4,7 @@
       <%= form_for @reservation, :url => url_for(:controller => 'public_pages'), remote: true do |f| %>
           <div class="row rsvp-row">
             <div class="col-sm-9 col-sm-offset-1">
-              There will be <select onchange="partySize.call(this, event)" name="reservation[party_size]" >
+              There will be <select onchange="partySize.call(this, event)" name="reservation[party_size]" id="party_size" >
               <%= dynamic_select(@reservation.party_size)%>
             </select> people in my party.
             </div>
