@@ -166,7 +166,10 @@
                     <tr>
                       <td style="font-family: Helvetica, arial, sans-serif; font-size: 14px; color: #889098; text-align:center; line-height: 24px;">
                         <p>
-                          <%= @email_configurations.where(field_id: 3).first.value %> <a href="http://www.<%= @reservation.customer.url %>/id/<%= @reservation.public_id %>"><%= @email_configurations.where(field_id: 5).first.value %></a> <%= @email_configurations.where(field_id: 4).first.value %>
+                          <%= @email_configurations.where(field_id: 3).first.value %> <a href="http://www.<%= @reservation.customer.url %>/id/<%= @reservation.public_id %>"><%= @email_configurations.where(field_id: 5).first.value %></a> <%= @email_configurations.where(field_id: 4).first.value %><br>
+                          <% @reservation.persons.each do |person| %>
+                          <%= person.full_name %><br>
+                          <% end %>
                         </p>
                       </td>
                     </tr>
