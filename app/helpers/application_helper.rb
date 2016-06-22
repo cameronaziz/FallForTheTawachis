@@ -9,5 +9,10 @@ module ApplicationHelper
     end
   end
 
+  def formatted_time(time)
+      format = '%m/%d/%Y %l:%M%p'
+      time.strftime(format)
+  end
+
 
 end
