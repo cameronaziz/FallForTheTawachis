@@ -3,4 +3,6 @@ class SupportTicket < ActiveRecord::Base
   belongs_to :user, foreign_key: :created_by
   belongs_to :customer
 
+  accepts_nested_attributes_for :support_comments, allow_destroy: true
+
 end
