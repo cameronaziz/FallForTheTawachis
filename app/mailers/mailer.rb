@@ -2,8 +2,11 @@ class Mailer < ApplicationMailer
   def reservation_email(reservation, email, customer)
     @reservation = reservation
     @email_configurations = EmailConfiguration.where(email_template_id: email)
-    file = File.join(Rails.root, 'app', 'assets', 'images', 'emails', '3', 'image.jpg')
-    attachments.inline['image.jpg'] = File.read(file)
+
+    if email == 3
+      file = File.join(Rails.root, 'app', 'assets', 'images', 'emails', '3', 'image.jpg')
+      attachments.inline['image.jpg'] = File.read(file)
+    end
 
     if customer.url == 'localhost:3000'
       from_url = 'fallforthetawachis.com'
