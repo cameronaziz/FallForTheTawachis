@@ -60,7 +60,7 @@ function partySize(event) {
 }
 
 function AlertIt() {
-    confirm("This is not available for beta. Please send Save the Dates manually ")
+    confirm("This is not available for beta.")
 
 }
 
