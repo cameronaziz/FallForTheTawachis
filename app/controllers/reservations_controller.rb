@@ -30,7 +30,7 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @reservations = Reservation.where(customer_id: session[:customer_id])
+    @reservations = Reservation.where(customer_id: session[:customer_id]).order(:name)
   end
 
   def show
