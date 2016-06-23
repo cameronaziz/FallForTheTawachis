@@ -46,6 +46,9 @@ class PublicPagesController < ApplicationController
     @customer = Customer.find(session[:customer_id])
 
     @reservation.customer_id = @customer.id
+    @reservation.persons.each do |person|
+      person.customer_id = @customer.id
+    end
     @reservation.is_confirmed = true
     @reservation.email_sent = true
     @reservation.public_id = SecureRandom.urlsafe_base64

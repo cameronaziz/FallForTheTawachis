@@ -18,6 +18,9 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.customer_id = session[:customer_id]
+    @reservation.persons.each do |person|
+      person.customer_id = session[:customer_id]
+    end
     @reservation.public_id = SecureRandom.urlsafe_base64
     @reservation.is_confirmed = false
     @reservation.email_sent = false
