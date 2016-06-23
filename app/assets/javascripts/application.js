@@ -15,7 +15,13 @@
 //= require turbolinks
 //= require_tree .
 
-
+function attending(event) {
+    if(this.selectedIndex == 0) {
+        document.getElementById('attending').style.display = 'block';
+    } else if(this.selectedIndex == 1) {
+        document.getElementById('attending').style.display = 'none';
+    }
+}
 
 
 

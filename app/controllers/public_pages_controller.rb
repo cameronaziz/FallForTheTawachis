@@ -78,7 +78,7 @@ class PublicPagesController < ApplicationController
         format.html{ redirect_to :back }
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}
-        if session[:current_confirmation]
+        unless @reservation.not_attending
           Mailer.reservation_email(@reservation, @customer.current_confirmation, @customer).deliver_now
         end
       else
@@ -94,7 +94,7 @@ class PublicPagesController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:id, :name, :customer_id, :party_size, :address, :city, :state, :zip, :email, persons_attributes: [:id, :first_name, :last_name, :meal_id])
+    params.require(:reservation).permit(:id, :not_attending, :name, :customer_id, :party_size, :address, :city, :state, :zip, :email, persons_attributes: [:id, :first_name, :last_name, :meal_id])
   end
 
   def set_reservation_name(reservation)

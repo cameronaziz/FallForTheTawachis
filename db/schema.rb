@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621235350) do
+ActiveRecord::Schema.define(version: 20160622233420) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "name",                 limit: 255
@@ -75,21 +75,22 @@ ActiveRecord::Schema.define(version: 20160621235350) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer  "customer_id",  limit: 4
-    t.string   "name",         limit: 255
-    t.string   "note",         limit: 255
-    t.integer  "party_size",   limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "address",      limit: 255
-    t.string   "city",         limit: 255
-    t.string   "state",        limit: 255
-    t.string   "zip",          limit: 255
-    t.string   "public_id",    limit: 255
+    t.integer  "customer_id",   limit: 4
+    t.string   "name",          limit: 255
+    t.string   "note",          limit: 255
+    t.integer  "party_size",    limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "address",       limit: 255
+    t.string   "city",          limit: 255
+    t.string   "state",         limit: 255
+    t.string   "zip",           limit: 255
+    t.string   "public_id",     limit: 255
     t.boolean  "is_confirmed"
-    t.string   "email",        limit: 255
-    t.integer  "group_id",     limit: 4
+    t.string   "email",         limit: 255
+    t.integer  "group_id",      limit: 4
     t.boolean  "email_sent"
+    t.boolean  "not_attending"
   end
 
   create_table "support_comments", force: :cascade do |t|

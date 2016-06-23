@@ -25,17 +25,21 @@ module ReservationsHelper
   end
 
 
-  def email_link(reservation)
-    if reservation.email.nil?
-      'No Email'
+  def status(reservation)
+    if reservation.not_attending
+      'Not Attending'
     else
-      if reservation.email_sent
-        'Sent'
+      if reservation.is_confirmed
+        'Confirmed'
       else
-        if reservation.is_confirmed
-          'Confirmed'
+        if reservation.email.nil?
+          'No Email'
         else
-          link_to 'Send Email', controller: :reservations, action: :email, id: reservation
+          if reservation.email_sent
+            'Sent'
+          else
+            link_to 'Send Email', controller: :reservations, action: :email, id: reservation
+          end
         end
       end
     end
