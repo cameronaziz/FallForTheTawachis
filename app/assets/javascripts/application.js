@@ -28,40 +28,71 @@ function attending(event) {
 function partySize(event) {
     if(this.selectedIndex == 0) {
         document.getElementById('person1').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_1__destroy').value = true;
         document.getElementById('person2').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_2__destroy').value = true;
         document.getElementById('person3').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_3__destroy').value = true;
         document.getElementById('person4').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_4__destroy').value = true;
         document.getElementById('person5').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_5__destroy').value = true;
+
     } else if(this.selectedIndex == 1) {
         document.getElementById('person1').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_1__destroy').value = false;
         document.getElementById('person2').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_2__destroy').value = true;
         document.getElementById('person3').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_3__destroy').value = true;
         document.getElementById('person4').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_4__destroy').value = true;
         document.getElementById('person5').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_5__destroy').value = true;
     } else if(this.selectedIndex == 2) {
         document.getElementById('person1').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_1__destroy').value = false;
         document.getElementById('person2').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_2__destroy').value = false;
         document.getElementById('person3').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_3__destroy').value = true;
         document.getElementById('person4').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_4__destroy').value = true;
         document.getElementById('person5').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_5__destroy').value = true;
     } else if(this.selectedIndex == 3) {
         document.getElementById('person1').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_1__destroy').value = false;
         document.getElementById('person2').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_2__destroy').value = false;
         document.getElementById('person3').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_3__destroy').value = false;
         document.getElementById('person4').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_4__destroy').value = true;
         document.getElementById('person5').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_5__destroy').value = true;
     } else if(this.selectedIndex == 4) {
         document.getElementById('person1').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_1__destroy').value = false;
         document.getElementById('person2').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_2__destroy').value = false;
         document.getElementById('person3').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_3__destroy').value = false;
         document.getElementById('person4').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_4__destroy').value = false;
         document.getElementById('person5').style.display = 'none';
+        document.getElementById('reservation_persons_attributes_5__destroy').value = true;
     } else if(this.selectedIndex == 5) {
         document.getElementById('person1').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_1__destroy').value = false;
         document.getElementById('person2').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_2__destroy').value = false;
         document.getElementById('person3').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_3__destroy').value = false;
         document.getElementById('person4').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_4__destroy').value = false;
         document.getElementById('person5').style.display = 'block';
+        document.getElementById('reservation_persons_attributes_5__destroy').value = false;
     }
 }
 

@@ -17,7 +17,7 @@
       <div class="form-group col-sm-6">
         <%= f.label :current_invitation, 'Invitation Email'%>
         <%= f.collection_select :current_invitation, EmailTemplate.where(:email_type_id => 1), :id, :name,{}, {onchange: 'invitation.call(this, event)', class: 'form-control'}  %>
-        <%= link_to 'Edit Current Template', email_configuration_path(@customer.current_invitation), class: 'btn btn-default', id: 'invitation-link' %><br>
+        <%= link_to 'Edit Current Invitation', email_configuration_path(@customer.current_invitation), class: 'btn btn-default', id: 'invitation-link' %><br>
       </div>
     </div>
     <div class="row">

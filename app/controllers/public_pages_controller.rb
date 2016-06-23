@@ -94,7 +94,7 @@ class PublicPagesController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:id, :not_attending, :name, :customer_id, :party_size, :address, :city, :state, :zip, :email, persons_attributes: [:id, :first_name, :last_name, :meal_id])
+    params.require(:reservation).permit(:id, :not_attending, :name, :customer_id, :party_size, :address, :city, :state, :zip, :email, persons_attributes: [:id, :first_name, :last_name, :meal_id, :_destroy])
   end
 
   def set_reservation_name(reservation)
