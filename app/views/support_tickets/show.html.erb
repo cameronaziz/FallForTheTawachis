@@ -1,29 +1,29 @@
-<%= form_for @support_ticket do |f| %>
-    <h1><%= @support_ticket.title %></h1>
-    <h4><%= @support_ticket.description %></h4>
-    <div class="row">
-      <div class="col-sm-6">
-        <% @support_ticket.support_comments.each do |comment| %>
-            <div class="alert alert-warning">
-              <div class="col-sm-offset-1 col-sm-4">
-              </div>
-              <div class="col-sm-offset-8">
-              </div>
-              <%= comment.comment %>
+<h1><%= @support_ticket.title %></h1>
+<h4><%= @support_ticket.description %></h4>
+<div class="row">
+  <div class="col-sm-6">
+    <% @support_ticket.support_comments.each do |comment| %>
+        <div class="alert alert-warning">
+          <div class="row">
+            <div class="col-sm-offset-1 col-sm-4">
+              <%= comment.user.full_name %>
             </div>
-            <br>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group">
-          <%= f.fields_for :support_comments do |builder|  %>
-              <%= builder.text_area :comment, placeholder: 'Comment', class: 'form-control', rows: 6 %>
-          <% end %>
+            <div class="col-sm-offset-1 col-sm-6">
+              <%= formatted_time(comment.created_at) %>
+            </div>
+          </div>
+          <div class="col-sm-offset-8">
+          </div>
+          <%= comment.comment %>
         </div>
-        <%= f.submit 'Submit', class: 'btn btn-success' %>
-      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= render 'support_comments/form' %>
     </div>
-<% end %>
+  </div>
+</div>
 

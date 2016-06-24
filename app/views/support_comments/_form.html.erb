@@ -1,0 +1,6 @@
+<%= form_for([@support_ticket,@support_comment]) do |f| %>
+
+    <%= f.text_area :comment, class: 'form-control', rows: 4, cols: 20, placeholder: 'Comment' %>
+    <%= f.submit 'Post Comment', class: 'btn btn-success' %>
+
+<% end %>

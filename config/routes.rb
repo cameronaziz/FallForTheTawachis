@@ -31,8 +31,9 @@ Rails.application.routes.draw do
   resources :meals
   resources :groups
   resources :customers
-  resources :support_tickets
-  resources :support_comments
+  resources :support_tickets do
+    resources :support_comments
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

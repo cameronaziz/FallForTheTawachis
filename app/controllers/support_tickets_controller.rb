@@ -23,7 +23,7 @@ class SupportTicketsController < ApplicationController
 
 
   def show
-    @support_ticket.support_comments.build
+    @support_comment = SupportComment.new
   end
 
   def update

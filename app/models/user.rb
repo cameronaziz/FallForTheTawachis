@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :customer
+  has_many :support_comments
+  has_many :support_tickets
 
 
   attr_accessor :remember_token
