@@ -53,4 +53,15 @@ module ReservationsHelper
       end
     end
   end
+
+
+  def hide_people(reservation)
+    "$(function() {
+    document.getElementById('person1').style.display = 'none';
+    document.getElementById('person2').style.display = 'none';
+    document.getElementById('person3').style.display = 'none';
+    document.getElementById('person4').style.display = 'none';
+    document.getElementById('person5').style.display = 'none';
+  });".html_safe
+  end
 end

@@ -96,6 +96,49 @@ function partySize(event) {
     }
 }
 
+
+function reservationSize(event) {
+    if(this.selectedIndex == 0) {
+        document.getElementById('person1').style.display = 'none';
+        document.getElementById('person2').style.display = 'none';
+        document.getElementById('person3').style.display = 'none';
+        document.getElementById('person4').style.display = 'none';
+        document.getElementById('person5').style.display = 'none';
+
+    } else if(this.selectedIndex == 1) {
+        document.getElementById('person1').style.display = 'block';
+        document.getElementById('person2').style.display = 'none';
+        document.getElementById('person3').style.display = 'none';
+        document.getElementById('person4').style.display = 'none';
+        document.getElementById('person5').style.display = 'none';
+    } else if(this.selectedIndex == 2) {
+        document.getElementById('person1').style.display = 'block';
+        document.getElementById('person2').style.display = 'block';
+        document.getElementById('person3').style.display = 'none';
+        document.getElementById('person4').style.display = 'none';
+        document.getElementById('person5').style.display = 'none';
+    } else if(this.selectedIndex == 3) {
+        document.getElementById('person1').style.display = 'block';
+        document.getElementById('person2').style.display = 'block';
+        document.getElementById('person3').style.display = 'block';
+        document.getElementById('person4').style.display = 'none';
+        document.getElementById('person5').style.display = 'none';
+    } else if(this.selectedIndex == 4) {
+        document.getElementById('person1').style.display = 'block';
+        document.getElementById('person2').style.display = 'block';
+        document.getElementById('person3').style.display = 'block';
+        document.getElementById('person4').style.display = 'block';
+        document.getElementById('person5').style.display = 'none';
+    } else if(this.selectedIndex == 5) {
+        document.getElementById('person1').style.display = 'block';
+        document.getElementById('person2').style.display = 'block';
+        document.getElementById('person3').style.display = 'block';
+        document.getElementById('person4').style.display = 'block';
+        document.getElementById('person5').style.display = 'block';
+    }
+}
+
+
 function AlertIt() {
     confirm("This is not available for beta.")
 
