@@ -1,5 +1,5 @@
 class SupportTicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :destroy, :edit, :update]
+  before_action :set_ticket, only: [:show, :update, :close]
 
   def index
     @support_tickets = SupportTicket.where(customer_id: session[:customer_id])
@@ -21,6 +21,10 @@ class SupportTicketsController < ApplicationController
     end
   end
 
+  def close
+    @support_ticket.update_columns(is_closed: true)
+    redirect_to support_tickets_path
+  end
 
   def show
     @support_comment = SupportComment.new

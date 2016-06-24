@@ -32,9 +32,11 @@ Rails.application.routes.draw do
   resources :meals
   resources :groups
   resources :customers
+
   resources :support_tickets do
     resources :support_comments
   end
+  get 'support_tickets/close/:id' => 'support_tickets#close'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
