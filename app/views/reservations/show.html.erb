@@ -5,6 +5,7 @@
 <div class="text-center">
   <h3>Party Size: <%= @reservation.party_size_filter %></h3>
   <h4>Public Link <%= link_to(@reservation.public_id, 'http://' + @reservation.customer.url + '/id/' + @reservation.public_id)  %></h4>
+  <%= reset_email(@reservation) %>
 </div>
 
 

@@ -44,4 +44,13 @@ module ReservationsHelper
       end
     end
   end
+
+  def reset_email(reservation)
+    unless reservation.is_confirmed || reservation.not_attending
+      if reservation.email_sent
+      link = link_to 'Reset Email', controller: :reservations, action: :reset_email, id: reservation
+      "<h4>#{link}</h4>".html_safe
+      end
+    end
+  end
 end

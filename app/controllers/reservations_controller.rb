@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :destroy, :edit, :email, :update]
+  before_action :set_reservation, only: [:show, :destroy, :edit, :email, :update, :reset_email]
 
   def new
     @reservation = Reservation.new
@@ -58,6 +58,11 @@ class ReservationsController < ApplicationController
     customer = Customer.find(session[:customer_id])
     email = customer.current_invitation
     Mailer.reservation_email(@reservation, email, customer).deliver_now
+    @reservation.update_columns(email_sent: true)
+    redirect_to reservations_path
+  end
+
+  def reset_email
     @reservation.update_columns(email_sent: true)
     redirect_to reservations_path
   end
