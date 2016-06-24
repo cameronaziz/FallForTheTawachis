@@ -26,14 +26,7 @@
             <div class="row rsvp-row">
               <div class="col-sm-9 col-sm-offset-1" style="margin-top: 20px">
                 <div class="col-sm-9">
-                There will be <select onchange="partySize.call(this, event)" name="reservation[party_size]">
-                <option value="1">one</option>
-                <option value="2">two</option>
-                <option value="3">three</option>
-                <option value="4">four</option>
-                <option value="5">five</option>
-                <option value="6">six</option>
-              </select> people in this party.
+                There will be <%= f.select :party_size, options_for_select([["One", "1"], ["Two", "2"], ["Three", "3"]]), :onChange=>"javascript: partySize.call(this, event)" %>people in this party.
                   </div>
               </div>
             </div>

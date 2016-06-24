@@ -5,7 +5,7 @@
   <% @support_tickets.each do |ticket| %>
       <tr>
         <td><%= link_to  ticket.title, support_ticket_path(ticket) %></td>
-        <td><%= status(ticket)%></td>
+        <td><%= ticket_status(ticket) %></td>
         <td><%= close_link(ticket)  %></td>
       </tr>
   <% end %>

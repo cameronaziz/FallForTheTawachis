@@ -1,5 +1,5 @@
 module SupportTicketsHelper
-  def status(ticket)
+  def ticket_status(ticket)
     if ticket.is_closed
       'Closed'
     else
