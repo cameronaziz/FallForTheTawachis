@@ -10,7 +10,7 @@
   <div class="row rsvp-row">
     <div class="col-sm-9 col-sm-offset-1">
       <div class="col-sm-8">I would like to enjoy</div>
-      <div class="col-sm-8 col-sm-offset-1"><%= f.collection_select(:meal_id, Meal.where(customer_id: session[:customer_id]).order(:name), :id, :name, {}, {class: 'form-control'}) %></div>
+      <div class="col-sm-8 col-sm-offset-1"><%= f.collection_select(:meal_id, Meal.where(customer_id: @customer).order(:name), :id, :name, {}, {class: 'form-control'}) %></div>
     </div>
   </div>
   <br>
