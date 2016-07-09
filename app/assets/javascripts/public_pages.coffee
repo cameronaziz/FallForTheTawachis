@@ -11,9 +11,6 @@
 #    $("#person5").hide();
 #});`
 
-`$(function(){
-    var select = document.getElementById('party_size');
-    select.selectedIndex = select.options.length-1;
+`$(document).ready(function () {
+    $('#party_size > option:last').attr('selected', true);
 });`
-
-

@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624000546) do
+ActiveRecord::Schema.define(version: 20160629002841) do
 
   create_table "customers", force: :cascade do |t|
-    t.string   "name",                 limit: 255
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "url",                  limit: 255
-    t.integer  "current_layout",       limit: 4
-    t.integer  "current_confirmation", limit: 4
-    t.integer  "current_invitation",   limit: 4
-    t.string   "from_email",           limit: 255
-    t.integer  "multiplier",           limit: 4
+    t.string   "name",                     limit: 255
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "url",                      limit: 255
+    t.integer  "current_layout",           limit: 4
+    t.integer  "current_confirmation",     limit: 4
+    t.integer  "current_invitation",       limit: 4
+    t.string   "from_email",               limit: 255
+    t.integer  "multiplier",               limit: 4
+    t.integer  "default_reservation_size", limit: 4
   end
 
   create_table "email_configurations", force: :cascade do |t|

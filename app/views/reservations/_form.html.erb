@@ -1,3 +1,23 @@
+<script type="text/javascript">
+  $(document).ready (function () {
+    var party_size = <%= @reservation.party_size ? @reservation.party_size : 1 %>
+      if (party_size < 6) {
+        $("#person5").hide();
+      }
+      if (party_size < 5) {
+        $("#person4").hide();
+      }
+      if (party_size < 4) {
+        $("#person3").hide();
+      }
+      if (party_size < 3) {
+        $("#person2").hide();
+      }
+      if (party_size < 2) {
+        $("#person1").hide();
+      }
+  });
+</script>
 <div class="rsvp_area">
   <div class="contact-block rsvp_form">
     <div class="row">

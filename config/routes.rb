@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'public_pages#index'
 
+
   get 'login' => 'sessions#new'
   post 'login'   => 'sessions#create'
   get 'register' => 'users#new'
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   get 'dashboard' => 'public_pages#dashboard'
 
 
-  get '/id/:public_id' => 'public_pages#index'
+  get '/id/:public_id' => 'public_pages#public_id'
   post '/' => 'public_pages#create'
   patch 'id/:public_id' => 'public_pages#update'
   put 'id/:public_id' => 'public_pages#update'
