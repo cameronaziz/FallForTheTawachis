@@ -8,10 +8,6 @@ class PublicPagesController < ApplicationController
       unless @reservation
         generate_reservation(@customer.default_reservation_size)
       end
-      unless @reservation.customer_id == @customer.id
-        session[:public_id] = nil
-        generate_reservation(@customer.default_reservation_size)
-      end
       party_size = @reservation.party_size.to_i
       size = party_size - @reservation.associated_people.to_i
       size.times do
