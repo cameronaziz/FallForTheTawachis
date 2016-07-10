@@ -57,7 +57,7 @@ class ReservationsController < ApplicationController
   def email
     customer = Customer.find(session[:customer_id])
     email = customer.current_invitation
-    Mailer.reservation_email(@reservation, email, customer).deliver_now
+    Mailer.reservation_email(@reservation, email).deliver_now
     @reservation.update_columns(email_sent: true)
     redirect_to reservations_path
   end
