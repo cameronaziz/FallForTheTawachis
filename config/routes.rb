@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/id/:public_id' => 'public_pages#public_id'
   post '/' => 'public_pages#create'
+  patch '/' => 'public_pages#update'
   patch 'id/:public_id' => 'public_pages#update'
   put 'id/:public_id' => 'public_pages#update'
 

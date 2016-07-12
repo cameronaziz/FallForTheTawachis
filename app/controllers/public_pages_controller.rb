@@ -34,7 +34,7 @@ class PublicPagesController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     #todo remove @customer
-    @customer = Customer.find(session[:customer_id])
+    @customer = get_customer_from_url
 
     @reservation.customer_id = @customer.id
     @reservation.persons.each do |person|
