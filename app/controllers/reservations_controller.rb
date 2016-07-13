@@ -63,7 +63,7 @@ class ReservationsController < ApplicationController
   end
 
   def reset_email
-    @reservation.update_columns(email_sent: true)
+    @reservation.update_columns(email_sent: false)
     redirect_to reservations_path
   end
 
