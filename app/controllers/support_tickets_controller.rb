@@ -15,6 +15,7 @@ class SupportTicketsController < ApplicationController
     @support_ticket.created_by = session[:user_id]
     @support_ticket.is_closed = 0
     if @support_ticket.save
+      Mailer.support_email(@support_ticket).deliver_now
       redirect_to support_ticket_path(@support_ticket)
     else
       render 'new'

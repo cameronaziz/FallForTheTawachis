@@ -18,4 +18,13 @@ class Mailer < ApplicationMailer
          template_path: 'mailer',
          template_name: email)
   end
+
+  def support_email(support_ticket)
+    @support_ticket = support_ticket
+    mail(to: 'cameron.aziz@lucentdigital.com',
+    from: 'support@lucentdigital.com',
+    subject: 'New Support Ticket',
+    template_path: 'mailer',
+    template_name: 'support_email')
+  end
 end
