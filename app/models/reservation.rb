@@ -5,6 +5,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :group
 
   validates :name, presence: true
+  validates_uniqueness_of :custom_name, :scope => [:customer_id]
 
 
   def registration_time

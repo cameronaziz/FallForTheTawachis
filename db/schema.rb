@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629002841) do
+ActiveRecord::Schema.define(version: 20160719095612) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "name",                     limit: 255
@@ -93,7 +93,10 @@ ActiveRecord::Schema.define(version: 20160629002841) do
     t.integer  "group_id",      limit: 4
     t.boolean  "email_sent"
     t.boolean  "not_attending"
+    t.string   "custom_name",   limit: 255
   end
+
+  add_index "reservations", ["customer_id", "custom_name"], name: "index_reservations_on_customer_id_and_custom_name", unique: true, using: :btree
 
   create_table "support_comments", force: :cascade do |t|
     t.integer  "support_ticket_id", limit: 4

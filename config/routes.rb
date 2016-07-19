@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
 
   get '/id/:public_id' => 'public_pages#public_id'
+  get '/res/:custom_name' => 'public_pages#custom_name'
   post '/' => 'public_pages#create'
   patch '/' => 'public_pages#update'
   patch 'id/:public_id' => 'public_pages#update'

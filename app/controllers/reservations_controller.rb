@@ -34,6 +34,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.where(customer_id: session[:customer_id]).order(:name)
+    @confirmed_amount = get_confirmed_amount(@reservations)
   end
 
   def show
@@ -73,7 +74,7 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-      params.require(:reservation).permit(:id, :name, :email, :customer_id, :party_size, :address, :city, :state, :zip, :group_id, persons_attributes: [:id, :first_name, :last_name, :meal_id])
+      params.require(:reservation).permit(:id, :name, :email, :customer_id, :party_size, :address, :city, :state, :zip, :group_id, :custom_name, persons_attributes: [:id, :first_name, :last_name, :meal_id])
   end
 
   def set_reservation_name(reservation)
@@ -85,6 +86,17 @@ class ReservationsController < ApplicationController
           reservation.name = "#{reservation.persons.first.first_name} #{reservation.persons.first.last_name} and company"
         else
           reservation.name = "#{reservation.persons.first.first_name} #{reservation.persons.first.last_name}"
+        end
+      end
+    end
+  end
+
+  def get_confirmed_amount(reservations)
+    amount = 0
+    reservations.each do |reservation|
+      if reservation.is_confirmed
+        reservation.persons.each do
+          amount = amount + 1
         end
       end
     end

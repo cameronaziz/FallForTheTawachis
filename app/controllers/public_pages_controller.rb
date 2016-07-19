@@ -4,6 +4,8 @@ class PublicPagesController < ApplicationController
     if @customer
       if session[:public_id]
         @reservation = Reservation.where(public_id: session[:public_id]).first
+      elsif session[:custom_name]
+        @reservation = Reservation.where(custom_name: session[:custom_name], customer_id: @customer.id).first
       end
       unless @reservation
         generate_reservation(@customer.default_reservation_size)
@@ -20,6 +22,11 @@ class PublicPagesController < ApplicationController
 
   def public_id
     session[:public_id] = params[:public_id]
+    redirect_to root_path
+  end
+
+  def custom_name
+    session[:custom_name] = params[:custom_name]
     redirect_to root_path
   end
 
