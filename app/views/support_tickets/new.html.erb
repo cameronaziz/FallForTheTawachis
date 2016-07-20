@@ -1,9 +1,11 @@
 <%= form_for @support_ticket do |f| %>
-    <div class="form-group">
-      <%= f.text_field :title, placeholder: 'Ticket Subject' %>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.text_field :title, placeholder: 'Ticket Subject', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.text_area :description, rows: 6, cols: 87, class: 'form-control', placeholder: 'Please include a description of the issue.' %>
+      </div>
+      <%= f.submit 'Submit', class: 'btn btn-success' %>
     </div>
-    <div class="form-group">
-      <%= f.text_area :description, rows: 6, cols: 87 %>
-    </div>
-    <%= f.submit 'Submit', class: 'btn btn-success' %>
 <% end %>
