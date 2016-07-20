@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resources :support_tickets do
     resources :support_comments
   end
-  get 'support_tickets/close/:id' => 'support_tickets#close'
+  get 'support_tickets/close/:id' => 'support_tickets#close', as: :close_ticket
 
 
   # The priority is based upon order of creation: first created -> highest priority.

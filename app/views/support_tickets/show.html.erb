@@ -1,5 +1,6 @@
 <h1><%= @support_ticket.title %></h1>
-<h4>Created by: <%= @support_ticket.user.full_name %></h4>
+<%= close_button(@support_ticket) %>
+<h4>Opened by: <%= @support_ticket.user.full_name %></h4>
 <h4><%= @support_ticket.description %></h4>
 <div class="row">
   <div class="col-sm-6">
@@ -9,12 +10,12 @@
             <div class=" col-sm-4">
               <em>By <%= comment.user.full_name %></em>
             </div>
-            <div class="col-sm-offset-1 col-sm-6">
+            <div class="col-sm-offset-3 col-sm-5">
               <%= formatted_time(comment.created_at) %>
             </div>
           </div>
           <div class="col-sm-offset-8 col-sm-offset-1">
-          <%= comment.comment %>
+          <strong><%= comment.comment %></strong>
           </div>
         </div>
     <% end %>

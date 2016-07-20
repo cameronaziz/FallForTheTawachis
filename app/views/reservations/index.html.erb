@@ -20,7 +20,7 @@
         <td><%= reservation.email %></td>
         <td><%= reservation.party_size %></td>
         <td><%= reservation.group.name unless reservation.group.nil? %></td>
-        <td><%= link_to(reservation.public_id, 'http://' + reservation.customer.url + '/id/' + reservation.public_id)  %></td>
+        <td><%= public_link(reservation)  %></td>
         <td><%= status(reservation) %></td>
         <td><%= link_to  'Delete', reservation, method: :delete, data: {confirm: 'Are you sure?'}  %></td>
       </tr>
