@@ -56,9 +56,9 @@ module ReservationsHelper
 
   def public_link(reservation)
     if reservation.custom_name
-      link_to(reservation.custom_name, 'http://' + reservation.customer.url + '/res/' + reservation.custom_name)
+      link_to('/res/' + reservation.custom_name, 'http://' + reservation.customer.url + '/res/' + reservation.custom_name)
     else
-      link_to(reservation.public_id, 'http://' + reservation.customer.url + '/id/' + reservation.public_id)
+      link_to('/id/' + reservation.public_id, 'http://' + reservation.customer.url + '/id/' + reservation.public_id)
     end
   end
 
