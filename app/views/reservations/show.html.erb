@@ -21,7 +21,9 @@
       <% @reservation.persons.each do |person| %>
           <tr>
             <th class="text-center"><%= person.full_name %></th>
-            <td class="text-center"><%= person.meal.name %></td>
+            <% if @reservation.not_attending == false && @reservation.is_confirmed %>
+                <td class="text-center"><%= person.meal.name %></td>
+            <% end %>
           </tr>
       <% end %>
     </table>
