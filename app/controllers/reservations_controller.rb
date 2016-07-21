@@ -79,7 +79,7 @@ class ReservationsController < ApplicationController
     if @reservation.not_attending
       @reservation.update_columns(not_attending: false)
     else
-      @reservation.update_columns(not_attending: true)
+      @reservation.update_columns(not_attending: true, is_confirmed: false)
     end
     redirect_to :back
   end
@@ -92,9 +92,6 @@ class ReservationsController < ApplicationController
     end
     redirect_to :back
   end
-
-
-
 
   private
   def set_reservation
