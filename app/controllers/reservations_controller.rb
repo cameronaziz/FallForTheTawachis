@@ -34,7 +34,14 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.where(customer_id: session[:customer_id]).order(:name)
-    @confirmed_amount = get_confirmed_amount(@reservations)
+
+    amount = 0
+    @reservations.each do |reservation|
+      if reservation.is_confirmed
+        amount = amount + reservation.party_size
+      end
+    end
+    @confirmed_attendees = amount
   end
 
   def show
@@ -95,9 +102,7 @@ class ReservationsController < ApplicationController
     amount = 0
     reservations.each do |reservation|
       if reservation.is_confirmed
-        reservation.persons.each do
-          amount = amount + 1
-        end
+        amount = amount + reservation.party_size
       end
     end
   end
