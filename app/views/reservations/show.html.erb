@@ -24,7 +24,4 @@
     </table>
   </div>
 </div>
-
-<h4>
-  This party is located at <%= @reservation.address %>, <%= @reservation.city %>, <%= @reservation.state %> <%= @reservation.zip %>
-</h4>
+<%= reservation_location(@reservation) %>

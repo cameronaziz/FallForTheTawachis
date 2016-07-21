@@ -71,6 +71,15 @@ module ReservationsHelper
     end
   end
 
+  def reservation_location(reservation)
+    unless reservation.not_attending
+      if reservation.is_confirmed
+        text = reservation.address + @reservation.city + @reservation.state + @reservation.zip
+        "<h4>This party is located at #{text}</h4>".html_safe
+      end
+    end
+  end
+
   def public_link(reservation)
     if reservation.custom_name
       link_to('/res/' + reservation.custom_name, 'http://' + reservation.customer.url + '/res/' + reservation.custom_name)
