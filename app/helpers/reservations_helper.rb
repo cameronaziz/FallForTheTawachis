@@ -48,25 +48,25 @@ module ReservationsHelper
   def reset_email(reservation)
     unless reservation.is_confirmed || reservation.not_attending
       if reservation.email_sent
-      link_to 'Reset Email', reset_reservation_email_path(reservation)
+      link_to 'Reset Email', reset_reservation_email_path(reservation), class: 'btn btn-warning'
       end
     end
   end
 
   def switch_attending(reservation)
     if reservation.not_attending
-      link_to 'Set to Attending', switch_attending_path(reservation)
+      link_to 'Set to Attending', switch_attending_path(reservation), class: 'btn btn-success'
     else
-      link_to 'Set to Not Attending', switch_attending_path(reservation)
+      link_to 'Set to Not Attending', switch_attending_path(reservation), class: 'btn btn-danger'
     end
   end
 
   def switch_confirmed(reservation)
     unless reservation.not_attending
       if reservation.is_confirmed
-        link_to 'Set to Not Confirmed', switch_confirmed_path(reservation)
+        link_to 'Set to Not Confirmed', switch_confirmed_path(reservation), class: 'btn btn-danger'
       else
-        link_to 'Set to Confirm', switch_confirmed_path(reservation)
+        link_to 'Set to Confirm', switch_confirmed_path(reservation), class: 'btn btn-success'
       end
     end
   end
