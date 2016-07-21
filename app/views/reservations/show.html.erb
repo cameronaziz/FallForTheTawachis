@@ -2,7 +2,7 @@
 <div class="text-center">
   <h1><%= @reservation.name %></h1>
   <h3>Party Size: <%= @reservation.party_size_filter %></h3>
-  <h4>Public Link: <%= public_link(@reservation) %></h4>
+  <h4><%= public_link(@reservation) %></h4>
   <div class="form-group">
     <%= link_to 'Edit Reservation', edit_reservation_path(@reservation), class: 'btn btn-primary' %>
   </div>
