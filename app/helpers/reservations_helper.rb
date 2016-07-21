@@ -74,8 +74,12 @@ module ReservationsHelper
   def reservation_location(reservation)
     unless reservation.not_attending
       if reservation.is_confirmed
-        text = reservation.address + ', ' + @reservation.city + ', ' + @reservation.state + ' ' + @reservation.zip
-        "<div class=\"text-center\"><h4>This party is located at #{text}</h4></div>".html_safe
+        if reservation.address && reservation.address.length > 0
+          text = reservation.address + ', ' + @reservation.city + ', ' + @reservation.state + ' ' + @reservation.zip
+          "<div class=\"text-center\"><h4>This party is located at #{text}.</h4></div>".html_safe
+        else
+          "<div class=\"text-center\"><h4>The address of this party is unknown.</h4></div>".html_safe
+        end
       end
     end
   end
