@@ -1,7 +1,6 @@
-<h1><%= @reservation.name %></h1>
 <%= link_to 'Reservation List', reservations_path, class: 'btn btn-default' %>
-<%= link_to 'Delete', @reservation, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
 <div class="text-center">
+  <h1><%= @reservation.name %></h1>
   <h3>Party Size: <%= @reservation.party_size_filter %></h3>
   <h4>Public Link: <%= public_link(@reservation) %></h4>
   <div class="form-group">
@@ -32,3 +31,4 @@
   </div>
 </div>
 <%= reservation_location(@reservation) %>
+<%= link_to 'Delete', @reservation, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
