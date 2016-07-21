@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   resources :reservations
   get 'reservations/email/:id' => 'reservations#email', as: :reservations_email
   get 'reservations/reset_email/:id' => 'reservations#reset_email', as: :reset_reservation_email
+  get 'reservations/switch_attending/:id' => 'reservations#switch_attending', as: :switch_attending
+  get 'reservations/switch_confirmed/:id' => 'reservations#switch_confirmed', as: :switch_confirmed
+
 
 
   get 'email_configurations/template/:id' => 'email_configurations#index', as: :email_configurations_template

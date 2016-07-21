@@ -5,7 +5,10 @@
 <div class="text-center">
   <h3>Party Size: <%= @reservation.party_size_filter %></h3>
   <h4>Public Link: <%= public_link(@reservation) %></h4>
+  <%= switch_attending(@reservation) %><br>
+  <%= switch_confirmed(@reservation) %><br>
   <%= reset_email(@reservation) %>
+
 </div>
 
 

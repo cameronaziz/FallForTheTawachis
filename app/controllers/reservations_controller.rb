@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :destroy, :edit, :email, :update, :reset_email]
+  before_action :set_reservation, only: [:show, :destroy, :edit, :email, :update, :reset_email, :switch_attending, :switch_confirmed]
 
   def new
     @reservation = Reservation.new
@@ -75,14 +75,36 @@ class ReservationsController < ApplicationController
     redirect_to reservations_path
   end
 
+  def switch_attending
+    if @reservation.not_attending
+      @reservation.update_columns(not_attending: false)
+    else
+      @reservation.update_columns(not_attending: true)
+    end
+    redirect_to :back
+  end
+
+  def switch_confirmed
+    if @reservation.is_confirmed
+      @reservation.update_columns(is_confirmed: false)
+    else
+      @reservation.update_columns(is_confirmed: true)
+    end
+    redirect_to :back
+  end
+
+
+
+
   private
   def set_reservation
     @reservation = Reservation.find(params[:id])
   end
 
   def reservation_params
-      params.require(:reservation).permit(:id, :name, :email, :customer_id, :party_size, :address, :city, :state, :zip, :group_id, :custom_name, persons_attributes: [:id, :first_name, :last_name, :meal_id])
+    params.require(:reservation).permit(:id, :not_attending, :name, :email, :customer_id, :party_size, :address, :city, :state, :zip, :group_id, :custom_name, persons_attributes: [:id, :first_name, :last_name, :meal_id])
   end
+
 
   def set_reservation_name(reservation)
     if reservation.name.nil? || reservation.name.blank?
