@@ -34,20 +34,25 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.where(customer_id: session[:customer_id]).order(:name)
-
-    amount = 0
+    confirmed = 0
+    unconfirmed = 0
     @reservations.each do |reservation|
       if reservation.is_confirmed
-        amount = amount + reservation.party_size
+        confirmed = confirmed + reservation.party_size
+      else
+        unconfirmed = unconfirmed + reservation.party_size
       end
     end
-    @confirmed_attendees = amount
+    @attendees = [confirmed, unconfirmed]
   end
 
   def show
   end
 
   def update
+    @reservation.persons.each do |person|
+      person.customer_id = @reservation.customer_id
+    end
     if @reservation.update_attributes(reservation_params)
       redirect_to reservation_path(@reservation)
     else
@@ -118,12 +123,17 @@ class ReservationsController < ApplicationController
   end
 
   def get_confirmed_amount(reservations)
-    amount = 0
+    confirmed = 0
+    unconfirmed = 0
     reservations.each do |reservation|
       if reservation.is_confirmed
-        amount = amount + reservation.party_size
+        confirmed = confirmed + reservation.party_size
+      else
+        unconfirmed = unconfirmed + reservation
       end
     end
+    Array.new(confirmed, unconfirmed)
   end
+
 
 end
