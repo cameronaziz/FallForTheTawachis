@@ -1,4 +1,4 @@
 A new ticket was created with a title of <%= @support_ticket.title %>.<br>
 Created for customer <%= @support_ticket.customer.name %>.<br>
 This was created by <%= @support_ticket.user.full_name %>.<br>
-<%= link_to  @support_ticket.title, @support_ticket.customer.url + support_ticket_path(@support_ticket) %>
+<a href="http://app.lucentdigital.com/support_tickets/<%= @support_ticket.id %>"><%= @support_ticket.title %></a>
