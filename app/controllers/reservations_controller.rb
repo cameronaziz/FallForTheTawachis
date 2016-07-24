@@ -37,10 +37,12 @@ class ReservationsController < ApplicationController
     confirmed = 0
     unconfirmed = 0
     @reservations.each do |reservation|
-      if reservation.is_confirmed
-        confirmed = confirmed + reservation.party_size
-      else
-        unconfirmed = unconfirmed + reservation.party_size
+      unless reservation.not_attending
+        if reservation.is_confirmed
+          confirmed = confirmed + reservation.party_size
+        else
+          unconfirmed = unconfirmed + reservation.party_size
+        end
       end
     end
     @attendees = [confirmed, unconfirmed]
