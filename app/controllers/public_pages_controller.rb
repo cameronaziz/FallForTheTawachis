@@ -69,7 +69,11 @@ class PublicPagesController < ApplicationController
   end
 
   def update
-    @reservation = Reservation.find_by_public_id(session[:public_id])
+    if session[:public_id]
+      @reservation = Reservation.find_by_public_id(session[:public_id])
+    else
+      @reservation = Reservation.find_by_custom_name(session[:custom_name])
+    end
     @reservation.is_confirmed = true
 
     respond_to do |format|
