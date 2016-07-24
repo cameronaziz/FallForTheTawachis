@@ -10,14 +10,20 @@ class Reservation < ActiveRecord::Base
   validates_uniqueness_of :custom_name, :scope => [:customer_id]
 
 
+
+
   def registration_time
     format = '%m/%d/%Y'
     created_at.strftime(format)
   end
 
   def clean_url
-    self.custom_name.downcase!
-    self.custom_name = self.custom_name.gsub(/\s+/, '')
+    if self.custom_name.length == 0
+      self.custom_name = nil
+    else
+      self.custom_name.downcase!
+      self.custom_name = self.custom_name.gsub(/\s+/, '')
+    end
   end
 
   def party_size_filter
