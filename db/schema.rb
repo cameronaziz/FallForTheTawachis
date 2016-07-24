@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719095612) do
+ActiveRecord::Schema.define(version: 20160724005726) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "name",                     limit: 255
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160719095612) do
     t.string   "from_email",               limit: 255
     t.integer  "multiplier",               limit: 4
     t.integer  "default_reservation_size", limit: 4
+    t.integer  "table_size",               limit: 4
   end
 
   create_table "email_configurations", force: :cascade do |t|

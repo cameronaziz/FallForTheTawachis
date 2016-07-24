@@ -23,8 +23,6 @@ function attending(event) {
     }
 }
 
-
-
 function partySize(event) {
     if(this.selectedIndex == 0) {
         document.getElementById('person1').style.display = 'none';
@@ -96,7 +94,6 @@ function partySize(event) {
     }
 }
 
-
 function reservationSize(event) {
     if(this.selectedIndex == 0) {
         document.getElementById('person1').style.display = 'none';
@@ -138,12 +135,13 @@ function reservationSize(event) {
     }
 }
 
-
 function AlertIt() {
     confirm("This is not available for beta.")
-
 }
 
+function warn() {
+    confirm("Changing the email needs to contact support to make sure responses are routed correctly. Please call 310.469.1802 or open a support ticket.")
+}
 
 function invitation(event) {
     $("#invitation-link").attr("href", '/email_configurations/' + this.value)

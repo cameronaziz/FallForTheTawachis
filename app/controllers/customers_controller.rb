@@ -30,6 +30,7 @@ class CustomersController < ApplicationController
 #        render :edit
 #      end
 
+
       respond_to do |format|
         if @customer.update_attributes(customer_params)
           format.html{ redirect_to :back }
@@ -56,7 +57,7 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
-      params.require(:customer).permit(:name, :from_email, :current_confirmation, :current_invitation)
+      params.require(:customer).permit(:name, :from_email, :current_confirmation, :current_invitation, :table_size)
     end
 
 end
