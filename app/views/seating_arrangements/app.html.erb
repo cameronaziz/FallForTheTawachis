@@ -1,0 +1,34 @@
+<script>
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
+</script>
+<h1>Seating Arrangements</h1>
+<h4>This feature is not yet complete.</h4>
+<div class="col-sm-3">
+<h4>Tables</h4>
+  <% @tables.times do |i| %>
+      <%= image_tag('round_table.png', width: '100', id: "drag#{i}", draggable: 'true', ondragstart: 'drag(event)') %>
+  <% end %>
+</div>
+<div class="col-sm-9">
+<h4>Floor Plan</h4>
+  <div class="floor">
+    <% 33.times do |i| %>
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <% end %>
+    <% (@tables * 11).times do |i| %>
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <% end %>
+  </div>
+</div>

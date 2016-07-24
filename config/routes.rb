@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   get 'admin' => 'reservations#index'
   get 'variables'=> 'static_pages#variable_view'
+  get 'seating_arrangements' => 'seating_arrangements#app', as: :seating_arrangements
 
 
   resources :reservations
