@@ -14,8 +14,13 @@ class SeatingArrangementsController < ApplicationController
         total = total + reservation.party_size
       end
     end
-    amount = ((total.to_f / @reservations.first.customer.table_size.to_f).ceil)
-    size = @reservations.first.customer.table_size
+    if @reservations.first && @reservations.first.customer.table_size
+      amount = ((total.to_f / @reservations.first.customer.table_size.to_f).ceil)
+      size = @reservations.first.customer.table_size
+    else
+      amount = 0 #default reservation amount
+      size = 10 #default table size
+    end
     @tables = { amount: amount, size: size }
   end
 
