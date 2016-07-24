@@ -12,7 +12,9 @@ class SeatingArrangementsController < ApplicationController
       end
       total = total + reservation.party_size
     end
-    @tables = ((total.to_f / @reservations.first.customer.table_size.to_f).ceil)
+    amount = ((total.to_f / @reservations.first.customer.table_size.to_f).ceil)
+    size = @reservations.first.customer.table_size
+    @tables = { amount: amount, size: size }
   end
 
 end

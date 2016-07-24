@@ -14,10 +14,11 @@
   }
 </script>
 <h1>Seating Arrangements</h1>
+<h3>Table Size: <%= @tables[:size] %> seats</h3>
 <h4>This feature is not yet complete.</h4>
 <div class="col-sm-3">
 <h4>Tables</h4>
-  <% @tables.times do |i| %>
+  <% @tables[:amount].times do |i| %>
       <%= image_tag('round_table.png', width: '100', id: "drag#{i}", draggable: 'true', ondragstart: 'drag(event)') %>
   <% end %>
 </div>
@@ -27,7 +28,7 @@
     <% 33.times do |i| %>
         <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
     <% end %>
-    <% (@tables * 11).times do |i| %>
+    <% (@tables[:amount] * 11).times do |i| %>
         <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
     <% end %>
   </div>
