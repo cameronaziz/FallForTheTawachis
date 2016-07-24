@@ -6,6 +6,8 @@ module SessionsHelper
   end
 
   def log_out
+    session[:customer_id] = nil
+    session[:customer_name] = nil
     session[:user_id] = nil
   end
 
