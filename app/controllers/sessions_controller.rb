@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :check_login
+
 
   def new
     if session[:user_id]

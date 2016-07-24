@@ -1,4 +1,6 @@
 class PublicPagesController < ApplicationController
+  skip_before_action :check_login
+
   def index
     @customer = get_customer_from_url
     if @customer
