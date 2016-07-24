@@ -103,12 +103,15 @@ class ReservationsController < ApplicationController
   private
   def set_reservation
     @reservation = Reservation.find(params[:id])
+    if @reservation.customer_id != session[:customer_id]
+      @reservation = nil
+      redirect_to login_path
+    end
   end
 
   def reservation_params
     params.require(:reservation).permit(:id, :not_attending, :name, :email, :customer_id, :party_size, :address, :city, :state, :zip, :group_id, :custom_name, persons_attributes: [:id, :first_name, :last_name, :meal_id])
   end
-
 
   def set_reservation_name(reservation)
     if reservation.name.nil? || reservation.name.blank?

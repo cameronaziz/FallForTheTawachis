@@ -49,6 +49,10 @@ class MealsController < ApplicationController
   private
   def set_meal
     @meal = Meal.find(params[:id])
+    if @meal.customer_id != session[:customer_id]
+      @meal = nil
+      redirect_to login_path
+    end
   end
 
   def meal_params

@@ -54,6 +54,10 @@ class CustomersController < ApplicationController
     private
     def set_customer
       @customer = Customer.find(session[:customer_id])
+      if @customer.id != session[:customer_id]
+        @customer = nil
+        redirect_to login_path
+      end
     end
 
     def customer_params

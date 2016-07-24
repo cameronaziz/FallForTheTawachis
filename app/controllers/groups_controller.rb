@@ -49,6 +49,10 @@ class GroupsController < ApplicationController
   private
   def set_group
     @group = Group.find(params[:id])
+    if @group.customer_id != session[:customer_id]
+      @group = nil
+      redirect_to login_path
+    end
   end
 
   def group_params

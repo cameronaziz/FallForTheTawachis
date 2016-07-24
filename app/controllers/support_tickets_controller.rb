@@ -46,5 +46,9 @@ class SupportTicketsController < ApplicationController
 
   def set_ticket
     @support_ticket = SupportTicket.find(params[:id])
+    if @support_ticket.customer_id != session[:customer_id]
+      @support_ticket = nil
+      redirect_to login_path
+    end
   end
 end
