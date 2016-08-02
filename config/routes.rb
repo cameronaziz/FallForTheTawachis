@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'public_pages#dashboard'
 
+  get 'clear_session' => 'public_pages#clear_session'
+
 
   get '/id/:public_id' => 'public_pages#public_id'
   get '/res/:custom_name' => 'public_pages#custom_name'

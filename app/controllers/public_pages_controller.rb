@@ -32,6 +32,11 @@ class PublicPagesController < ApplicationController
     redirect_to root_path
   end
 
+  def clear_session
+    reset_session
+    redirect_to reservations_path
+  end
+
   def dashboard
     if session[:user_id]
       redirect_to reservations_path
