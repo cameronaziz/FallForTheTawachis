@@ -154,3 +154,5 @@ function confimation(event) {
     $("#confirmation-link").attr("href", '/email_configurations/' + this.value )
     $("#confirmation-link").text('Edit ' + $(this).find('option:selected').text() + ' Template')
 }
+
+

@@ -2,11 +2,9 @@
   function allowDrop(ev) {
     ev.preventDefault();
   }
-
   function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
   }
-
   function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
@@ -17,13 +15,13 @@
 <h3>Table Size: <%= @tables[:size] %> seats</h3>
 <h4>This feature is not yet complete.</h4>
 <div class="col-sm-3">
-<h4>Tables</h4>
+  <h4>Tables</h4>
   <% @tables[:amount].times do |i| %>
       <%= image_tag('round_table.png', width: '100', id: "drag#{i}", draggable: 'true', ondragstart: 'drag(event)') %>
   <% end %>
 </div>
 <div class="col-sm-9">
-<h4>Floor Plan</h4>
+  <h4>Floor Plan</h4>
   <div class="floor">
     <% 33.times do |i| %>
         <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>

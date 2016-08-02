@@ -54,14 +54,14 @@ class PublicPagesController < ApplicationController
     @reservation.public_id = SecureRandom.urlsafe_base64
 
     set_reservation_name(@reservation)
-
     respond_to do |format|
       if @reservation.save
         format.html{ redirect_to :back }
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}
         if @reservation.customer.current_confirmation
-          Mailer.reservation_email(@reservation, @reservation.customer.current_confirmation).deliver_now
+          #Mailer.reservation_email(@reservation, @reservation.customer.current_confirmation).deliver_now
+          #Mailer.notification_email(@reservation).deliver_now
         end
       else
         format.html { render action: 'index' }
@@ -86,6 +86,7 @@ class PublicPagesController < ApplicationController
         unless @reservation.not_attending
           if @reservation.customer.current_confirmation
             Mailer.reservation_email(@reservation, @reservation.customer.current_confirmation).deliver_now
+            Mailer.notification_email(@reservation).deliver_now
           end
         end
       else

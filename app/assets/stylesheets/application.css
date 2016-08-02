@@ -29,13 +29,25 @@
     -o-background-size: cover;
     background-size: cover;
 }
-#div1 {
+.grid-square {
     width:50px;
     height:50px;
     display: inline-block;
+    border: 1px solid #dddddd;
+    padding: 0;
+    font-size: 0px;
+
 }
 .floor {
     margin-right: 31px;
     padding-bottom: 40px;
+    width: 550px;
     border: 1px solid #aaaaaa;
+    font-size: 0px;
 }
+
+div#droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; border: 2px solid}
+div#draggable, div#draggable-nonvalid { width: 100px; height: 100px; padding: 0.5em;border:2px solid;}
+
+
+

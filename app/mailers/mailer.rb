@@ -19,6 +19,17 @@ class Mailer < ApplicationMailer
          template_name: email)
   end
 
+
+  def notification_email(reservation)
+    @reservation = reservation
+    mail(to: 'cameronaziz@gmail.com',
+         from: 'support@lucentdigital.com',
+         subject: 'New RSVP',
+         template_path: 'mailer',
+         template_name: 'notification_email'
+    )
+  end
+
   def support_email(support_ticket)
     @support_ticket = support_ticket
     mail(to: 'cameron.aziz@lucentdigital.com',
