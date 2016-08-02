@@ -65,7 +65,7 @@ class PublicPagesController < ApplicationController
         format.js{ }
         format.json{ render json: @reservation, status: :created, location: @reservation}
         if @reservation.customer.current_confirmation
-          #Mailer.reservation_email(@reservation, @reservation.customer.current_confirmation).deliver_now
+          Mailer.reservation_email(@reservation, @reservation.customer.current_confirmation).deliver_now
           #Mailer.notification_email(@reservation).deliver_now
         end
       else
@@ -91,7 +91,7 @@ class PublicPagesController < ApplicationController
         unless @reservation.not_attending
           if @reservation.customer.current_confirmation
             Mailer.reservation_email(@reservation, @reservation.customer.current_confirmation).deliver_now
-            Mailer.notification_email(@reservation).deliver_now
+            #Mailer.notification_email(@reservation).deliver_now
           end
         end
       else
